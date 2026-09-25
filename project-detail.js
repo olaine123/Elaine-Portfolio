@@ -104,7 +104,7 @@ const projects = [
   {
     num: '04', category: 'works', label: 'Motion Graphic',
     title: 'The Geometry of Logic - Adelphi', type: 'Motion Graphic · 2026', vimeoId: '1183195558',
-    desc: '"Bridging Rationality and Form"\n\nThis motion piece is a visual exploration of Adelphi, capturing its essence of mathematical precision and British modernism. By integrating Bauhaus-inspired aesthetics with contemporary motion design, I\'ve transformed static letterforms into a choreography of engineering.\nThe animation highlights the subtle tension between elementary geometry and functional pragmatism, celebrating the \'scientific\' soul behind this redefined sans-serif.',
+    desc: `<strong>Bridging Rationality and Form</strong>\n\nThis motion piece is a visual exploration of Adelphi, capturing its mathematical precision and British modernist heritage. Integrating Bauhaus-inspired aesthetics with contemporary motion design, the animation transforms static letterforms into a structured choreography. It highlights the subtle tension between <strong>geometric purity and functional utility</strong>—celebrating the <strong>systematic logic</strong> behind this redefined sans-serif.`,
     specs: [{ k: 'Year', v: '2026' }, { k: 'Type', v: 'Motion Graphic' }, { k: 'Location', v: 'USA' }],
     thumb: 'Project file/The Geometry of Logic - Adelphi/Adelphi kinetic specimen.png',
     processGroups: [
@@ -578,7 +578,7 @@ function renderProject(idx) {
   const titleEl = document.getElementById('d-title');
   titleEl.textContent = p.title;
   titleEl.style.fontSize = p.title.length > 20 ? 'clamp(2rem, 5vw, 5rem)' : '';
-  document.getElementById('d-desc').textContent = p.desc;
+  document.getElementById('d-desc').innerHTML = p.desc;
 
   const videoWrap = document.getElementById('d-video-wrap');
   const heroEl = document.getElementById('d-hero-images');
