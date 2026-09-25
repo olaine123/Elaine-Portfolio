@@ -104,7 +104,7 @@ const projects = [
   {
     num: '04', category: 'works', label: 'Motion Graphic',
     title: 'The Geometry of Logic - Adelphi', type: 'Motion Graphic · 2026', vimeoId: '1183195558',
-    desc: `<strong>Bridging Rationality and Form</strong>\n\nAdelphi is a geometric sans, redefined for the northern side of the English Channel. This motion piece explores its unique balance of mathematical precision and British modernism. Integrating Bauhaus-inspired aesthetics with contemporary motion design, the animation transforms static letterforms into a structured choreography, highlighting the subtle tension between geometric purity and functional utility.`,
+    desc: `<strong>Bridging Rationality and Form</strong>\n\n<a href="https://rosettatype.com/AdelphiPE" target="_blank" rel="noopener noreferrer">Adelphi</a> is a geometric sans, redefined for the northern side of the English Channel. This motion piece explores its unique balance of mathematical precision and British modernism. Integrating Bauhaus-inspired aesthetics with contemporary motion design, the animation transforms static letterforms into a structured choreography, highlighting the subtle tension between geometric purity and functional utility.`,
     specs: [{ k: 'Year', v: '2026' }, { k: 'Type', v: 'Motion Graphic' }, { k: 'Location', v: 'USA' }],
     thumb: 'Project file/The Geometry of Logic - Adelphi/Adelphi kinetic specimen.png',
     processGroups: [
