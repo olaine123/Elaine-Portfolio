@@ -143,6 +143,8 @@ nav {
   font-size: 1.25rem; line-height: 1.9; color: rgba(240,237,230,.75);
   white-space: pre-line;
 }
+.detail-desc a { color: var(--red); }
+.detail-desc a:hover { color: var(--white); }
 .detail-specs { border-top: 1px solid var(--line); padding-top: 22px; }
 .spec-row { margin-bottom: 22px; }
 .spec-label { font-size: .75rem; letter-spacing: .22em; text-transform: uppercase; color: var(--red); margin-bottom: 4px; }
