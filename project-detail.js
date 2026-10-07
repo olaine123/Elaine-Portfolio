@@ -324,6 +324,32 @@ const projects = [
     page: 'work-nba-on-espn.html',
   },
   {
+    num: '12', category: 'works', label: 'Motion Branding',
+    title: 'SportingJAX Sports Motion Brending', type: 'Motion Branding · October 2026',
+    vimeoId: '1233598020',
+    desc: 'The Horizon Line\n\nThe horizontal line defines our visual core, but ocean waves give it life. Across the layout, wave-inspired curves and rolling contours cut through the horizon.\n\nThis line is all about constant flow, rising energy, and forward momentum. Warm sunrise colors and deep ocean blues cut across the layout, reflecting the St. Johns River flowing directly into the Atlantic Ocean.\n\nIt is never static. Instead, it serves as an active visual base that drives the team forward. Bold, clean, and strong, the horizon line embodies the relentless power, passion, and spirit of Jacksonville.',
+    specs: [
+      { k: 'Year', v: 'October 2026' },
+      { k: 'Type', v: 'Motion Branding' },
+      { k: 'Location', v: 'USA' },
+    ],
+    thumb: 'Project file/SportingJAX Sports Motion Brending/SportingJAX Sports Motion Brending.png',
+    processGroups: [
+      { group: 'Bento', items: [{ src: 'Project file/SportingJAX Sports Motion Brending/detail page/Bento.mp4' }] },
+      { group: 'Design Exploration', cols: 4, items: [
+        { src: 'Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 1.png' },
+        { src: 'Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 2.png' },
+        { src: 'Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 3.png' },
+        { src: 'Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 4.png' },
+        { src: 'Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 5.png' },
+        { src: 'Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 6.png' },
+        { src: 'Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 7.png' },
+        { src: 'Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 8.png' },
+      ]},
+    ],
+    page: 'work-sportingjax.html',
+  },
+  {
     num: '01', category: 'live-action', label: 'Live Action Motion',
     title: 'Christmas­land in New Taipei City', type: 'Television Commercial · 2025', vimeoId: '1187493872',
     desc: 'The Magic of Christmas\n\nThere\'s something special about the way light brings the holidays to life. For this project, I used glowing lines to unveil the festive energy of the city\'s Christmas event, leading the audience through a wonderland of festive decorations.\n\nTo keep the vibe warm and joyful, I used the animation with charming, childlike illustrations. It\'s a mix of that pure, innocent Christmas spirit we all love.',
