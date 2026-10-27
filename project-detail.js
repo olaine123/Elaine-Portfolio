@@ -28,7 +28,7 @@ const projects = [
   {
     num: '02', category: 'works', label: 'Motion Graphics',
     title: 'THE MILKY WAY HOME', type: 'Motion Graphics · 2026', vimeoId: '1170313437',
-    desc: '"The Milky Way Home" follows an extraterrestrial visitor who explores Earth through a lens of whimsical confusion, viewing the giant Pyramids and finding more beauty in a stray cat\'s purr than in human monuments.\n\nAfter befriending the world by doodling smiley faces on "Beware of Alien" signs and discovering the joy of cinema story, he decides to depart not with Earth\'s gold, but with a single, calm dairy cow, choosing a lifetime supply of fresh milk as the ultimate souvenir.',
+    desc: `An alien takes a magical journey to Earth, discovering wonder in the everyday things we take for granted.\n\nThis project is about a trip to Earth through the eyes of an alien. He visits the pyramids of Egypt, is amazed by the different shapes of popcorn, watches a movie in a theater, and even meets cats for the first time and forms a connection with them. Through his eyes, ordinary things on Earth become new and surprising.\n\nBut what fascinates him most is milk, something that does not exist on his home planet. When it is time to leave, he chooses a cow instead of gold, taking home a lifetime supply of fresh milk as the ultimate souvenir.`,
     specs: [{ k: 'Year', v: '2026' }, { k: 'Type', v: 'Motion Graphics' }, { k: 'Location', v: 'USA' }],
     thumb: 'Project file/The Milky Way Home/Styleframe/Frame-06.jpg',
     processGroups: [
@@ -327,6 +327,7 @@ const projects = [
     num: '12', category: 'works', label: 'Motion Branding',
     title: 'SportingJAX Sports Motion Brending', type: 'Motion Branding · October 2026',
     vimeoId: '1233598020',
+    vimeoHash: '16d83eaf6c',
     desc: 'The Horizon Line\n\nThe horizontal line defines our visual core, but ocean waves give it life. Across the layout, wave-inspired curves and rolling contours cut through the horizon.\n\nThis line is all about constant flow, rising energy, and forward momentum. Warm sunrise colors and deep ocean blues cut across the layout, reflecting the St. Johns River flowing directly into the Atlantic Ocean.\n\nIt is never static. Instead, it serves as an active visual base that drives the team forward. Bold, clean, and strong, the horizon line embodies the relentless power, passion, and spirit of Jacksonville.',
     specs: [
       { k: 'Year', v: 'October 2026' },
@@ -438,6 +439,17 @@ const projects = [
 
 window._lbGroups = [];
 let _lbGrp = 0, _lbIdx = 0;
+
+function vimeoPlayerSrc(id, hash) {
+  const params = new URLSearchParams({
+    autoplay: '0',
+    color: 'e33e3e',
+    title: '0',
+    byline: '0',
+  });
+  if (hash) params.set('h', hash);
+  return `https://player.vimeo.com/video/${id}?${params.toString()}`;
+}
 
 function stackSelect(idx) {
   const cards = document.querySelectorAll('#d-multi-video .stack-card');
@@ -639,7 +651,7 @@ function renderProject(idx) {
     heroEl.classList.remove('show');
     heroEl.innerHTML = '';
     document.getElementById('d-video').src =
-      `https://player.vimeo.com/video/${p.vimeoId}?autoplay=0&color=e33e3e&title=0&byline=0`;
+      vimeoPlayerSrc(p.vimeoId, p.vimeoHash);
   }
 
   const loopEl = document.getElementById('d-loop-videos');
