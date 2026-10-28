@@ -71,7 +71,7 @@ const projects = [
     processGroups: [
       {
         layout: 'two-col', ratio: '1fr 1.5fr',
-        left: { group: 'Official Poster', items: [{ src: 'Project file/THE GOOD, THE BAD, and THE UGLY/poster.png' }] },
+        left: { group: 'Official Poster', credit: 'Poster and Logotype designer: Jill Huang', items: [{ src: 'Project file/THE GOOD, THE BAD, and THE UGLY/poster.png' }] },
         right: [
           { group: '', items: [{ src: 'Project file/THE GOOD, THE BAD, and THE UGLY/logo_white.png' }], maxWidth: '50%' },
           { type: 'text', group: 'Technical Execution', body: 'My work was inspired by Fons de Haan\'s visuals for J.I.D and the aesthetic of music videos like Washed Out\'s \'Zonked.\' I built the entire sequence in After Effects using complex scale expressions to create a layered and "infinite" 3D motion feel.' },
@@ -560,7 +560,9 @@ function renderGroup(g) {
           : `<img src="${item.src}" alt="${g.group}" loading="lazy" onclick="lbOpen(${grpIdx},${imgIdx++})">`;
         return item.caption ? `<div><div class="process-video-label">${item.caption}</div>${media}</div>` : media;
       }).join('')}
-    </div></div>`;
+    </div>
+    ${g.credit ? `<p class="process-credit">${g.credit}</p>` : ''}
+    </div>`;
 }
 
 function updateMoreProjects(currentIdx) {

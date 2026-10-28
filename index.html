@@ -152,9 +152,13 @@
     .hero-reel-link {
       align-self: flex-start; display: none; align-items: center; gap: 18px;
       min-height: 44px; margin-top: 20px; padding: 10px 0;
-      color: var(--white); text-decoration: none; border-bottom: 1px solid var(--red);
+      color: var(--white); text-decoration: none;
       font-size: .75rem; letter-spacing: .16em; text-transform: uppercase;
       transition: color .2s ease;
+    }
+    .hero-reel-label {
+      display: inline-flex; align-items: center; gap: 18px;
+      padding-bottom: 3px; border-bottom: 1px solid var(--red);
     }
     .hero-reel-link:hover { color: var(--red); }
     .hero-reel-link:focus-visible { outline: 2px solid var(--red); outline-offset: 6px; }
@@ -481,6 +485,7 @@
     /* ─── Responsive ─── */
     @media (max-width: 900px) {
       .hero-reel-link { display: inline-flex; }
+      #cur, #cur-ring, #play-cursor { display: none; }
       nav { padding: 20px 24px; }
       #works { padding: 80px 24px; }
       .works-head { flex-direction: column; align-items: flex-start; gap: 24px; }
@@ -496,8 +501,8 @@
       #lb-stage { padding: 56px 12px 8px; }
       #lb-footer { padding: 8px 16px 20px; }
     }
-    @media (pointer: coarse) {
-      #cur, #cur-ring { display: none; }
+    @media (hover: none), (pointer: coarse) {
+      #cur, #cur-ring, #play-cursor { display: none; }
       body { cursor: auto !important; }
     }
   </style>
@@ -545,7 +550,7 @@
       ELAINE<span class="line2">CHEN</span>
     </h1>
     <p class="hero-tagline">Motion design across branding, illustration, typography &amp; storytelling.</p>
-    <a class="hero-reel-link" href="reel.html?play=1">Watch Reel <span aria-hidden="true">↗</span></a>
+    <a class="hero-reel-link" href="reel.html?play=1"><span class="hero-reel-label">Watch Reel <span aria-hidden="true">↗</span></span></a>
   </div>
   <div class="hero-scroll">
     <div class="scroll-line"></div>
@@ -761,20 +766,30 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   const hero = document.getElementById('hero');
   const playCur = document.getElementById('play-cursor');
 
-  hero.addEventListener('mouseenter', () => {
+  const mouseCursor = window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 901px)');
+  function resetPlayCursor() {
+    playCur.classList.remove('show');
+    cur.style.opacity = '1';
+    ring.style.opacity = '1';
+  }
+  hero.addEventListener('pointerenter', e => {
+    if (!mouseCursor.matches || e.pointerType !== 'mouse') return;
+    playCur.style.left = e.clientX + 'px';
+    playCur.style.top = e.clientY + 'px';
     playCur.classList.add('show');
     cur.style.opacity = '0';
     ring.style.opacity = '0';
   });
-  hero.addEventListener('mouseleave', () => {
-    playCur.classList.remove('show');
-    cur.style.opacity = '1';
-    ring.style.opacity = '1';
-  });
-  hero.addEventListener('mousemove', e => {
+  hero.addEventListener('pointerleave', resetPlayCursor);
+  hero.addEventListener('pointermove', e => {
+    if (!mouseCursor.matches || e.pointerType !== 'mouse') return;
     playCur.style.left = e.clientX + 'px';
-    playCur.style.top  = e.clientY + 'px';
+    playCur.style.top = e.clientY + 'px';
   });
+  window.addEventListener('pageshow', resetPlayCursor);
+  window.addEventListener('pagehide', resetPlayCursor);
+  window.addEventListener('blur', resetPlayCursor);
+  mouseCursor.addEventListener('change', resetPlayCursor);
   hero.addEventListener('click', e => {
     // Don't trigger if clicking the scroll indicator
     if (e.target.closest('a, button, .hero-scroll')) return;
