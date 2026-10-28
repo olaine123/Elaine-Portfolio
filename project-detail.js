@@ -63,7 +63,6 @@ const projects = [
   {
     num: '03', category: 'works', label: 'Motion Graphics',
     title: 'THE GOOD, THE BAD, and THE UGLY - OFFICIAL TITLE SEQUENCE', type: 'Ending Title Sequence · 2025', vimeoId: '1170318485',
-    chairFrames: Array.from({length:14}, (_,i) => `Project file/THE GOOD, THE BAD, and THE UGLY/chair/${i+1}.png`),
     desc: 'For this original drama\'s end credits, I dove deep into the script and worked closely with the director and writer. We wanted to create a visual journey that really captured the protagonist\'s search for happiness.\n\nUsing kaleidoscope effects and Dolly-in visuals to pull the audience into the story. I also wove in key locations like the breakfast shop, beauty salon, and toy store. To add more narrative tension, I hid "Easter eggs" throughout the sequence, such as a Chinese chess piece that symbolizes manipulation.',
     specs: [{ k: 'Year', v: '2025' }, { k: 'Type', v: 'Ending Title Sequence' }, { k: 'Location', v: 'Taiwan' }],
     thumb: 'Project file/THE GOOD, THE BAD, and THE UGLY/thumbnail.webp',
@@ -325,7 +324,7 @@ const projects = [
   },
   {
     num: '12', category: 'works', label: 'Motion Branding',
-    title: 'SportingJAX Sports Motion Brending', type: 'Motion Branding · October 2026',
+    title: 'SportingJAX Sports Motion Branding', type: 'Motion Branding · October 2026',
     vimeoId: '1233598020',
     vimeoHash: '16d83eaf6c',
     desc: 'The Horizon Line\n\nThe horizontal line defines our visual core, but ocean waves give it life. Across the layout, wave-inspired curves and rolling contours cut through the horizon.\n\nThis line is all about constant flow, rising energy, and forward momentum. Warm sunrise colors and deep ocean blues cut across the layout, reflecting the St. Johns River flowing directly into the Atlantic Ocean.\n\nIt is never static. Instead, it serves as an active visual base that drives the team forward. Bold, clean, and strong, the horizon line embodies the relentless power, passion, and spirit of Jacksonville.',
@@ -704,16 +703,7 @@ function renderProject(idx) {
 
   updateMoreProjects(idx);
 
-  // Chair flipbook
-  const chairStrip = document.getElementById('chair-strip');
-  const chairFrameImg = document.getElementById('chair-frame-img');
-  window._chairFrames = p.chairFrames || [];
-  if (window._chairFrames.length) {
-    chairFrameImg.src = window._chairFrames[0];
-    chairStrip.classList.add('visible');
-  } else {
-    chairStrip.classList.remove('visible');
-  }
+
 }
 
 // ── Lightbox ──
@@ -739,6 +729,7 @@ function _lbShowMedia(src, type) {
 }
 
 function lbOpen(grpIdx, imgIdx) {
+  window.lightboxScroll.lock();
   _lbGrp = grpIdx; _lbIdx = imgIdx;
   const grp = window._lbGroups[grpIdx];
   lbGrpEl.textContent = grp.label;
@@ -750,6 +741,7 @@ function lbOpen(grpIdx, imgIdx) {
 }
 
 function lbClose() {
+  window.lightboxScroll.unlock();
   lbImg.classList.remove('lb-vis');
   lbEl.classList.remove('lb-open');
   setTimeout(() => { lbImg.src = ''; lbVideo.pause(); lbVideo.src = ''; lbVideo.style.display = 'none'; }, 380);
@@ -787,16 +779,6 @@ document.addEventListener('mousemove', e => {
 document.querySelectorAll('a, button').forEach(el => {
   el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
   el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
-});
-
-// ── Chair scroll (page-level scroll) ──
-window.addEventListener('scroll', function() {
-  const frames = window._chairFrames;
-  if (!frames || !frames.length) return;
-  const progress = window.scrollY / Math.max(1, document.body.scrollHeight - window.innerHeight);
-  const loops = 3;
-  const frameIdx = Math.floor(progress * frames.length * loops) % frames.length;
-  document.getElementById('chair-frame-img').src = frames[frameIdx];
 });
 
 // ── Keyboard ──

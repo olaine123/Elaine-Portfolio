@@ -210,6 +210,7 @@
   <a href="index.html" class="nav-logo"><img src="brand_assets/LOGO.png" alt="Elaine Chen"></a>
   <div class="nav-links">
     <a href="reel.html">Reel</a>
+    <a href="works.html">Work</a>
     <a href="about.html" class="active">About</a>
   </div>
 </nav>
@@ -225,9 +226,8 @@
   <div class="about-grid">
     <div>
       <p class="about-bio reveal" style="transition-delay:.1s">
-        Hello, I'm <strong>Elaine Chen</strong>, a Motion Designer
-        based in Savannah with a passion for exploring different perspectives
-        and pushing the boundaries of my work.<br><br>
+        Hello, I'm <strong>Elaine Chen</strong>, a Motion Designer based in Savannah.<br><br>
+        My work spans branding, illustration, typography, and storytelling. I enjoy exploring different perspectives and bringing ideas to life through expressive visuals and movement.<br><br>
         Nice to meet u!
       </p>
 
@@ -316,29 +316,7 @@
   }, { threshold: .12 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  function initTextReveal(el) {
-    const text = el.textContent.trim();
-    if (!text) return;
-    el.setAttribute('aria-label', text);
-    el.innerHTML = '';
-    const wrap = document.createElement('span');
-    wrap.setAttribute('aria-hidden', 'true');
-    wrap.style.cssText = 'display:inline-block;overflow:hidden;height:1em;line-height:1;white-space:nowrap;vertical-align:middle;';
-    [...text].forEach((char, i) => {
-      const s = document.createElement('span');
-      s.textContent = char === ' ' ? ' ' : char;
-      s.style.cssText = `display:inline-block;line-height:1;text-shadow:0 1em currentColor;transition:transform 280ms ease ${i * 25}ms;`;
-      wrap.appendChild(s);
-    });
-    el.appendChild(wrap);
-    el.addEventListener('mouseenter', () => {
-      wrap.querySelectorAll('span').forEach(s => { s.style.transform = 'translateY(-1em)'; });
-    });
-    el.addEventListener('mouseleave', () => {
-      wrap.querySelectorAll('span').forEach(s => { s.style.transform = ''; });
-    });
-  }
-  document.querySelectorAll('.nav-links a, .foot-nav a').forEach(el => initTextReveal(el));
 </script>
+<script src="nav-text-reveal.js"></script>
 </body>
 </html>

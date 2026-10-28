@@ -4,6 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elaine Chen — Motion Designer</title>
+  <meta name="description" content="Explore Elaine Chen's motion design portfolio, featuring title sequences, motion branding, typography, and projection design.">
+  <link rel="canonical" href="https://elainecc.com/">
+  <meta property="og:url" content="https://elainecc.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Elaine Chen">
+  <meta property="og:title" content="Elaine Chen — Motion Designer">
+  <meta property="og:description" content="Explore Elaine Chen's motion design portfolio, featuring title sequences, motion branding, typography, and projection design.">
+  <meta property="og:image" content="https://elainecc.com/brand_assets/social-preview-v5.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1730">
+  <meta property="og:image:height" content="909">
+  <meta property="og:image:alt" content="Elaine Chen — Motion Designer, with artwork from The Good, the Bad, and the Ugly title sequence.">
+  <meta name="twitter:image" content="https://elainecc.com/brand_assets/social-preview-v5.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Elaine Chen — Motion Designer">
+  <meta name="twitter:description" content="Explore Elaine Chen's motion design portfolio, featuring title sequences, motion branding, typography, and projection design.">
+  <meta name="twitter:image:alt" content="Elaine Chen — Motion Designer, with artwork from The Good, the Bad, and the Ugly title sequence.">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KENVXXSRHL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -132,6 +149,16 @@
       margin-top: 36px; font-size: .78rem; letter-spacing: .1em; color: var(--muted);
       opacity: 0; animation: fadeUp .7s ease .9s forwards;
     }
+    .hero-reel-link {
+      align-self: flex-start; display: none; align-items: center; gap: 18px;
+      min-height: 44px; margin-top: 20px; padding: 10px 0;
+      color: var(--white); text-decoration: none; border-bottom: 1px solid var(--red);
+      font-size: .75rem; letter-spacing: .16em; text-transform: uppercase;
+      transition: color .2s ease;
+    }
+    .hero-reel-link:hover { color: var(--red); }
+    .hero-reel-link:focus-visible { outline: 2px solid var(--red); outline-offset: 6px; }
+    .hero-reel-link:active { opacity: .75; }
     .hero-scroll {
       position: absolute; bottom: 44px; right: 52px; z-index: 3;
       display: flex; flex-direction: column; align-items: center; gap: 10px;
@@ -174,6 +201,18 @@
       font-size: .65rem; letter-spacing: .15em; color: var(--line);
     }
 
+    .all-works-wrap { display: flex; justify-content: center; margin-top: 40px; }
+    .all-works-link {
+      display: inline-flex; align-items: center; gap: 20px; min-height: 48px;
+      padding: 14px 24px; border: 1px solid var(--muted);
+      color: var(--white); text-decoration: none;
+      font-size: .72rem; letter-spacing: .15em; text-transform: uppercase;
+      transition: color .2s ease, border-color .2s ease;
+    }
+    .all-works-link:hover { color: var(--red); border-color: var(--red); }
+    .all-works-link:focus-visible { outline: 2px solid var(--red); outline-offset: 5px; }
+    .all-works-link:active { opacity: .75; }
+
     /* ─── Filter Tabs ─── */
     .filter-tabs { display: flex; gap: 24px; }
     .ftab {
@@ -198,7 +237,14 @@
     }
     .w2-grid .work-card { aspect-ratio: 16/9; }
 
-    .work-card { position: relative; overflow: hidden; background: var(--card); cursor: none; }
+    .work-card {
+      display: block; position: relative; overflow: hidden; background: var(--card); cursor: none;
+      color: inherit; text-decoration: none; text-align: left; font: inherit;
+      border: 0; padding: 0; width: 100%;
+    }
+    .work-card:focus-visible { outline: 3px solid var(--red); outline-offset: -3px; }
+    .work-card:focus-visible .work-card-overlay { background: rgba(8,8,8,.78); }
+    .work-card:focus-visible .work-meta { transform: translateY(0); opacity: 1; }
     .work-thumb {
       position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
       filter: grayscale(15%); transition: transform .65s ease, filter .5s ease;
@@ -434,6 +480,7 @@
 
     /* ─── Responsive ─── */
     @media (max-width: 900px) {
+      .hero-reel-link { display: inline-flex; }
       nav { padding: 20px 24px; }
       #works { padding: 80px 24px; }
       .works-head { flex-direction: column; align-items: flex-start; gap: 24px; }
@@ -477,6 +524,7 @@
   <a href="index.html" class="nav-logo"><img src="brand_assets/LOGO.png" alt="Elaine Chen"></a>
   <div class="nav-links">
     <a href="reel.html">Reel</a>
+    <a href="works.html">Work</a>
     <a href="about.html">About</a>
   </div>
 </nav>
@@ -486,7 +534,7 @@
   <div class="hero-bg"></div>
   <div class="hero-video">
     <video autoplay muted loop playsinline>
-      <source src="Project file/Demoreel no opening_1.mp4" type="video/mp4">
+      <source src="Project file/Demoreel-background-compressed.mp4" type="video/mp4">
     </video>
   </div>
   <div class="grain"></div>
@@ -496,7 +544,8 @@
     <h1 class="hero-name">
       ELAINE<span class="line2">CHEN</span>
     </h1>
-    <p class="hero-tagline">Exploring different perspectives &nbsp;·&nbsp; Pushing the boundaries</p>
+    <p class="hero-tagline">Motion design across branding, illustration, typography &amp; storytelling.</p>
+    <a class="hero-reel-link" href="reel.html?play=1">Watch Reel <span aria-hidden="true">↗</span></a>
   </div>
   <div class="hero-scroll">
     <div class="scroll-line"></div>
@@ -513,17 +562,15 @@
     </div>
     <div class="works-head-right">
       <p class="works-count" id="works-count">— items</p>
-      <div class="filter-tabs">
-        <button class="ftab active" data-filter="all">All</button>
-        <button class="ftab" data-filter="works">Works</button>
-        <button class="ftab" data-filter="live-action">Live Action</button>
-        <button class="ftab" data-filter="playground">Playground</button>
-      </div>
+
     </div>
   </div>
 
   <!-- Dynamic content injected here -->
   <div id="works-content"></div>
+  <div class="all-works-wrap">
+    <a class="all-works-link" href="works.html">View All Works <span aria-hidden="true">↗</span></a>
+  </div>
 </section>
 
 <!-- Footer -->
@@ -576,6 +623,7 @@
   </div>
 </div>
 
+<script src="lightbox-scroll.js"></script>
 <script>
 /* ── Preloader ── */
 (function(){
@@ -606,7 +654,7 @@ const projects = [
   { num:'09', category:'works', title:'CARNIVAL BITES', type:'Projection · 2026', page:'work-carnical-bites.html', vimeoId:'1197953604' },
   { num:'10', category:'works', title:'FROM 1 TO MANY: THE SHARED BREATH', type:'Projection · May 2026', page:'work-from-1-to-many.html', thumb:'Project file/From 1 to Many The Shared Breath/cover.jpg' },
   { num:'11', category:'works', title:'NBA ON ESPN BROADCAST DESIGN', type:'Graphics Package · May 2026', page:'work-nba-on-espn.html', vimeoId:'1198298776', thumb:'https://i.vimeocdn.com/video/2165186943-a51ed673e44c9668f52895370c73a4447b2e5558c9b72b7456a9c03e97426557-d_1280' },
-  { num:'12', category:'works', title:'SportingJAX Sports Motion Brending', type:'Motion Branding · October 2026', page:'work-sportingjax.html', vimeoId:'1233598020', thumb:'Project file/SportingJAX Sports Motion Brending/SportingJAX Sports Motion Brending.png' },
+  { num:'12', category:'works', title:'SportingJAX Sports Motion Branding', type:'Motion Branding · October 2026', page:'work-sportingjax.html', vimeoId:'1233598020', vimeoHash:'16d83eaf6c', thumb:'Project file/SportingJAX Sports Motion Brending/SportingJAX Sports Motion Brending.png' },
   { num:'01', category:'live-action', title:'Christmasland in New Taipei City', type:'Television Commercial · 2025', page:'work-christmasland.html', vimeoId:'1187493872' },
   { num:'02', category:'live-action', title:'Taoyuan Pearl Coast Music Festival', type:'Television Commercial · 2025', page:'work-taoyuan.html', vimeoId:'1187495431' },
   { num:'03', category:'live-action', title:'Love On a Shoestring', type:'Television Commercial · 2024', page:'work-love-on-shoestring.html', vimeoId:'1187499775' },
@@ -632,60 +680,34 @@ function vimeoThumb(id,cb){
     .then(r=>r.json()).then(d=>{_vCache[id]=d.thumbnail_url;cb(d.thumbnail_url);}).catch(()=>{});
 }
 
-let _firstRender=true;
-function renderWorks(filter){
-  document.querySelectorAll('.ftab').forEach(b=>b.classList.toggle('active',b.dataset.filter===filter));
+const featuredPages = [
+  'work-good-bad-ugly.html',
+  'work-milky-way-home.html',
+  'work-adelphi.html',
+  'work-oreo.html',
+  'work-sportingjax.html',
+  'work-nike.html',
+];
+function renderWorks(){
   const content=document.getElementById('works-content');
-
-  const showWorks=filter==='all'||filter==='works';
-  const showLa   =filter==='all'||filter==='live-action';
-  const showPg   =filter==='all'||filter==='playground';
-  const worksItems=projects.filter(p=>p.category==='works');
-  const laItems   =projects.filter(p=>p.category==='live-action');
-  const total=(showWorks?worksItems.length:0)+(showLa?laItems.length:0)+(showPg?playgroundItems.length:0);
-  document.getElementById('works-count').textContent=`${String(total).padStart(2,'0')} Projects`;
+  const worksItems=featuredPages.map(page=>projects.find(p=>p.page===page));
+  document.getElementById('works-count').textContent=`${String(worksItems.length).padStart(2,'0')} Projects`;
 
   function makeCard(p,i){
     const thumb=p.thumb
       ?`<img class="work-thumb${p.thumbZoom?' work-thumb--zoom':''}" src="${p.thumb}" alt="${p.title}" loading="lazy">`
       :`<div class="work-placeholder" data-vimeo="${p.vimeoId||''}" data-title="${p.title}"></div>`;
-    return `<div class="work-card" onclick="location.href='${p.page}'">
+    return `<a class="work-card" href="${p.page}" aria-label="${p.title.replace(/&/g,'&amp;').replace(/"/g,'&quot;')}">
       ${thumb}
       <div class="work-card-overlay"><div class="work-meta">
         <div class="work-num">${p.num}</div>
         <div class="work-title">${p.title}</div>
         <div class="work-type">${p.type}</div>
       </div></div>
-    </div>`;
+    </a>`;
   }
 
-  let html='';
-
-  if(showWorks){
-    html+=`<div class="w2-grid">${worksItems.map(makeCard).join('')}</div>`;
-  }
-  if(showLa){
-    html+=`<div class="section-label">Live Action Motion /</div>`;
-    html+=`<div class="w2-grid">${laItems.map(makeCard).join('')}</div>`;
-  }
-  if(showPg){
-    html+=`<div class="section-label">Playground /</div>`;
-    html+=`<div class="playground-grid">${playgroundItems.map((item,i)=>{
-      const thumb=item.type==='video'
-        ?`<video class="work-thumb" src="${item.src}" autoplay muted loop playsinline></video>`
-        :`<img class="work-thumb" src="${item.src}" alt="${item.title}" loading="lazy">`;
-      return `<div class="work-card" onclick="playgroundLbOpen(${i})">
-        ${thumb}
-        <div class="work-card-overlay"><div class="work-meta">
-          <div class="work-num">Playground</div>
-          <div class="work-title">${item.title}</div>
-          <div class="work-type">${item.type==='video'?'Video':'Image'}</div>
-        </div></div>
-      </div>`;
-    }).join('')}</div>`;
-  }
-
-  content.innerHTML=html;
+  content.innerHTML=`<div class="w2-grid">${worksItems.map(makeCard).join('')}</div>`;
 
   // Hover bindings
   content.querySelectorAll('.work-card').forEach(c=>{
@@ -714,13 +736,7 @@ function renderWorks(filter){
   });
 }
 
-renderWorks('all');
-
-document.querySelectorAll('.ftab').forEach(btn=>{
-  btn.addEventListener('click',()=>renderWorks(btn.dataset.filter));
-  btn.addEventListener('mouseenter',()=>document.body.classList.add('hovering'));
-  btn.addEventListener('mouseleave',()=>document.body.classList.remove('hovering'));
-});
+renderWorks();
 
 /* ── Cursor ── */
 const cur=document.getElementById('cur');
@@ -761,7 +777,7 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   });
   hero.addEventListener('click', e => {
     // Don't trigger if clicking the scroll indicator
-    if (e.target.closest('.hero-scroll')) return;
+    if (e.target.closest('a, button, .hero-scroll')) return;
     window.location.href = 'reel.html?play=1';
   });
 })();
@@ -784,8 +800,8 @@ function _lbMedia(src,type){
   if(type==='video'){lbImg.style.display='none';lbImg.classList.remove('lb-vis');lbImg.src='';lbVideo.style.display='block';lbVideo.src=src;lbVideo.load();lbVideo.play().catch(()=>{});}
   else{lbVideo.style.display='none';lbVideo.pause();lbVideo.src='';lbImg.style.display='block';lbImg.src=src;requestAnimationFrame(()=>requestAnimationFrame(()=>lbImg.classList.add('lb-vis')));}
 }
-function playgroundLbOpen(idx){_pgIdx=idx;const i=playgroundItems[idx];lbGrpEl.textContent='Playground';lbCntEl.textContent=`${idx+1} / ${playgroundItems.length}`;lbEl.classList.add('lb-open');_lbMedia(i.src,i.type);}
-function lbClose(){lbImg.classList.remove('lb-vis');lbEl.classList.remove('lb-open');setTimeout(()=>{lbImg.src='';lbVideo.pause();lbVideo.src='';lbVideo.style.display='none';},380);}
+function playgroundLbOpen(idx){window.lightboxScroll.lock();_pgIdx=idx;const i=playgroundItems[idx];lbGrpEl.textContent='Playground';lbCntEl.textContent=`${idx+1} / ${playgroundItems.length}`;lbEl.classList.add('lb-open');_lbMedia(i.src,i.type);}
+function lbClose(){window.lightboxScroll.unlock();lbImg.classList.remove('lb-vis');lbEl.classList.remove('lb-open');setTimeout(()=>{lbImg.src='';lbVideo.pause();lbVideo.src='';lbVideo.style.display='none';},380);}
 function lbChange(d){_pgIdx=(_pgIdx+d+playgroundItems.length)%playgroundItems.length;lbImg.classList.remove('lb-vis');lbVideo.pause();setTimeout(()=>{const i=playgroundItems[_pgIdx];lbCntEl.textContent=`${_pgIdx+1} / ${playgroundItems.length}`;_lbMedia(i.src,i.type);},200);}
 document.getElementById('lb-close').addEventListener('click',lbClose);
 lbPrevEl.addEventListener('click',()=>lbChange(-1));
@@ -800,29 +816,7 @@ document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft'&&lbEl.classList.contains('lb-open'))lbChange(-1);
   if(e.key==='ArrowRight'&&lbEl.classList.contains('lb-open'))lbChange(1);
 });
-function initTextReveal(el) {
-  const text = el.textContent.trim();
-  if (!text) return;
-  el.setAttribute('aria-label', text);
-  el.innerHTML = '';
-  const wrap = document.createElement('span');
-  wrap.setAttribute('aria-hidden', 'true');
-  wrap.style.cssText = 'display:inline-block;overflow:hidden;height:1em;line-height:1;white-space:nowrap;vertical-align:middle;';
-  [...text].forEach((char, i) => {
-    const s = document.createElement('span');
-    s.textContent = char === ' ' ? ' ' : char;
-    s.style.cssText = `display:inline-block;line-height:1;text-shadow:0 1em currentColor;transition:transform 280ms ease ${i * 25}ms;`;
-    wrap.appendChild(s);
-  });
-  el.appendChild(wrap);
-  el.addEventListener('mouseenter', () => {
-    wrap.querySelectorAll('span').forEach(s => { s.style.transform = 'translateY(-1em)'; });
-  });
-  el.addEventListener('mouseleave', () => {
-    wrap.querySelectorAll('span').forEach(s => { s.style.transform = ''; });
-  });
-}
-document.querySelectorAll('.nav-links a, .foot-nav a').forEach(el => initTextReveal(el));
 </script>
+<script src="nav-text-reveal.js"></script>
 </body>
 </html>

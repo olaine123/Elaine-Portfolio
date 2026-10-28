@@ -101,7 +101,14 @@
     .w2-grid .work-card { aspect-ratio: 16/9; }
 
     /* ─── Playground Cards (unchanged) ─── */
-    .work-card { position: relative; overflow: hidden; background: var(--card); cursor: none; }
+    .work-card {
+      display: block; position: relative; overflow: hidden; background: var(--card); cursor: none;
+      color: inherit; text-decoration: none; text-align: left; font: inherit;
+      border: 0; padding: 0; width: 100%;
+    }
+    .work-card:focus-visible { outline: 3px solid var(--red); outline-offset: -3px; }
+    .work-card:focus-visible .work-card-overlay { background: rgba(8,8,8,.78); }
+    .work-card:focus-visible .work-meta { transform: translateY(0); opacity: 1; }
     .work-thumb {
       position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
       filter: grayscale(15%); transition: transform .65s ease, filter .4s ease;
@@ -496,8 +503,8 @@
 <nav>
   <a href="index.html" class="nav-logo"><img src="brand_assets/LOGO.png" alt="Elaine Chen"></a>
   <div class="nav-links">
-    <a href="works.html" class="active">Works</a>
     <a href="reel.html">Reel</a>
+    <a href="works.html" class="active">Work</a>
     <a href="about.html">About</a>
   </div>
 </nav>
@@ -574,6 +581,7 @@
   </div>
 </div>
 
+<script src="lightbox-scroll.js"></script>
 <script>
   const projects = [
     {
@@ -935,9 +943,10 @@
     },
     {
       num: '12', category: 'works', label: 'Motion Branding',
-      title: 'SportingJAX Sports Motion Brending',
+      title: 'SportingJAX Sports Motion Branding',
       type: 'Motion Branding · October 2026',
       vimeoId: '1233598020',
+      vimeoHash: '16d83eaf6c',
       desc: 'The Horizon Line\n\nThe horizontal line defines our visual core, but ocean waves give it life. Across the layout, wave-inspired curves and rolling contours cut through the horizon.\n\nThis line is all about constant flow, rising energy, and forward momentum. Warm sunrise colors and deep ocean blues cut across the layout, reflecting the St. Johns River flowing directly into the Atlantic Ocean.\n\nIt is never static. Instead, it serves as an active visual base that drives the team forward. Bold, clean, and strong, the horizon line embodies the relentless power, passion, and spirit of Jacksonville.',
       specs: [
         { k: 'Year', v: 'October 2026' },
@@ -1090,6 +1099,28 @@
     { type: 'video', title: 'N', src: 'Project file/Playground/N.mp4' },
   ];
 
+  // Remember the gallery within this browser tab when visiting a project.
+  const galleryStateKey = 'elaine-works-state';
+  const galleryFilters = new Set(['all', 'works', 'live-action', 'playground']);
+  let galleryFilter = 'all';
+  let savedGalleryState = null;
+  try {
+    const saved = JSON.parse(sessionStorage.getItem(galleryStateKey));
+    if (saved && galleryFilters.has(saved.filter) &&
+        Number.isFinite(saved.scrollY) && saved.scrollY >= 0) {
+      savedGalleryState = saved;
+      galleryFilter = saved.filter;
+    }
+  } catch { /* Gallery remains usable when storage is unavailable. */ }
+
+  function saveGalleryState() {
+    try {
+      sessionStorage.setItem(galleryStateKey, JSON.stringify({
+        filter: galleryFilter, scrollY: window.lightboxScroll.getScrollY(),
+      }));
+    } catch { /* Storage may be disabled or full. */ }
+  }
+
   let _firstRender = true;
   function _applyFade(el) {
     if (_firstRender) return;
@@ -1099,6 +1130,8 @@
   }
 
   function renderWorks(filter) {
+    galleryFilter = galleryFilters.has(filter) ? filter : 'all';
+    filter = galleryFilter;
     document.querySelectorAll('.ftab').forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
     const grid = document.getElementById('works-grid');
     const laSection = document.getElementById('live-action-section');
@@ -1121,14 +1154,14 @@
       const thumb = p.thumb
         ? `<img class="work-thumb${p.thumbZoom ? ' work-thumb--zoom' : ''}" src="${p.thumb}" alt="${p.title}" loading="lazy">`
         : `<div class="work-placeholder" data-vimeo="${vimeoSrc}" data-title="${p.title}"></div>`;
-      return `<div class="work-card" onclick="location.href=PROJECT_PAGES[${i}]">
+      return `<a class="work-card" href="${PROJECT_PAGES[i]}" aria-label="${p.title.replace(/&/g,'&amp;').replace(/"/g,'&quot;')}">
         ${thumb}
         <div class="work-card-overlay"><div class="work-meta">
           <div class="work-num">${p.num}</div>
           <div class="work-title">${p.title}</div>
           <div class="work-type">${p.type}</div>
         </div></div>
-      </div>`;
+      </a>`;
     };
     const bindHover = (el) => el.querySelectorAll('.work-card').forEach(c => {
       c.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
@@ -1184,14 +1217,14 @@
           const thumb = item.type === 'video'
             ? `<video class="work-thumb" src="${item.src}" autoplay muted loop playsinline></video>`
             : `<img class="work-thumb" src="${item.src}" alt="${item.title}" loading="lazy">`;
-          return `<div class="work-card" onclick="playgroundLbOpen(${i})">
+          return `<button type="button" class="work-card" onclick="playgroundLbOpen(${i})" aria-label="${item.title.replace(/&/g,'&amp;').replace(/"/g,'&quot;')}">
             ${thumb}
             <div class="work-card-overlay"><div class="work-meta">
               <div class="work-num">Playground</div>
               <div class="work-title">${item.title}</div>
               <div class="work-type">${item.type === 'video' ? 'Video' : 'Image'}</div>
             </div></div>
-          </div>`;
+          </button>`;
         }).join('')}
       </div>`;
     _applyFade(pgSection);
@@ -1202,11 +1235,43 @@
     _firstRender = false;
   }
 
-  renderWorks('all');
+  renderWorks(galleryFilter);
   _firstRender = false;
 
+  // Fixed card aspect ratios let us restore without waiting for media downloads.
+  let restoringGallery = Boolean(savedGalleryState);
+  if (savedGalleryState) {
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: savedGalleryState.scrollY, behavior: 'instant' });
+      requestAnimationFrame(() => { restoringGallery = false; });
+    });
+  }
+  let gallerySaveQueued = false;
+  window.addEventListener('scroll', () => {
+    if (restoringGallery || gallerySaveQueued) return;
+    gallerySaveQueued = true;
+    requestAnimationFrame(() => {
+      gallerySaveQueued = false;
+      saveGalleryState();
+    });
+  }, { passive: true });
+  // Save synchronously before link navigation, including opening a new tab.
+  document.addEventListener('click', event => {
+    if (event.target.closest('a[href]')) saveGalleryState();
+  }, { capture: true });
+  document.addEventListener('auxclick', event => {
+    if (event.target.closest('a[href]')) saveGalleryState();
+  }, { capture: true });
+  window.addEventListener('pagehide', saveGalleryState);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') saveGalleryState();
+  });
+
   document.querySelectorAll('.ftab').forEach(btn => {
-    btn.addEventListener('click', () => renderWorks(btn.dataset.filter));
+    btn.addEventListener('click', () => {
+      renderWorks(btn.dataset.filter);
+      saveGalleryState();
+    });
     btn.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
     btn.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
   });
@@ -1250,6 +1315,7 @@
   }
 
   function playgroundLbOpen(idx) {
+    window.lightboxScroll.lock();
     _pgIdx = idx;
     const item = playgroundItems[idx];
     lbGrpEl.textContent = 'Playground';
@@ -1260,6 +1326,7 @@
   }
 
   function lbClose() {
+    window.lightboxScroll.unlock();
     lbImg.classList.remove('lb-vis'); lbEl.classList.remove('lb-open');
     setTimeout(() => { lbImg.src = ''; lbVideo.pause(); lbVideo.src = ''; lbVideo.style.display = 'none'; }, 380);
   }
@@ -1298,5 +1365,6 @@
   }
 
 </script>
+<script src="nav-text-reveal.js"></script>
 </body>
 </html>
