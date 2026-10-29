@@ -45,6 +45,17 @@ const projects = [
         { src: 'Project file/The Milky Way Home/Storyboard_3x2 1.jpg' },
         { src: 'Project file/The Milky Way Home/Storyboard_3x2 3.jpg' },
       ]},
+      { group: 'Initial Style Frame Tests', cols: 2, items: [
+        { src: 'Project file/The Milky Way Home/Initial Style Frame Tests/Frame 1.jpg' },
+        { src: 'Project file/The Milky Way Home/Initial Style Frame Tests/Frame 2.jpg' },
+        { src: 'Project file/The Milky Way Home/Initial Style Frame Tests/Frame 3.jpg' },
+        { src: 'Project file/The Milky Way Home/Initial Style Frame Tests/Frame 4.jpg' },
+      ]},
+      { group: 'Work in Progress', cols: 2, items: [
+        { src: 'Project file/The Milky Way Home/Work in Progress/2026-02-11.png' },
+        { src: 'Project file/The Milky Way Home/Work in Progress/IMG_3779.jpg' },
+        { src: 'Project file/The Milky Way Home/Work in Progress/IMG_3976.jpg' },
+      ]},
       { group: 'Styleframe', cols: 3, items: [
         { src: 'Project file/The Milky Way Home/Styleframe/Frame-01.jpg' },
         { src: 'Project file/The Milky Way Home/Styleframe/Frame-02.jpg' },
@@ -57,6 +68,7 @@ const projects = [
         { src: 'Project file/The Milky Way Home/Styleframe/Frame-09.jpg' },
         { src: 'Project file/The Milky Way Home/Styleframe/Frame-10.jpg' },
       ]},
+      { type: 'text', group: 'What I Learned', body: 'When designing a character, adding personality makes it more appealing. Adding characters or animals can make a scene more interesting and give it more storytelling potential. How a character reacts to movement around them is important. Transitions are like seasoning. Use them when needed.' },
     ],
     page: 'work-milky-way-home.html',
   },
