@@ -119,7 +119,10 @@ const projects = [
     specs: [{ k: 'Year', v: '2026' }, { k: 'Type', v: 'Motion Graphic' }, { k: 'Location', v: 'USA' }],
     thumb: 'Project file/The Geometry of Logic - Adelphi/Adelphi kinetic specimen.png',
     processGroups: [
-      { group: 'Moodboard', items: [{ src: 'Project file/The Geometry of Logic - Adelphi/moodboard.png' }] },
+      { type: 'text', group: 'Goal', body: "To explore how Adelphi's geometric structure can become a dynamic visual system through kinetic typography." },
+      { type: 'text', group: 'Keywords', body: 'Modern / Simple / Universal / Versatile / Text / Display / Sans / Readable / Legible / Multi-purpose / Magazines / Websites' },
+      { group: 'Styleboard', items: [{ src: 'Project file/The Geometry of Logic - Adelphi/moodboard.png' }] },
+      { group: 'Color', maxWidth: '50%', items: [{ src: 'Project file/The Geometry of Logic - Adelphi/COLOR.png' }] },
       { group: 'Styleframe', cols: 4, items: [
         { src: 'Project file/The Geometry of Logic - Adelphi/Styleframe/StyleFrame-01.jpg' },
         { src: 'Project file/The Geometry of Logic - Adelphi/Styleframe/StyleFrame-02.jpg' },
