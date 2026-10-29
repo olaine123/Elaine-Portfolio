@@ -2,7 +2,7 @@ const projects = [
   {
     num: '01', category: 'works', label: 'Motion Graphics',
     title: 'NEW YORK PULSE', type: 'Motion Graphics · 2026', vimeoId: '1170310909',
-    desc: 'This project expresses the pure excitement of finally experiencing New York City, a place imagined for a lifetime. Through the language of geometry, I aim to simplify and celebrate the city\'s complexity. Different shapes symbolize the global diversity of people. The animation wants to show the energy and infinite potential of New York, turning personal emotions into a vibrant, rhythmic motion piece.',
+    desc: 'This project captures the excitement of finally experiencing New York City, a place I had dreamed of visiting. Using geometric shapes, the animation simplifies and celebrates the city\'s complexity. Each shape represents the city\'s cultural diversity, while the rhythm and movement reflect its energy and limitless possibilities.',
     specs: [{ k: 'Year', v: '2026' }, { k: 'Type', v: 'Motion Graphics' }, { k: 'Location', v: 'USA' }],
     thumb: 'Project file/NEW YORK PULSE/Styleframe06.jpg',
     illustration: 'Project file/NEW YORK PULSE/apple.png.webp',
