@@ -502,6 +502,8 @@ function stackSelect(idx) {
   tabs.forEach((tab, i) => tab.classList.toggle('active', i === idx));
 }
 
+const assetUrl = src => encodeURI(String(src || ''));
+
 function renderGroup(g) {
   if (g.type === 'youtube-lyrics') {
     return `<div class="process-section">
@@ -600,8 +602,8 @@ function renderGroup(g) {
     <div class="process-section-grid" data-mobile-cols="${g.mobileCols || 1}" style="${st}">
       ${g.items.map((item) => {
         const media = isVideo(item.src)
-          ? `<video src="${item.src}" autoplay muted loop playsinline style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover"></video>`
-          : `<img src="${item.src}" alt="${g.group}" loading="lazy" onclick="lbOpen(${grpIdx},${imgIdx++})">`;
+          ? `<video src="${assetUrl(item.src)}" autoplay muted loop playsinline preload="auto" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover"></video>`
+          : `<img src="${assetUrl(item.src)}" alt="${g.group}" loading="lazy" onclick="lbOpen(${grpIdx},${imgIdx++})">`;
         return item.caption ? `<div><div class="process-video-label">${item.caption}</div>${media}</div>` : media;
       }).join('')}
     </div>
@@ -703,7 +705,7 @@ function renderProject(idx) {
   if (p.loopVideos && p.loopVideos.length) {
     loopEl.innerHTML = `<div class="process-section-label" style="margin-bottom:20px">Final clips</div>
       <div class="detail-loop-videos${p.loopVideos.length > 3 ? ' detail-loop-videos--many' : ''}">${p.loopVideos.map(src =>
-        `<video src="${src}" autoplay muted loop playsinline></video>`
+        `<video src="${assetUrl(src)}" autoplay muted loop playsinline preload="auto"></video>`
       ).join('')}</div>`;
   } else {
     loopEl.innerHTML = '';
