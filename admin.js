@@ -3,11 +3,9 @@
   const clone = (value) => JSON.parse(JSON.stringify(value));
   const repairMojibake = value => {
     if (typeof value === 'string') {
-      if (!/[^\x00-\x7F]/.test(value)) return value;
+      if (!/[ÃÂâåæçèé]/.test(value)) return value;
       try {
-        const escaped = escape(value);
-        if (/%u[0-9A-F]{4}/i.test(escaped)) return value;
-        const repaired = decodeURIComponent(escaped);
+        const repaired = new TextDecoder().decode(Uint8Array.from(value, char => char.charCodeAt(0)));
         return repaired.includes('�') ? value : repaired;
       } catch { return value; }
     }
