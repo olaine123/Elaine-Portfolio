@@ -517,6 +517,7 @@ function stackSelect(idx) {
 const assetUrl = src => encodeURI(String(src || ''));
 
 function renderGroup(g) {
+  const groupLabel = repairMojibake(g.group || '');
   if (g.type === 'youtube-lyrics') {
     return `<div class="process-section">
       ${g.group ? `<div class="process-section-label">${g.group}</div>` : ''}
@@ -605,17 +606,18 @@ function renderGroup(g) {
   }
   const isVideo = src => /\.(mp4|webm|mov)$/i.test(src);
   const grpIdx = window._lbGroups.length;
-  window._lbGroups.push({ label: g.group, srcs: g.items.filter(i => !isVideo(i.src)).map(i => i.src) });
+  window._lbGroups.push({ label: groupLabel, srcs: g.items.filter(i => !isVideo(i.src)).map(i => repairMojibake(i.src)) });
   const n = g.cols || (g.items.length === 1 ? 1 : g.items.length === 2 ? 2 : 3);
   const st = [`grid-template-columns:repeat(${n},1fr)`, g.maxWidth ? `max-width:${g.maxWidth};margin:0 auto` : ''].filter(Boolean).join(';');
   let imgIdx = 0;
   return `<div class="process-section">
-    ${g.group ? `<div class="process-section-label">${g.group}</div>` : ''}
+    ${groupLabel ? `<div class="process-section-label">${groupLabel}</div>` : ''}
     <div class="process-section-grid" data-mobile-cols="${g.mobileCols || 1}" style="${st}">
       ${g.items.map((item) => {
+        const mediaSrc = assetUrl(repairMojibake(item.src));
         const media = isVideo(item.src)
-          ? `<video src="${assetUrl(item.src)}" autoplay muted loop playsinline preload="auto" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover"></video>`
-          : `<img src="${assetUrl(item.src)}" alt="${g.group}" loading="lazy" onclick="lbOpen(${grpIdx},${imgIdx++})">`;
+          ? `<video src="${mediaSrc}" autoplay muted loop playsinline preload="auto" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover"></video>`
+          : `<img src="${mediaSrc}" alt="${groupLabel}" loading="lazy" onclick="lbOpen(${grpIdx},${imgIdx++})">`;
         return item.caption ? `<div><div class="process-video-label">${item.caption}</div>${media}</div>` : media;
       }).join('')}
     </div>
@@ -717,7 +719,7 @@ function renderProject(idx) {
   if (p.loopVideos && p.loopVideos.length) {
     loopEl.innerHTML = `<div class="process-section-label" style="margin-bottom:20px">Final clips</div>
       <div class="detail-loop-videos${p.loopVideos.length > 3 ? ' detail-loop-videos--many' : ''}">${p.loopVideos.map(src =>
-        `<video src="${assetUrl(src)}" autoplay muted loop playsinline preload="auto"></video>`
+        `<video src="${assetUrl(repairMojibake(src))}" autoplay muted loop playsinline preload="auto"></video>`
       ).join('')}</div>`;
   } else {
     loopEl.innerHTML = '';
