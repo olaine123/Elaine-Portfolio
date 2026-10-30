@@ -409,8 +409,10 @@
   $('add-gallery-block').addEventListener('click', () => addBlock({ group: 'New Image Gallery', cols: 2, items: [{ src: '' }] }));
   $('add-image-block').addEventListener('click', () => addBlock({ group: 'New Full-width Image', maxWidth: '100%', cols: 1, items: [{ src: '' }] }));
   $('preview-project').addEventListener('click', () => {
-    updateLivePreview(true);
-    $('live-preview-frame').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const project = readForm();
+    updateLivePreview(false);
+    const preview = window.open(previewUrl(project), '_blank', 'noopener,noreferrer');
+    if (!preview) setStatus('瀏覽器阻擋了新視窗，請允許本站開啟預覽。', true);
   });
   $('add-vimeo').addEventListener('click', () => { $('vimeo-fields').insertAdjacentHTML('beforeend', '<div class="media-row"><span class="media-icon">V</span><input class="vimeo-field" placeholder="Vimeo ID"><button type="button" class="remove-media">移除</button></div>'); const row = $('vimeo-fields').lastElementChild; row.querySelector('.remove-media').addEventListener('click', () => { row.remove(); scheduleLivePreview(); }); row.querySelector('.vimeo-field').addEventListener('input', scheduleLivePreview); });
   $('add-loop-video').addEventListener('click', () => { $('loop-video-fields').insertAdjacentHTML('beforeend', mediaRow()); bindMediaRow($('loop-video-fields').lastElementChild); scheduleLivePreview(); });
