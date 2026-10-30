@@ -4,9 +4,14 @@
   const state = { projects: clone(window.PORTFOLIO_PROJECTS || []), playground: clone(window.PLAYGROUND_ITEMS || []), selected: 0, sha: null, playgroundSha: null, mode: 'projects' };
   let previewTimer;
   const tokenKey = 'elaine-portfolio-github-token';
-  $('token').value = sessionStorage.getItem(tokenKey) || '';
+  const savedToken = localStorage.getItem(tokenKey) || sessionStorage.getItem(tokenKey) || '';
+  $('token').value = savedToken;
+  if (savedToken && !localStorage.getItem(tokenKey)) localStorage.setItem(tokenKey, savedToken);
   const isLocalAdmin = ['localhost', '127.0.0.1'].includes(window.location.hostname);
-  $('sync-local').hidden = !isLocalAdmin;
+  if (!isLocalAdmin) {
+    $('sync-local').disabled = true;
+    $('sync-local').title = '只有在本機編輯器中可以同步回電腦';
+  }
 
   const escapeHtml = (value = '') => String(value).replace(/[&<>'"]/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '"':'&quot;' }[char]));
   const repoPath = () => `repos/${$('owner').value.trim()}/${$('repo').value.trim()}`;
@@ -359,7 +364,7 @@
 
   $('connect').addEventListener('click', async () => {
     try {
-      sessionStorage.setItem(tokenKey, $('token').value.trim()); setStatus('Connecting…');
+      localStorage.setItem(tokenKey, $('token').value.trim()); sessionStorage.setItem(tokenKey, $('token').value.trim()); setStatus('Connecting…');
       const file = await github('/contents/content/projects.js?ref=' + encodeURIComponent($('branch').value.trim()));
       state.sha = file.sha;
       const source = atob(file.content.replace(/\n/g, ''));
@@ -370,7 +375,7 @@
     } catch (error) { setStatus(error.message, true); }
   });
   $('sync-local').addEventListener('click', async () => {
-    if (!isLocalAdmin) return;
+    if (!isLocalAdmin) { setStatus('請從 localhost 編輯器使用同步到本機。', true); return; }
     if (!confirm('同步前會先備份目前本機內容。確定要用 GitHub 最新版本更新本機嗎？')) return;
     try {
       setStatus('正在同步到本機…');
