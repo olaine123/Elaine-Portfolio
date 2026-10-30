@@ -1,6 +1,6 @@
 import { createServer } from 'http';
 import { createReadStream, statSync } from 'fs';
-import { readFile } from 'fs/promises';
+import { readFile, writeFile, copyFile, mkdir } from 'fs/promises';
 import { extname, join } from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -21,6 +21,27 @@ const streamable = new Set(['.mp4', '.webm', '.mov']);
 
 createServer(async (req, res) => {
   const url = decodeURIComponent(req.url === '/' ? '/index.html' : req.url.split('?')[0]);
+
+  if (req.method === 'POST' && url === '/api/sync-content') {
+    try {
+      let body = '';
+      for await (const chunk of req) body += chunk;
+      const payload = JSON.parse(body);
+      if (typeof payload.source !== 'string' || !payload.source.includes('window.PORTFOLIO_PROJECTS')) throw new Error('Invalid content payload');
+      const contentPath = join(__dirname, 'content/projects.js');
+      const backupDir = join(__dirname, '.local-backups');
+      await mkdir(backupDir, { recursive: true });
+      await copyFile(contentPath, join(backupDir, `projects-${Date.now()}.js`));
+      await writeFile(contentPath, payload.source, 'utf8');
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ ok: true }));
+    } catch (error) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ ok: false, error: error.message }));
+    }
+    return;
+  }
+
   const filePath = join(__dirname, url);
   const ext = extname(filePath);
   const contentType = mime[ext] || 'application/octet-stream';

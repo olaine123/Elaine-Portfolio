@@ -629,6 +629,8 @@
 </div>
 
 <script src="lightbox-scroll.js"></script>
+<script src="content/projects.js"></script>
+<script src="content/playground.js"></script>
 <script>
 /* ── Preloader ── */
 (function(){
@@ -647,7 +649,7 @@
 })();
 
 /* ── Data ── */
-const projects = [
+const projects = window.PORTFOLIO_PROJECTS || [
   { num:'01', category:'works', title:'NEW YORK PULSE', type:'Motion Graphics · 2026', page:'work-new-york-pulse.html', thumb:'Project file/NEW YORK PULSE/Styleframe06.jpg' },
   { num:'02', category:'works', title:'THE MILKY WAY HOME', type:'Motion Graphics · 2026', page:'work-milky-way-home.html', thumb:'Project file/The Milky Way Home/Styleframe/Frame-06.jpg' },
   { num:'03', category:'works', title:'THE GOOD, THE BAD, and THE UGLY - OFFICIAL TITLE SEQUENCE', type:'Ending Title Sequence · 2025', page:'work-good-bad-ugly.html', thumb:'Project file/THE GOOD, THE BAD, and THE UGLY/thumbnail.webp', thumbZoom:true },
@@ -667,7 +669,7 @@ const projects = [
   { num:'05', category:'live-action', title:"Who's The Boss Teaser", type:'Television Commercial · 2024', page:'work-whos-the-boss.html', vimeoId:'1187501636' },
 ];
 
-const playgroundItems = [
+const playgroundItems = window.PLAYGROUND_ITEMS || [
   { type:'image', title:'Sushiro', src:'Project file/Playground/sushiro.png' },
   { type:'video', title:'Memory', src:'Project file/Playground/memory.mp4' },
   { type:'video', title:'Me Time', src:'Project file/Playground/Me time.mp4' },

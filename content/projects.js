@@ -1,0 +1,1422 @@
+window.PORTFOLIO_PROJECTS = [
+  {
+    "num": "01",
+    "category": "works",
+    "label": "Motion Graphics",
+    "title": "NEW YORK PULSE",
+    "type": "Motion Graphics · 2026",
+    "vimeoId": "1170310909",
+    "desc": "This project expresses the pure excitement of finally experiencing New York City, a city I had always dreamed of visiting. Through the language of geometry, I aim to simplify and celebrate the city's complexity. Different shapes symbolize the global diversity of people. The animation captures the energy and limitless possibilities of New York, translating my personal excitement into a vibrant, rhythmic motion piece.",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "2026"
+      },
+      {
+        "k": "Type",
+        "v": "Motion Graphics"
+      },
+      {
+        "k": "Location",
+        "v": "USA"
+      }
+    ],
+    "thumb": "Project file/NEW YORK PULSE/Styleframe06.jpg",
+    "illustration": "Project file/NEW YORK PULSE/apple.png.webp",
+    "processGroups": [
+      {
+        "group": "Mind Map",
+        "maxWidth": "60%",
+        "items": [
+          {
+            "src": "Project file/NEW YORK PULSE/mindmap.png"
+          }
+        ]
+      },
+      {
+        "group": "Moodboard",
+        "items": [
+          {
+            "src": "Project file/NEW YORK PULSE/moodboard.png"
+          }
+        ]
+      },
+      {
+        "group": "Storyboard",
+        "items": [
+          {
+            "src": "Project file/NEW YORK PULSE/Storyboard01.jpg"
+          },
+          {
+            "src": "Project file/NEW YORK PULSE/Storyboard02.jpg"
+          }
+        ]
+      },
+      {
+        "group": "Color",
+        "maxWidth": "30%",
+        "items": [
+          {
+            "src": "Project file/NEW YORK PULSE/Color.webp"
+          }
+        ]
+      },
+      {
+        "group": "Styleframe",
+        "items": [
+          {
+            "src": "Project file/NEW YORK PULSE/Styleframe01.jpg"
+          },
+          {
+            "src": "Project file/NEW YORK PULSE/Styleframe02.jpg"
+          },
+          {
+            "src": "Project file/NEW YORK PULSE/Styleframe03.jpg"
+          },
+          {
+            "src": "Project file/NEW YORK PULSE/Styleframe04.png"
+          },
+          {
+            "src": "Project file/NEW YORK PULSE/styleframe05.jpg"
+          },
+          {
+            "src": "Project file/NEW YORK PULSE/Styleframe06.jpg"
+          },
+          {
+            "src": "Project file/NEW YORK PULSE/Styleframe07.jpg"
+          },
+          {
+            "src": "Project file/NEW YORK PULSE/Styleframe08.png"
+          },
+          {
+            "src": "Project file/NEW YORK PULSE/Styleframe09.png"
+          }
+        ]
+      }
+    ],
+    "page": "work-new-york-pulse.html"
+  },
+  {
+    "num": "02",
+    "category": "works",
+    "label": "Motion Graphics",
+    "title": "THE MILKY WAY HOME",
+    "type": "Motion Graphics · 2026",
+    "vimeoId": "1170313437",
+    "desc": "An alien takes a magical journey to Earth, discovering wonder in the everyday things we take for granted.\n\nThis project is about a trip to Earth through the eyes of an alien. He visits the pyramids of Egypt, is amazed by the different shapes of popcorn, watches a movie in a theater, and even meets cats for the first time and forms a connection with them. Through his eyes, ordinary things on Earth become new and surprising.\n\nBut what fascinates him most is milk, something that does not exist on his home planet. When it is time to leave, he chooses a cow instead of gold, taking home a lifetime supply of fresh milk as the ultimate souvenir.",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "2026"
+      },
+      {
+        "k": "Type",
+        "v": "Motion Graphics"
+      },
+      {
+        "k": "Location",
+        "v": "USA"
+      }
+    ],
+    "thumb": "Project file/The Milky Way Home/Styleframe/Frame-06.jpg",
+    "processGroups": [
+      {
+        "layout": "two-col",
+        "left": {
+          "group": "Character Development",
+          "items": [
+            {
+              "src": "Project file/The Milky Way Home/character development.png"
+            }
+          ]
+        },
+        "right": [
+          {
+            "group": "Moodboard",
+            "items": [
+              {
+                "src": "Project file/The Milky Way Home/moodboard.png"
+              }
+            ]
+          },
+          {
+            "group": "Styleboard",
+            "items": [
+              {
+                "src": "Project file/The Milky Way Home/Styleboard.png"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "group": "Color",
+        "maxWidth": "30%",
+        "items": [
+          {
+            "src": "Project file/The Milky Way Home/color.png"
+          }
+        ]
+      },
+      {
+        "group": "Storyboard",
+        "items": [
+          {
+            "src": "Project file/The Milky Way Home/Storyboard_3x2 1.jpg"
+          },
+          {
+            "src": "Project file/The Milky Way Home/Storyboard_3x2 3.jpg"
+          }
+        ]
+      },
+      {
+        "group": "Initial Style Frame Tests",
+        "cols": 2,
+        "mobileCols": 2,
+        "items": [
+          {
+            "src": "Project file/The Milky Way Home/Initial Style Frame Tests/Frame 1.jpg"
+          },
+          {
+            "src": "Project file/The Milky Way Home/Initial Style Frame Tests/Frame 2.jpg"
+          },
+          {
+            "src": "Project file/The Milky Way Home/Initial Style Frame Tests/Frame 3.jpg"
+          },
+          {
+            "src": "Project file/The Milky Way Home/Initial Style Frame Tests/Frame 4.jpg"
+          }
+        ]
+      },
+      {
+        "group": "Work in Progress",
+        "maxWidth": "100%",
+        "items": [
+          {
+            "src": "Project file/The Milky Way Home/Work in Progress/Work in Progress.png"
+          }
+        ]
+      },
+      {
+        "group": "Styleframe",
+        "cols": 3,
+        "items": [
+          {
+            "src": "Project file/The Milky Way Home/Styleframe/Frame-01.jpg"
+          },
+          {
+            "src": "Project file/The Milky Way Home/Styleframe/Frame-02.jpg"
+          },
+          {
+            "src": "Project file/The Milky Way Home/Styleframe/Frame-03.jpg"
+          },
+          {
+            "src": "Project file/The Milky Way Home/Styleframe/Frame-04.jpg"
+          },
+          {
+            "src": "Project file/The Milky Way Home/Styleframe/Frame-05.jpg"
+          },
+          {
+            "src": "Project file/The Milky Way Home/Styleframe/Frame-06.jpg"
+          },
+          {
+            "src": "Project file/The Milky Way Home/Styleframe/Frame-07.jpg"
+          },
+          {
+            "src": "Project file/The Milky Way Home/Styleframe/Frame-08.jpg"
+          },
+          {
+            "src": "Project file/The Milky Way Home/Styleframe/Frame-09.jpg"
+          },
+          {
+            "src": "Project file/The Milky Way Home/Styleframe/Frame-10.jpg"
+          }
+        ]
+      }
+    ],
+    "page": "work-milky-way-home.html"
+  },
+  {
+    "num": "03",
+    "category": "works",
+    "label": "Motion Graphics",
+    "title": "THE GOOD, THE BAD, and THE UGLY - OFFICIAL TITLE SEQUENCE",
+    "type": "Ending Title Sequence · 2025",
+    "vimeoId": "1170318485",
+    "desc": "For this original drama's end credits, I dove deep into the script and worked closely with the director and writer. We wanted to create a visual journey that really captured the protagonist's search for happiness.\n\nUsing kaleidoscope effects and Dolly-in visuals to pull the audience into the story. I also wove in key locations like the breakfast shop, beauty salon, and toy store. To add more narrative tension, I hid \"Easter eggs\" throughout the sequence, such as a Chinese chess piece that symbolizes manipulation.",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "2025"
+      },
+      {
+        "k": "Type",
+        "v": "Ending Title Sequence"
+      },
+      {
+        "k": "Location",
+        "v": "Taiwan"
+      }
+    ],
+    "thumb": "Project file/THE GOOD, THE BAD, and THE UGLY/thumbnail.webp",
+    "thumbZoom": true,
+    "deco": "Project file/THE GOOD, THE BAD, and THE UGLY/Deco.png",
+    "processGroups": [
+      {
+        "layout": "two-col",
+        "ratio": "0.8fr 1.7fr",
+        "rightStyle": "gap: 32px",
+        "left": {
+          "group": "Official Poster",
+          "maxWidth": "78%",
+          "credit": "Poster and Logotype designer: Jill Huang",
+          "items": [
+            {
+              "src": "Project file/THE GOOD, THE BAD, and THE UGLY/poster.png"
+            }
+          ]
+        },
+        "right": [
+          {
+            "group": "",
+            "items": [
+              {
+                "src": "Project file/THE GOOD, THE BAD, and THE UGLY/logo_white.png"
+              }
+            ],
+            "maxWidth": "50%"
+          },
+          {
+            "type": "text",
+            "group": "Technical Inspiration and Implementation",
+            "body": "Drawing inspiration from <a href=\"https://www.dutchdesignawards.nl/en/gallery/fons-de-haan/\" target=\"_blank\" rel=\"noopener noreferrer\">Fons de Haan's animations</a> for J.I.D's performance and music videos like Washed Out's 'Zonked' and <a href=\"https://www.metalocus.es/en/news/leon-2033\" target=\"_blank\" rel=\"noopener noreferrer\">LEON-'2033'</a>, I used After Effects to create layered animations with scale expressions, simulating a 3D space in constant motion."
+          }
+        ]
+      },
+      {
+        "group": "Moodboard",
+        "maxWidth": "75%",
+        "items": [
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/moodboard.png"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "group": "The Process",
+        "body": "<strong>Technology Integration</strong><br>AI tools like MidJourney, Tripio AI, and Magnific.ai enhanced concept development, 3D assets, and visuals.<br><br><strong>Production Process</strong><br>Collaborating with photographers and shooting additional materials myself ensured each frame seamlessly tied into the drama's themes, leaving a lasting visual impact."
+      },
+      {
+        "group": "Planning the roll cut positions across multiple scenes",
+        "maxWidth": "75%",
+        "items": [
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/Planning the roll cut positions.png"
+          }
+        ]
+      },
+      {
+        "group": "Using MidJourney to create the needed objects and conduct visual experiments",
+        "maxWidth": "75%",
+        "items": [
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/Using MidJourney.png"
+          }
+        ]
+      },
+      {
+        "group": "Visual Exploration",
+        "maxWidth": "75%",
+        "items": [
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/Visual Exploration.png"
+          }
+        ]
+      },
+      {
+        "group": "Visual Tests",
+        "cols": 2,
+        "items": [
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/test.gif"
+          },
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/test02.gif"
+          }
+        ]
+      },
+      {
+        "group": "Styleframe",
+        "cols": 5,
+        "items": [
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/styleframe/styleframe01.png"
+          },
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/styleframe/styleframe02.png"
+          },
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/styleframe/styleframe03.png"
+          },
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/styleframe/styleframe04.png"
+          },
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/styleframe/styleframe05.png"
+          },
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/styleframe/styleframe06.png"
+          },
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/styleframe/styleframe07.png"
+          },
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/styleframe/styleframe08.png"
+          },
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/styleframe/styleframe09.png"
+          },
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/styleframe/styleframe10.png"
+          },
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/styleframe/styleframe11.png"
+          },
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/styleframe/styleframe12.png"
+          },
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/styleframe/styleframe13.png"
+          },
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/styleframe/styleframe14.png"
+          },
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/styleframe/styleframe15.png"
+          }
+        ]
+      },
+      {
+        "group": "It's on Netflix Now!",
+        "items": [
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/Netflix.png"
+          }
+        ]
+      }
+    ],
+    "page": "work-good-bad-ugly.html"
+  },
+  {
+    "num": "04",
+    "category": "works",
+    "label": "Motion Graphic",
+    "title": "The Geometry of Logic - Adelphi",
+    "type": "Motion Graphic · 2026",
+    "vimeoId": "1183195558",
+    "desc": "<strong>Bridging Rationality and Form</strong>\n\n<a href=\"https://rosettatype.com/AdelphiPE\" target=\"_blank\" rel=\"noopener noreferrer\">Adelphi</a> is a geometric sans-serif typeface with a modern British style. This motion piece explores the balance between its clean geometric shapes and practical design.\nInspired by Bauhaus, the animation brings the letters to life through movement, showing how simple shapes can create interesting and dynamic compositions.",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "2026"
+      },
+      {
+        "k": "Type",
+        "v": "Motion Graphic"
+      },
+      {
+        "k": "Location",
+        "v": "USA"
+      }
+    ],
+    "thumb": "Project file/The Geometry of Logic - Adelphi/Adelphi kinetic specimen.png",
+    "processGroups": [
+      {
+        "type": "text",
+        "group": "Goal",
+        "body": "To explore how Adelphi's geometric structure can become a dynamic visual system through kinetic typography."
+      },
+      {
+        "type": "text",
+        "group": "Keywords",
+        "body": "Modern / Simple / Universal / Versatile / Text / Display / Sans / Readable / Legible / Multi-purpose / Magazines / Websites"
+      },
+      {
+        "group": "Styleboard",
+        "items": [
+          {
+            "src": "Project file/The Geometry of Logic - Adelphi/moodboard.png"
+          }
+        ]
+      },
+      {
+        "group": "Color",
+        "maxWidth": "50%",
+        "items": [
+          {
+            "src": "Project file/The Geometry of Logic - Adelphi/COLOR.png"
+          }
+        ]
+      },
+      {
+        "group": "Styleframe",
+        "cols": 4,
+        "items": [
+          {
+            "src": "Project file/The Geometry of Logic - Adelphi/Styleframe/StyleFrame-01.jpg"
+          },
+          {
+            "src": "Project file/The Geometry of Logic - Adelphi/Styleframe/StyleFrame-02.jpg"
+          },
+          {
+            "src": "Project file/The Geometry of Logic - Adelphi/Styleframe/StyleFrame-03.jpg"
+          },
+          {
+            "src": "Project file/The Geometry of Logic - Adelphi/Styleframe/StyleFrame-04.jpg"
+          },
+          {
+            "src": "Project file/The Geometry of Logic - Adelphi/Styleframe/StyleFrame-05.jpg"
+          },
+          {
+            "src": "Project file/The Geometry of Logic - Adelphi/Styleframe/StyleFrame-06.jpg"
+          },
+          {
+            "src": "Project file/The Geometry of Logic - Adelphi/Styleframe/StyleFrame-07.jpg"
+          },
+          {
+            "src": "Project file/The Geometry of Logic - Adelphi/Styleframe/StyleFrame-08.jpg"
+          },
+          {
+            "src": "Project file/The Geometry of Logic - Adelphi/Styleframe/StyleFrame-09.jpg"
+          },
+          {
+            "src": "Project file/The Geometry of Logic - Adelphi/Styleframe/StyleFrame-10.jpg"
+          },
+          {
+            "src": "Project file/The Geometry of Logic - Adelphi/Styleframe/StyleFrame-11.jpg"
+          },
+          {
+            "src": "Project file/The Geometry of Logic - Adelphi/Styleframe/StyleFrame-12.jpg"
+          },
+          {
+            "src": "Project file/The Geometry of Logic - Adelphi/Styleframe/StyleFrame-13.jpg"
+          }
+        ]
+      }
+    ],
+    "page": "work-adelphi.html"
+  },
+  {
+    "num": "05",
+    "category": "works",
+    "label": "Motion Graphics",
+    "title": "OREO: BRIGHT IDEAS",
+    "type": "Motion Graphics · 2026",
+    "vimeoId": "1190259118",
+    "desc": "This project reimagines the iconic 1983 Oreo \"Bright Ideas\" commercial by turning its vintage jingle into the visual star. Through expressive kinetic typography, the animation deconstructs the 80s soundtrack, allowing letters to embody the playful and nostalgic energy of \"Milk's Favorite Cookie.\"",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "2026"
+      },
+      {
+        "k": "Type",
+        "v": "Motion Graphics"
+      },
+      {
+        "k": "Location",
+        "v": "USA"
+      }
+    ],
+    "thumb": "Project file/Oreo/Styleframe/Artboard 5.png",
+    "processGroups": [
+      {
+        "type": "youtube-lyrics",
+        "group": "Original Commercial",
+        "youtubeId": "k4XvShzNvX4",
+        "lyricsTitle": "Transcription",
+        "lyrics": "♪ Oh oh oh, bright ideas and an Oreo cookie ♪<br>♪ It's a bright idea to dunk it, or to crunch it or unscrew it ♪<br>♪ Or to lick it, or to trick it, but no matter whatcha do ♪<br>♪ It's true, it's fun to munch a creamy crunchy chocolate O-R-E-O ♪<br>♪ Goes great with imagination, put the yum in your creation ♪<br>Oreo, and Oreo Double Stuf cookies"
+      },
+      {
+        "type": "text",
+        "group": "Design Strategy",
+        "body": "The visual direction bridges 1980s nostalgia with modern motion design. Souvenir Bold serves as the primary typeface; its thick, rounded shape directly mirrors the silhouette of an Oreo cookie and its cream filling. This choice creates a natural harmony between the text and the product.<br><br>The brand's historic identity is updated with a fresh yet heritage-inspired color palette. While typography leads the 30-second spot, mixed media elements and AI-generated imagery help build a period-specific atmosphere, blending classic vibes with contemporary kinetic expression."
+      },
+      {
+        "group": "Color",
+        "maxWidth": "50%",
+        "items": [
+          {
+            "src": "Project file/Oreo/color.png"
+          }
+        ]
+      },
+      {
+        "type": "typeface",
+        "group": "Typeface",
+        "src": "Project file/Oreo/souvenir-bold-font.png",
+        "specs": [
+          {
+            "k": "Period of Popularity",
+            "v": "Late 1970s — Early 1980s"
+          },
+          {
+            "k": "Visual Connection",
+            "v": "Soft edges reflecting the cream filling and cookie silhouette."
+          }
+        ]
+      },
+      {
+        "group": "Research",
+        "maxWidth": "50%",
+        "items": [
+          {
+            "src": "Project file/Oreo/Research.png"
+          }
+        ]
+      },
+      {
+        "group": "Initial Design Test",
+        "cols": 4,
+        "items": [
+          {
+            "src": "Project file/Oreo/Initial design test/test01.png"
+          },
+          {
+            "src": "Project file/Oreo/Initial design test/test02.png"
+          },
+          {
+            "src": "Project file/Oreo/Initial design test/test03.png"
+          },
+          {
+            "src": "Project file/Oreo/Initial design test/test04.png"
+          }
+        ]
+      },
+      {
+        "group": "Styleframe",
+        "cols": 4,
+        "items": [
+          {
+            "src": "Project file/Oreo/Styleframe/Artboard 1.jpg"
+          },
+          {
+            "src": "Project file/Oreo/Styleframe/Artboard 2.png"
+          },
+          {
+            "src": "Project file/Oreo/Styleframe/Artboard 3.png"
+          },
+          {
+            "src": "Project file/Oreo/Styleframe/Artboard 4.png"
+          },
+          {
+            "src": "Project file/Oreo/Styleframe/Artboard 5.png"
+          },
+          {
+            "src": "Project file/Oreo/Styleframe/Artboard 6.png"
+          },
+          {
+            "src": "Project file/Oreo/Styleframe/Artboard 7.png"
+          },
+          {
+            "src": "Project file/Oreo/Styleframe/Artboard 8.png"
+          },
+          {
+            "src": "Project file/Oreo/Styleframe/Artboard 9.png"
+          },
+          {
+            "src": "Project file/Oreo/Styleframe/Artboard 10.png"
+          },
+          {
+            "src": "Project file/Oreo/Styleframe/Artboard 11.png"
+          },
+          {
+            "src": "Project file/Oreo/Styleframe/Artboard 12.png"
+          }
+        ]
+      },
+      {
+        "type": "refine-compare",
+        "group": "Refine",
+        "pairs": [
+          {
+            "before": "Project file/Oreo/Refine/Artboard 6.png",
+            "after": [
+              "Project file/Oreo/Refine/Artboard 6-1.png",
+              "Project file/Oreo/Refine/Artboard 6-2.png"
+            ]
+          },
+          {
+            "before": "Project file/Oreo/Refine/Artboard 8.png",
+            "after": [
+              "Project file/Oreo/Refine/Artboard 8-1.png"
+            ]
+          },
+          {
+            "before": "Project file/Oreo/Refine/Artboard 9.png",
+            "after": [
+              "Project file/Oreo/Refine/Artboard 9-1.png"
+            ]
+          },
+          {
+            "before": "Project file/Oreo/Refine/Artboard 12.png",
+            "after": [
+              "Project file/Oreo/Refine/Artboard 12-1.png"
+            ]
+          }
+        ]
+      }
+    ],
+    "page": "work-oreo.html"
+  },
+  {
+    "num": "06",
+    "category": "works",
+    "label": "Projection",
+    "title": "NIKE SNEAKER PROJECTION",
+    "type": "Projection · 2026",
+    "vimeoId": "1186439648",
+    "desc": "This projection piece uses a retro CRT aesthetic to explore how Nike's visual identity can transform a physical space. Through motion, light, and texture, the animation channels the energy of sneaker culture.",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "2026"
+      },
+      {
+        "k": "Type",
+        "v": "Projection"
+      },
+      {
+        "k": "Location",
+        "v": "USA"
+      }
+    ],
+    "thumb": "Project file/Nike Sneaker Projection/Thumbnail.png",
+    "processGroups": [
+      {
+        "group": "Moodboard",
+        "items": [
+          {
+            "src": "Project file/Nike Sneaker Projection/01moodboard.png"
+          }
+        ]
+      },
+      {
+        "group": "Texture Experiment",
+        "items": [
+          {
+            "src": "Project file/Nike Sneaker Projection/02Texture experiment.png"
+          }
+        ]
+      },
+      {
+        "group": "First Mapping Test",
+        "items": [
+          {
+            "src": "Project file/Nike Sneaker Projection/03First time mapping test.png"
+          }
+        ]
+      },
+      {
+        "group": "Mapping Process",
+        "items": [
+          {
+            "src": "Project file/Nike Sneaker Projection/04Mapping Process.png"
+          }
+        ]
+      },
+      {
+        "group": "Spatial Setup",
+        "items": [
+          {
+            "src": "Project file/Nike Sneaker Projection/05Spatial setup.png"
+          }
+        ]
+      }
+    ],
+    "page": "work-nike.html"
+  },
+  {
+    "num": "07",
+    "category": "works",
+    "label": "Styleframe Design",
+    "title": "7 KINDS OF REST",
+    "type": "Styleframe Design · 2026",
+    "heroImages": [
+      "Project file/7 kinds of rest/Styleframe/01.jpg",
+      "Project file/7 kinds of rest/Styleframe/02.jpg",
+      "Project file/7 kinds of rest/Styleframe/03.jpg",
+      "Project file/7 kinds of rest/Styleframe/04.jpg",
+      "Project file/7 kinds of rest/Styleframe/05.jpg",
+      "Project file/7 kinds of rest/Styleframe/06.jpg"
+    ],
+    "thumb": "Project file/7 kinds of rest/Styleframe/04.jpg",
+    "desc": "Based on Dr. Saundra Dalton-Smith's book <em>Sacred Rest</em>, this project explores the different forms of rest people may need, beginning with mental and emotional rest. I translated these invisible forms of exhaustion into a visual essay through quiet compositions, layered imagery, and a restrained visual rhythm.",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "2026"
+      },
+      {
+        "k": "Type",
+        "v": "Styleframe Design"
+      },
+      {
+        "k": "Location",
+        "v": "USA"
+      }
+    ],
+    "processGroups": [
+      {
+        "group": "Selected Transcripts",
+        "type": "transcripts",
+        "entries": [
+          {
+            "label": "S01 / 02",
+            "body": "I separate mental and emotional rest because mental rest, we focus primarily on mental processes — decision-making, memory function, the ability to have recall, to concentrate."
+          },
+          {
+            "label": "S03",
+            "body": "or performance where you don't have the ability to authentically express your emotions in that moment. Emotional labor in the process of staying at a high level of customer service, ruminating over all of the things that happen in the day."
+          },
+          {
+            "label": "S04 / 05",
+            "body": "Or it's a person who finds that they are very forgetful or can't seem to focus their attention to get a job done. And so that's the mental part of it, the decision, focus aspect of the brain."
+          },
+          {
+            "label": "S06",
+            "body": "The emotional rest part of it is looking at how you process your emotions. And it tends to be one that I find that a lot of people struggle greatly with."
+          },
+          {
+            "label": "S07 / 08",
+            "body": "because many of us have jobs and careers and lifestyles where we carry a large amount of professional emotional labor in the process of staying at a high level of customer service"
+          },
+          {
+            "label": "S09",
+            "body": "or performance where you don't have the ability to authentically express your emotions in that moment. Emotional labor in the process of staying at a high level of customer service."
+          }
+        ]
+      },
+      {
+        "group": "Visual Essay Board",
+        "items": [
+          {
+            "src": "Project file/7 kinds of rest/Visual Essay Boards.jpg"
+          }
+        ]
+      },
+      {
+        "group": "Storyboard",
+        "items": [
+          {
+            "src": "Project file/7 kinds of rest/Storyboard.jpg"
+          }
+        ]
+      },
+      {
+        "group": "Initial Style Frames",
+        "cols": 2,
+        "items": [
+          {
+            "src": "Project file/7 kinds of rest/Initial Style Frames/01.jpg"
+          },
+          {
+            "src": "Project file/7 kinds of rest/Initial Style Frames/02.jpg"
+          },
+          {
+            "src": "Project file/7 kinds of rest/Initial Style Frames/03.jpg"
+          },
+          {
+            "src": "Project file/7 kinds of rest/Initial Style Frames/04.jpg"
+          }
+        ]
+      },
+      {
+        "group": "Final Style Frames",
+        "items": [
+          {
+            "src": "Project file/7 kinds of rest/Styleframe/01.jpg"
+          },
+          {
+            "src": "Project file/7 kinds of rest/Styleframe/02.jpg"
+          },
+          {
+            "src": "Project file/7 kinds of rest/Styleframe/03.jpg"
+          },
+          {
+            "src": "Project file/7 kinds of rest/Styleframe/04.jpg"
+          },
+          {
+            "src": "Project file/7 kinds of rest/Styleframe/05.jpg"
+          },
+          {
+            "src": "Project file/7 kinds of rest/Styleframe/06.jpg"
+          }
+        ]
+      }
+    ],
+    "page": "work-7-kinds-of-rest.html"
+  },
+  {
+    "num": "08",
+    "category": "works",
+    "label": "Styleframe Design",
+    "title": "WORLD ATHLETICS",
+    "type": "Styleframe Design · 2026",
+    "heroImages": [
+      "Project file/World Athletics/Styleframe/Styleframe 1.jpg",
+      "Project file/World Athletics/Styleframe/Styleframe 2.jpg",
+      "Project file/World Athletics/Styleframe/Styleframe 3.jpg",
+      "Project file/World Athletics/Styleframe/Styleframe 4.jpg",
+      "Project file/World Athletics/Styleframe/Styleframe 5.jpg",
+      "Project file/World Athletics/Styleframe/Styleframe 6.jpg",
+      "Project file/World Athletics/Styleframe/Styleframe 7.jpg",
+      "Project file/World Athletics/Styleframe/Styleframe 8.jpg",
+      "Project file/World Athletics/Styleframe/Styleframe 9.jpg"
+    ],
+    "thumb": "Project file/World Athletics/Styleframe/Styleframe 8.jpg",
+    "desc": "This motion piece focuses on the details of an athlete's sprint. Slow-motion imagery amplifies subtle movements, while high-speed kinetic lines convey the force and momentum behind each stride. World Athletics becomes more than a race on the track. It celebrates human strength, discipline, and potential.",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "2026"
+      },
+      {
+        "k": "Type",
+        "v": "Styleframe Design"
+      },
+      {
+        "k": "Location",
+        "v": "USA"
+      }
+    ],
+    "processGroups": [
+      {
+        "group": "Storyboard",
+        "maxWidth": "50%",
+        "items": [
+          {
+            "src": "Project file/World Athletics/Storyboard.jpg"
+          }
+        ]
+      },
+      {
+        "group": "Visual Experiment",
+        "items": [
+          {
+            "src": "Project file/World Athletics/Visual test/Styleframe 1.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Visual test/Styleframe 2.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Visual test/Styleframe 3.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Visual test/Styleframe 4.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Visual test/Styleframe 5.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Visual test/Styleframe 6.jpg"
+          }
+        ]
+      },
+      {
+        "group": "Final Style Frames",
+        "cols": 3,
+        "items": [
+          {
+            "src": "Project file/World Athletics/Styleframe/Styleframe 1.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Styleframe/Styleframe 2.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Styleframe/Styleframe 3.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Styleframe/Styleframe 4.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Styleframe/Styleframe 5.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Styleframe/Styleframe 6.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Styleframe/Styleframe 7.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Styleframe/Styleframe 8.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Styleframe/Styleframe 9.jpg"
+          }
+        ]
+      }
+    ],
+    "page": "work-world-athletics.html"
+  },
+  {
+    "num": "09",
+    "category": "works",
+    "label": "Projection",
+    "title": "CARNIVAL BITES",
+    "type": "Projection · 2026",
+    "vimeoId": "1197953604",
+    "desc": "This projection piece was created for the walls of Carnival at SCAD's Montgomery Hall. Organic brushstrokes and layered motion capture the pleasure of sharing a classic burger, transforming the space into a lively and flavorful dining experience.",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "2026"
+      },
+      {
+        "k": "Type",
+        "v": "Projection"
+      },
+      {
+        "k": "Location",
+        "v": "USA"
+      },
+      {
+        "k": "Venue",
+        "v": "SCAD Montgomery Hall"
+      }
+    ],
+    "thumb": "",
+    "processGroups": [
+      {
+        "group": "Proposed Projection Site",
+        "maxWidth": "50%",
+        "items": [
+          {
+            "src": "Project file/Carnical Bites/Projection Site.jpg"
+          }
+        ]
+      },
+      {
+        "group": "Bird’s-eye Site Plan",
+        "maxWidth": "75%",
+        "items": [
+          {
+            "src": "Project file/Carnical Bites/Bird’s-eye Site Plan.jpg"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "group": "Animation Process",
+        "body": "I colored the hand-drawn frames in After Effects and animated them in Procreate, developing a playful visual language for the projection. The final animation was then mapped onto the Carnival wall, translating the drawn motion into the physical site."
+      },
+      {
+        "group": "Mapping Setup",
+        "maxWidth": "75%",
+        "items": [
+          {
+            "src": "Project file/Carnical Bites/Mapping Setup.png"
+          }
+        ]
+      },
+      {
+        "group": "Spatial Setup",
+        "cols": 2,
+        "items": [
+          {
+            "src": "Project file/Carnical Bites/SPATIAL SETUP01.jpeg"
+          },
+          {
+            "src": "Project file/Carnical Bites/SPATIAL SETUP02.jpeg"
+          }
+        ]
+      }
+    ],
+    "page": "work-carnical-bites.html"
+  },
+  {
+    "num": "10",
+    "category": "works",
+    "label": "Projection",
+    "title": "FROM 1 TO MANY: THE SHARED BREATH",
+    "type": "Projection · May 2026",
+    "vimeoId": "1198294003",
+    "desc": "We all start with a single, solitary breath. As time moves forward, one becomes many, exploding into a massive society.\n\nUltimately, we are fully socialized. Breathing together in the same rhythm, yet each other holding our own unique pace.",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "May 2026"
+      },
+      {
+        "k": "Type",
+        "v": "Projection"
+      },
+      {
+        "k": "Location",
+        "v": "USA"
+      }
+    ],
+    "thumb": "Project file/From 1 to Many The Shared Breath/cover.jpg",
+    "processGroups": [
+      {
+        "group": "LED Test",
+        "items": [
+          {
+            "src": "Project file/From 1 to Many The Shared Breath/LED Test.png"
+          }
+        ]
+      },
+      {
+        "group": "Moodboard",
+        "items": [
+          {
+            "src": "Project file/From 1 to Many The Shared Breath/Moodboards.png"
+          }
+        ]
+      }
+    ],
+    "page": "work-from-1-to-many.html"
+  },
+  {
+    "num": "11",
+    "category": "works",
+    "label": "Broadcast Design",
+    "title": "NBA ON ESPN BROADCAST DESIGN",
+    "type": "Graphics Package · May 2026",
+    "vimeoId": "1198298776",
+    "desc": "",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "May 2026"
+      },
+      {
+        "k": "Type",
+        "v": "Graphics Package"
+      },
+      {
+        "k": "Location",
+        "v": "USA"
+      }
+    ],
+    "thumb": "https://i.vimeocdn.com/video/2165186943-a51ed673e44c9668f52895370c73a4447b2e5558c9b72b7456a9c03e97426557-d_1280",
+    "processGroups": [
+      {
+        "group": "",
+        "cols": 2,
+        "items": [
+          {
+            "src": "Project file/NBA on ESP Broadcast Design/01-Head to head 10 Sec_1.mp4",
+            "caption": "Head to Head"
+          },
+          {
+            "src": "Project file/NBA on ESP Broadcast Design/02-Player Profile 10 Sec_1.mp4",
+            "caption": "Player Profile"
+          },
+          {
+            "src": "Project file/NBA on ESP Broadcast Design/03-Wipe from live 5 Sec_1.mp4",
+            "caption": "Wipe from Live"
+          },
+          {
+            "src": "Project file/NBA on ESP Broadcast Design/04-Info Overlay 5 Sec_1.mp4",
+            "caption": "Info Overlay"
+          }
+        ]
+      }
+    ],
+    "page": "work-nba-on-espn.html"
+  },
+  {
+    "num": "12",
+    "category": "works",
+    "label": "Motion Branding",
+    "title": "SportingJAX Sports Motion Branding",
+    "type": "Motion Branding · October 2026",
+    "vimeoId": "1233598020",
+    "vimeoHash": "16d83eaf6c",
+    "desc": "The Horizon Line\n\nThe horizontal line defines our visual core, but ocean waves give it life. Across the layout, wave-inspired curves and rolling contours cut through the horizon.\n\nThis line is all about constant flow, rising energy, and forward momentum. Warm sunrise colors and deep ocean blues cut across the layout, reflecting the St. Johns River flowing directly into the Atlantic Ocean.\n\nIt is never static. Instead, it serves as an active visual base that drives the team forward. Bold, clean, and strong, the horizon line embodies the relentless power, passion, and spirit of Jacksonville.",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "October 2026"
+      },
+      {
+        "k": "Type",
+        "v": "Motion Branding"
+      },
+      {
+        "k": "Location",
+        "v": "USA"
+      }
+    ],
+    "thumb": "Project file/SportingJAX Sports Motion Brending/SportingJAX Sports Motion Brending.png",
+    "processGroups": [
+      {
+        "group": "Moodboard",
+        "items": [
+          {
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/moodboard.png"
+          }
+        ]
+      },
+      {
+        "group": "Bento",
+        "items": [
+          {
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Bento.mp4"
+          }
+        ]
+      },
+      {
+        "group": "Design Exploration",
+        "cols": 4,
+        "items": [
+          {
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 1.png"
+          },
+          {
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 2.png"
+          },
+          {
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 3.png"
+          },
+          {
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 4.png"
+          },
+          {
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 5.png"
+          },
+          {
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 6.png"
+          },
+          {
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 7.png"
+          },
+          {
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 8.png"
+          }
+        ]
+      }
+    ],
+    "page": "work-sportingjax.html"
+  },
+  {
+    "num": "01",
+    "category": "live-action",
+    "label": "Live Action Motion",
+    "title": "Christmas­land in New Taipei City",
+    "type": "Television Commercial · 2025",
+    "vimeoId": "1187493872",
+    "desc": "The Magic of Christmas\n\nThere's something special about the way light brings the holidays to life. For this project, I used glowing lines to unveil the festive energy of the city's Christmas event, leading the audience through a wonderland of festive decorations.\n\nTo keep the vibe warm and joyful, I used the animation with charming, childlike illustrations. It's a mix of that pure, innocent Christmas spirit we all love.",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "2025"
+      },
+      {
+        "k": "Type",
+        "v": "Television Commercial"
+      },
+      {
+        "k": "Role",
+        "v": "Motion Design"
+      },
+      {
+        "k": "Location",
+        "v": "Taiwan"
+      }
+    ],
+    "thumb": "",
+    "loopVideos": [
+      "Project file/Live action motion/新北耶誕城/01.mp4",
+      "Project file/Live action motion/新北耶誕城/02.mp4",
+      "Project file/Live action motion/新北耶誕城/03.mp4"
+    ],
+    "processGroups": [],
+    "page": "work-christmasland.html"
+  },
+  {
+    "num": "02",
+    "category": "live-action",
+    "label": "Live Action Motion",
+    "title": "Taoyuan Pearl Coast Music Festival",
+    "type": "Television Commercial · 2025",
+    "vimeoId": "1187495431",
+    "desc": "",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "2025"
+      },
+      {
+        "k": "Type",
+        "v": "Television Commercial"
+      },
+      {
+        "k": "Role",
+        "v": "Motion Design"
+      },
+      {
+        "k": "Location",
+        "v": "Taiwan"
+      }
+    ],
+    "thumb": "",
+    "loopVideos": [
+      "Project file/Live action motion/桃園音樂節/01.mp4",
+      "Project file/Live action motion/桃園音樂節/02.mp4",
+      "Project file/Live action motion/桃園音樂節/03.mp4"
+    ],
+    "processGroups": [],
+    "page": "work-taoyuan.html"
+  },
+  {
+    "num": "03",
+    "category": "live-action",
+    "label": "Live Action Motion",
+    "title": "Love On a Shoestring",
+    "type": "Television Commercial · 2024",
+    "vimeoIds": [
+      "1187499775",
+      "1187499776",
+      "1187500035"
+    ],
+    "desc": "Created an advertisement for drama promotion that highlights the distinct personalities of three main characters, embracing a humorous tone that matches the drama's style.\n\nDrawing inspiration from Japanese commercial aesthetics, the advertisement features exaggerated elements and includes a unique segment recreating the iconic Sailor Moon opening sequence. Each character received a personalized \"Super\" design, adding to the playful nature of the promotion.",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "2024"
+      },
+      {
+        "k": "Type",
+        "v": "Television Commercial"
+      },
+      {
+        "k": "Role",
+        "v": "Motion Design"
+      },
+      {
+        "k": "Location",
+        "v": "Taiwan"
+      }
+    ],
+    "thumb": "",
+    "loopVideos": [
+      "Project file/Live action motion/完全省錢/01.mp4",
+      "Project file/Live action motion/完全省錢/02.mp4",
+      "Project file/Live action motion/完全省錢/03.mp4",
+      "Project file/Live action motion/完全省錢/04.mp4",
+      "Project file/Live action motion/完全省錢/05.mp4",
+      "Project file/Live action motion/完全省錢/06.mp4",
+      "Project file/Live action motion/完全省錢/07.mp4"
+    ],
+    "processGroups": [
+      {
+        "layout": "two-col",
+        "ratio": "1fr 1fr",
+        "rightStyle": "justify-content: space-between",
+        "left": {
+          "group": "Assist on the filming set",
+          "maxWidth": "50%",
+          "items": [
+            {
+              "src": "Project file/Live action motion/完全省錢/Assist of the filming set.png"
+            }
+          ]
+        },
+        "right": [
+          {
+            "group": "Visual experiments and prototyping",
+            "items": [
+              {
+                "src": "Project file/Live action motion/完全省錢/Visual experiment.png"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "group": "Production Process",
+            "body": "Comprehensive pre-production included collaborative layout design with the director. Provided on-set guidance for actor positioning and tracking marker setup."
+          }
+        ]
+      },
+      {
+        "group": "Moodboard",
+        "maxWidth": "60%",
+        "items": [
+          {
+            "src": "Project file/Live action motion/完全省錢/moodboard.png"
+          }
+        ]
+      }
+    ],
+    "page": "work-love-on-shoestring.html"
+  },
+  {
+    "num": "04",
+    "category": "live-action",
+    "label": "Live Action Motion",
+    "title": "Taipei City Cup International Esports Tournament",
+    "type": "Television Commercial · 2025",
+    "vimeoId": "1187495234",
+    "desc": "",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "2025"
+      },
+      {
+        "k": "Type",
+        "v": "Television Commercial"
+      },
+      {
+        "k": "Role",
+        "v": "VFX"
+      }
+    ],
+    "thumb": "",
+    "loopVideos": [
+      "Project file/Live action motion/台北城市盃/01.mp4",
+      "Project file/Live action motion/台北城市盃/02.mp4",
+      "Project file/Live action motion/台北城市盃/03.mp4"
+    ],
+    "processGroups": [],
+    "page": "work-taipei-esports.html"
+  },
+  {
+    "num": "05",
+    "category": "live-action",
+    "label": "Live Action Motion",
+    "title": "Who's The Boss Teaser",
+    "type": "Television Commercial · 2024",
+    "vimeoId": "1187501636",
+    "desc": "",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "2024"
+      },
+      {
+        "k": "Type",
+        "v": "Television Commercial"
+      },
+      {
+        "k": "Role",
+        "v": "Motion Design"
+      },
+      {
+        "k": "Location",
+        "v": "Taiwan"
+      }
+    ],
+    "thumb": "",
+    "loopVideos": [
+      "Project file/Live action motion/秘書俱樂部/01.mp4",
+      "Project file/Live action motion/秘書俱樂部/02.mp4",
+      "Project file/Live action motion/秘書俱樂部/03.mp4"
+    ],
+    "processGroups": [],
+    "page": "work-whos-the-boss.html"
+  }
+];

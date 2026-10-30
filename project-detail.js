@@ -1,4 +1,7 @@
-const projects = [
+const localPreviewProjects = new URLSearchParams(window.location.search).get('preview') === '1'
+  ? (() => { try { return JSON.parse(localStorage.getItem('portfolio-preview-projects') || 'null'); } catch { return null; } })()
+  : null;
+const projects = localPreviewProjects || window.PORTFOLIO_PROJECTS || [
   {
     num: '01', category: 'works', label: 'Motion Graphics',
     title: 'NEW YORK PULSE', type: 'Motion Graphics · 2026', vimeoId: '1170310909',
@@ -45,7 +48,7 @@ const projects = [
         { src: 'Project file/The Milky Way Home/Storyboard_3x2 1.jpg' },
         { src: 'Project file/The Milky Way Home/Storyboard_3x2 3.jpg' },
       ]},
-      { group: 'Initial Style Frame Tests', cols: 2, items: [
+      { group: 'Initial Style Frame Tests', cols: 2, mobileCols: 2, items: [
         { src: 'Project file/The Milky Way Home/Initial Style Frame Tests/Frame 1.jpg' },
         { src: 'Project file/The Milky Way Home/Initial Style Frame Tests/Frame 2.jpg' },
         { src: 'Project file/The Milky Way Home/Initial Style Frame Tests/Frame 3.jpg' },
@@ -594,7 +597,7 @@ function renderGroup(g) {
   let imgIdx = 0;
   return `<div class="process-section">
     ${g.group ? `<div class="process-section-label">${g.group}</div>` : ''}
-    <div class="process-section-grid" style="${st}">
+    <div class="process-section-grid" data-mobile-cols="${g.mobileCols || 1}" style="${st}">
       ${g.items.map((item) => {
         const media = isVideo(item.src)
           ? `<video src="${item.src}" autoplay muted loop playsinline style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover"></video>`
@@ -849,4 +852,7 @@ document.addEventListener('mouseout', e => {
 // PROJECT_INDEX is set by the inline <script> in each project page.
 // Top-level `const` is not a window property, so we access it directly.
 /* global PROJECT_INDEX */
-renderProject(typeof PROJECT_INDEX !== 'undefined' ? PROJECT_INDEX : 0);
+const requestedProject = typeof projectSlug !== 'undefined' && projectSlug
+  ? projects.findIndex(project => project.slug === projectSlug || project.page === `work-template.html?project=${projectSlug}`)
+  : -1;
+renderProject(requestedProject >= 0 ? requestedProject : (typeof PROJECT_INDEX !== 'undefined' && PROJECT_INDEX >= 0 ? PROJECT_INDEX : 0));

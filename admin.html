@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio Admin</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="admin-header">
+    <div>
+      <p class="eyebrow">Portfolio Admin</p>
+      <h1>編輯我的作品集</h1>
+    </div>
+    <div class="header-actions">
+      <span id="status" class="status">尚未連接 GitHub</span>
+      <button id="save" class="button button-primary">儲存並發布</button>
+    </div>
+  </header>
+
+  <details class="connection panel">
+    <summary><strong>GitHub 設定</strong><span id="connection-summary">尚未連接</span></summary>
+    <div class="connection-inner">
+    <div class="panel-heading"><div><h2>連接 GitHub</h2><span>作品儲存後會自動更新網站。</span></div><span>Token 只會保存在目前瀏覽器工作階段</span></div>
+    <div class="connection-grid">
+      <label>Owner<input id="owner" value="olaine123"></label>
+      <label>Repository<input id="repo" value="Elaine-Portfolio"></label>
+      <label>Branch<input id="branch" value="main"></label>
+      <label class="token-field">Fine-grained token<input id="token" type="password" placeholder="github_pat_..."></label>
+      <div class="connection-actions"><button id="connect" class="button">連接</button><button id="sync-local" class="button" hidden>同步到本機</button></div>
+    </div>
+    <p class="hint">第一次使用時，請輸入 GitHub Fine-grained Token，權限只需要這個 repository 的 Contents: Read and write。</p>
+    </div>
+  </details>
+
+  <main class="admin-layout">
+    <aside class="project-list panel">
+      <div class="panel-heading"><h2>作品</h2><div class="panel-heading-actions"><button id="show-playground" class="text-button">Playground</button><button id="new-project" class="text-button">＋ 新增作品</button></div></div>
+      <div id="projects-list"></div>
+    </aside>
+    <section class="editor panel">
+      <div id="empty-state" class="empty-state">請從左側選擇作品開始編輯。</div>
+      <section id="playground-editor" hidden>
+        <div class="editor-heading"><div><p class="eyebrow">Playground</p><h2>編輯 Playground</h2></div><button id="back-to-projects" type="button" class="text-button">回到作品</button></div>
+        <p class="hint">這裡管理首頁 Playground 的圖片與短影片。拖曳卡片可以調整顯示順序。</p>
+        <div class="section-heading"><div><p class="eyebrow">Playground items</p><h3>自由練習作品</h3></div><div class="add-block-actions"><button id="add-playground-image" type="button" class="button">＋ 圖片</button><button id="add-playground-video" type="button" class="button">＋ 影片</button></div></div>
+        <div id="playground-items" class="playground-editor-list"></div>
+      </section>
+      <form id="project-form" hidden>
+        <div class="editor-heading"><div><p class="eyebrow">Project details</p><h2 id="editor-title">編輯作品</h2></div><div class="editor-actions"><button id="preview-project" type="button" class="text-button">預覽作品</button><button id="delete-project" type="button" class="danger-button">刪除作品</button></div></div>
+        <div class="field-grid">
+          <label>作品標題<input id="title" required></label>
+          <label>作品小標<input id="label"></label>
+          <label>分類<input id="category"></label>
+          <label>作品類型／年份<input id="type"></label>
+          <label>年份<input id="year"></label>
+          <label>地點<input id="location"></label>
+          <label>Vimeo ID<input id="vimeo"></label>
+          <label>封面圖片路徑<input id="thumb"></label>
+        </div>
+        <label>Concept<textarea id="desc" rows="7"></textarea></label>
+        <div class="media-manager">
+          <div class="section-heading"><div><p class="eyebrow">Video Media</p><h3>影片素材</h3></div><div class="add-block-actions"><button id="add-vimeo" type="button" class="button">＋ Vimeo</button><button id="add-loop-video" type="button" class="button">＋ 本地影片</button></div></div>
+          <div id="vimeo-fields" class="media-list"></div>
+          <div id="loop-video-fields" class="media-list"></div>
+        </div>
+        <div class="section-heading"><div><p class="eyebrow">Process layout</p><h3>作品流程</h3></div><div class="add-block-actions"><button id="add-text-block" type="button" class="button">＋ 文字區塊</button><button id="add-gallery-block" type="button" class="button">＋ 圖片畫廊</button><button id="add-image-block" type="button" class="button">＋ 單張大圖</button></div></div>
+        <div class="canvas-note">把滑鼠移到區塊左上角的拖曳符號，就可以直接拖曳調整流程順序。版型按鈕會改變區塊在畫布上的寬度。</div>
+        <div id="blocks" class="visual-canvas"></div>
+      </form>
+    </section>
+    <aside class="live-preview panel">
+      <div class="panel-heading"><div><p class="eyebrow">Live Preview</p><h2>即時預覽</h2></div><span id="preview-status">草稿</span></div>
+      <div class="preview-frame-wrap"><iframe id="live-preview-frame" title="Live project preview"></iframe></div>
+    </aside>
+  </main>
+  <script src="content/projects.js"></script>
+  <script src="content/playground.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -3,3 +3,4 @@
 .claude/
 temporary screenshots/
 node_modules/
+.local-backups/

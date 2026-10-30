@@ -301,6 +301,7 @@ footer {
   .yt-lyrics-wrap { grid-template-columns: 1fr; }
   .process-section-grid:not([style*="repeat(1,"]) { grid-template-columns: repeat(2, 1fr) !important; }
   .process-section-grid[style*="repeat(2,1fr)"] { grid-template-columns: 1fr !important; }
+  .process-section-grid[data-mobile-cols="2"] { grid-template-columns: repeat(2, 1fr) !important; }
   .process-section-grid { max-width: 100% !important; }
   #lb-stage { padding: 56px 12px 8px; }
   #lb-footer { padding: 8px 16px 20px; }
