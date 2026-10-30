@@ -82,8 +82,8 @@ const projects = [
     deco: 'Project file/THE GOOD, THE BAD, and THE UGLY/Deco.png',
     processGroups: [
       {
-        layout: 'two-col', ratio: '1fr 1.5fr',
-        left: { group: 'Official Poster', credit: 'Poster and Logotype designer: Jill Huang', items: [{ src: 'Project file/THE GOOD, THE BAD, and THE UGLY/poster.png' }] },
+        layout: 'two-col', ratio: '0.8fr 1.7fr', rightStyle: 'gap: 32px',
+        left: { group: 'Official Poster', maxWidth: '78%', credit: 'Poster and Logotype designer: Jill Huang', items: [{ src: 'Project file/THE GOOD, THE BAD, and THE UGLY/poster.png' }] },
         right: [
           { group: '', items: [{ src: 'Project file/THE GOOD, THE BAD, and THE UGLY/logo_white.png' }], maxWidth: '50%' },
           { type: 'text', group: 'Technical Inspiration and Implementation', body: 'Drawing inspiration from <a href="https://www.dutchdesignawards.nl/en/gallery/fons-de-haan/" target="_blank" rel="noopener noreferrer">Fons de Haan\'s animations</a> for J.I.D\'s performance and music videos like Washed Out\'s \'Zonked\' and <a href="https://www.metalocus.es/en/news/leon-2033" target="_blank" rel="noopener noreferrer">LEON-\'2033\'</a>, I used After Effects to create layered animations with scale expressions, simulating a 3D space in constant motion.' },
@@ -91,20 +91,14 @@ const projects = [
       },
       { group: 'Moodboard', maxWidth: '75%', items: [{ src: 'Project file/THE GOOD, THE BAD, and THE UGLY/moodboard.png' }] },
       { type: 'text', group: 'The Process', body: '<strong>Technology Integration</strong><br>AI tools like MidJourney, Tripio AI, and Magnific.ai enhanced concept development, 3D assets, and visuals.<br><br><strong>Production Process</strong><br>Collaborating with photographers and shooting additional materials myself ensured each frame seamlessly tied into the drama\'s themes, leaving a lasting visual impact.' },
-      { group: 'Scenarios and Research', cols: 4, items: [
-        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-1.png' },
-        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-2.png' },
-        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-3.png' },
-        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-4.png' },
-        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-5.png' },
-        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-6.png' },
-        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-7.png' },
-        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-8.png' },
-        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-9.png' },
-        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-10.png' },
-        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-11.png' },
-        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-12.png' },
-        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-13.png' },
+      { group: 'Planning the roll cut positions across multiple scenes', maxWidth: '75%', items: [
+        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/Planning the roll cut positions.png' },
+      ]},
+      { group: 'Using MidJourney to create the needed objects and conduct visual experiments', maxWidth: '75%', items: [
+        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/Using MidJourney.png' },
+      ]},
+      { group: 'Visual Exploration', maxWidth: '75%', items: [
+        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/Visual Exploration.png' },
       ]},
       { group: 'Visual Tests', cols: 2, items: [
         { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/test.gif' },
