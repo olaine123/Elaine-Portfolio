@@ -1,7 +1,19 @@
 const localPreviewProjects = new URLSearchParams(window.location.search).get('preview') === '1'
   ? (() => { try { return JSON.parse(localStorage.getItem('portfolio-preview-projects') || 'null'); } catch { return null; } })()
   : null;
-const projects = localPreviewProjects || window.PORTFOLIO_PROJECTS || [
+const repairMojibake = value => {
+  if (typeof value === 'string') {
+    if (!/[ÃÂâ]/.test(value)) return value;
+    try {
+      const repaired = decodeURIComponent(escape(value));
+      return repaired.includes('�') ? value : repaired;
+    } catch { return value; }
+  }
+  if (Array.isArray(value)) return value.map(repairMojibake);
+  if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, repairMojibake(item)]));
+  return value;
+};
+const projects = repairMojibake(localPreviewProjects || window.PORTFOLIO_PROJECTS) || [
   {
     num: '01', category: 'works', label: 'Motion Graphics',
     title: 'NEW YORK PULSE', type: 'Motion Graphics · 2026', vimeoId: '1170310909',

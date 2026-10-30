@@ -1,7 +1,19 @@
 (() => {
   const $ = (id) => document.getElementById(id);
   const clone = (value) => JSON.parse(JSON.stringify(value));
-  const state = { projects: clone(window.PORTFOLIO_PROJECTS || []), playground: clone(window.PLAYGROUND_ITEMS || []), selected: 0, sha: null, playgroundSha: null, mode: 'projects' };
+  const repairMojibake = value => {
+    if (typeof value === 'string') {
+      if (!/[ÃÂâ]/.test(value)) return value;
+      try {
+        const repaired = decodeURIComponent(escape(value));
+        return repaired.includes('�') ? value : repaired;
+      } catch { return value; }
+    }
+    if (Array.isArray(value)) return value.map(repairMojibake);
+    if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, repairMojibake(item)]));
+    return value;
+  };
+  const state = { projects: clone(repairMojibake(window.PORTFOLIO_PROJECTS || [])), playground: clone(window.PLAYGROUND_ITEMS || []), selected: 0, sha: null, playgroundSha: null, mode: 'projects' };
   let previewTimer;
   const tokenKey = 'elaine-portfolio-github-token';
   const savedToken = localStorage.getItem(tokenKey) || sessionStorage.getItem(tokenKey) || '';
@@ -109,7 +121,7 @@
     try {
       const file = await github('/contents/content/playground.js?ref=' + encodeURIComponent($('branch').value.trim()));
       state.playgroundSha = file.sha;
-      const source = atob(file.content.replace(/\n/g, ''));
+      const source = decodeBase64Utf8(file.content);
       const match = source.match(/window\.PLAYGROUND_ITEMS\s*=\s*([\s\S]*);\s*$/);
       if (match) state.playground = JSON.parse(match[1]);
     } catch (error) {
@@ -323,6 +335,10 @@
     reader.onerror = reject;
     reader.readAsDataURL(file);
   });
+  const decodeBase64Utf8 = value => {
+    const binary = atob(value.replace(/\n/g, ''));
+    return new TextDecoder().decode(Uint8Array.from(binary, char => char.charCodeAt(0)));
+  };
   async function github(path, options = {}) {
     const token = $('token').value.trim();
     const response = await fetch(`https://api.github.com/${repoPath()}/${path.replace(/^\//, '')}`, { ...options, headers: { Accept: 'application/vnd.github+json', Authorization: `Bearer ${token}`, 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json', ...(options.headers || {}) } });
@@ -367,10 +383,10 @@
       localStorage.setItem(tokenKey, $('token').value.trim()); sessionStorage.setItem(tokenKey, $('token').value.trim()); setStatus('Connecting…');
       const file = await github('/contents/content/projects.js?ref=' + encodeURIComponent($('branch').value.trim()));
       state.sha = file.sha;
-      const source = atob(file.content.replace(/\n/g, ''));
+      const source = decodeBase64Utf8(file.content);
       const match = source.match(/window\.PORTFOLIO_PROJECTS\s*=\s*([\s\S]*);\s*$/);
       if (!match) throw new Error('Could not read portfolio content.');
-      const remoteProjects = JSON.parse(match[1]);
+      const remoteProjects = repairMojibake(JSON.parse(match[1]));
       state.projects = remoteProjects; state.selected = 0; await loadPlaygroundFromGithub(); state.mode = 'projects'; renderList(); renderEditor(); setStatus(JSON.stringify(remoteProjects) === JSON.stringify(window.PORTFOLIO_PROJECTS) ? '已連接 GitHub' : 'GitHub 有較新內容，建議同步到本機。', JSON.stringify(remoteProjects) !== JSON.stringify(window.PORTFOLIO_PROJECTS)); $('connection-summary').textContent = '已連接';
     } catch (error) { setStatus(error.message, true); }
   });
@@ -380,7 +396,7 @@
     try {
       setStatus('正在同步到本機…');
       const file = await github('/contents/content/projects.js?ref=' + encodeURIComponent($('branch').value.trim()));
-      const source = atob(file.content.replace(/\n/g, ''));
+      const source = decodeBase64Utf8(file.content);
       const result = await fetch('/api/sync-content', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ source }) });
       const data = await result.json();
       if (!result.ok || !data.ok) throw new Error(data.error || '本機同步失敗');
