@@ -86,11 +86,30 @@ const projects = [
         left: { group: 'Official Poster', credit: 'Poster and Logotype designer: Jill Huang', items: [{ src: 'Project file/THE GOOD, THE BAD, and THE UGLY/poster.png' }] },
         right: [
           { group: '', items: [{ src: 'Project file/THE GOOD, THE BAD, and THE UGLY/logo_white.png' }], maxWidth: '50%' },
-          { type: 'text', group: 'Technical Execution', body: 'My work was inspired by Fons de Haan\'s visuals for J.I.D and the aesthetic of music videos like Washed Out\'s \'Zonked.\' I built the entire sequence in After Effects using complex scale expressions to create a layered and "infinite" 3D motion feel.' },
-          { type: 'text', group: 'The Process', body: 'To push the visuals even further, I integrated AI tools like MidJourney, Tripio AI, and Magnific.ai for concept and asset development. I also collaborated with photographers and shot additional footage myself to make sure the final piece felt seamless and hit all the right emotional notes.' },
+          { type: 'text', group: 'Technical Inspiration and Implementation', body: 'Drawing inspiration from <a href="https://www.dutchdesignawards.nl/en/gallery/fons-de-haan/" target="_blank" rel="noopener noreferrer">Fons de Haan\'s animations</a> for J.I.D\'s performance and music videos like Washed Out\'s \'Zonked\' and <a href="https://www.metalocus.es/en/news/leon-2033" target="_blank" rel="noopener noreferrer">LEON-\'2033\'</a>, I used After Effects to create layered animations with scale expressions, simulating a 3D space in constant motion.' },
         ],
       },
       { group: 'Moodboard', maxWidth: '75%', items: [{ src: 'Project file/THE GOOD, THE BAD, and THE UGLY/moodboard.png' }] },
+      { type: 'text', group: 'The Process', body: '<strong>Technology Integration</strong><br>AI tools like MidJourney, Tripio AI, and Magnific.ai enhanced concept development, 3D assets, and visuals.<br><br><strong>Production Process</strong><br>Collaborating with photographers and shooting additional materials myself ensured each frame seamlessly tied into the drama\'s themes, leaving a lasting visual impact.' },
+      { group: 'Scenarios and Research', cols: 4, items: [
+        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-1.png' },
+        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-2.png' },
+        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-3.png' },
+        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-4.png' },
+        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-5.png' },
+        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-6.png' },
+        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-7.png' },
+        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-8.png' },
+        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-9.png' },
+        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-10.png' },
+        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-11.png' },
+        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-12.png' },
+        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/research.png-13.png' },
+      ]},
+      { group: 'Visual Tests', cols: 2, items: [
+        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/test.gif' },
+        { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/test02.gif' },
+      ]},
       { group: 'Styleframe', cols: 5, items: [
         { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/styleframe/styleframe01.png' },
         { src: 'Project file/THE GOOD, THE BAD, and THE UGLY/styleframe/styleframe02.png' },
@@ -151,10 +170,10 @@ const projects = [
       { type: 'youtube-lyrics', group: 'Original Commercial', youtubeId: 'k4XvShzNvX4',
         lyricsTitle: 'Transcription',
         lyrics: '♪ Oh oh oh, bright ideas and an Oreo cookie ♪<br>♪ It\'s a bright idea to dunk it, or to crunch it or unscrew it ♪<br>♪ Or to lick it, or to trick it, but no matter whatcha do ♪<br>♪ It\'s true, it\'s fun to munch a creamy crunchy chocolate O-R-E-O ♪<br>♪ Goes great with imagination, put the yum in your creation ♪<br>Oreo, and Oreo Double Stuf cookies' },
-      { type: 'text', group: 'Design Strategy', body: 'The visual direction bridges 1980s nostalgia with modern motion design. Souvenir Black serves as the primary typeface; its thick, rounded shape directly mirrors the silhouette of an Oreo cookie and its cream filling. This choice creates a natural harmony between the text and the product.<br><br>The brand\'s historic identity is updated with a fresh yet heritage-inspired color palette. While typography leads the 30 second spot, mixed media elements and AI-generated imagery help build a period-specific atmosphere, blending classic vibes with contemporary kinetic expression.' },
+      { type: 'text', group: 'Design Strategy', body: 'The visual direction bridges 1980s nostalgia with modern motion design. Souvenir Bold serves as the primary typeface; its thick, rounded shape directly mirrors the silhouette of an Oreo cookie and its cream filling. This choice creates a natural harmony between the text and the product.<br><br>The brand\'s historic identity is updated with a fresh yet heritage-inspired color palette. While typography leads the 30-second spot, mixed media elements and AI-generated imagery help build a period-specific atmosphere, blending classic vibes with contemporary kinetic expression.' },
       { group: 'Color', maxWidth: '50%', items: [{ src: 'Project file/Oreo/color.png' }] },
       { type: 'typeface', group: 'Typeface', src: 'Project file/Oreo/souvenir-bold-font.png', specs: [
-        { k: 'Year of Popularity', v: 'Late 1970s — Early 1980s' },
+        { k: 'Period of Popularity', v: 'Late 1970s — Early 1980s' },
         { k: 'Visual Connection', v: 'Soft edges reflecting the cream filling and cookie silhouette.' },
       ]},
       { group: 'Research', maxWidth: '50%', items: [{ src: 'Project file/Oreo/Research.png' }] },
@@ -190,13 +209,13 @@ const projects = [
   {
     num: '06', category: 'works', label: 'Projection',
     title: 'NIKE SNEAKER PROJECTION', type: 'Projection · 2026', vimeoId: '1186439648',
-    desc: 'Utilizing a retro CRT look to explore how Nike\'s visual identity can transform a space and illustrate the \'energy\' of sneaker culture through motion and light',
+    desc: 'This projection piece uses a retro CRT aesthetic to explore how Nike\'s visual identity can transform a physical space. Through motion, light, and texture, the animation channels the energy of sneaker culture.',
     specs: [{ k: 'Year', v: '2026' }, { k: 'Type', v: 'Projection' }, { k: 'Location', v: 'USA' }],
     thumb: 'Project file/Nike Sneaker Projection/Thumbnail.png',
     processGroups: [
       { group: 'Moodboard',                  items: [{ src: 'Project file/Nike Sneaker Projection/01moodboard.png' }] },
       { group: 'Texture Experiment',          items: [{ src: 'Project file/Nike Sneaker Projection/02Texture experiment.png' }] },
-      { group: 'First Time Mapping Test',     items: [{ src: 'Project file/Nike Sneaker Projection/03First time mapping test.png' }] },
+      { group: 'First Mapping Test',          items: [{ src: 'Project file/Nike Sneaker Projection/03First time mapping test.png' }] },
       { group: 'Mapping Process',             items: [{ src: 'Project file/Nike Sneaker Projection/04Mapping Process.png' }] },
       { group: 'Spatial Setup',               items: [{ src: 'Project file/Nike Sneaker Projection/05Spatial setup.png' }] },
     ],
@@ -214,10 +233,10 @@ const projects = [
       'Project file/7 kinds of rest/Styleframe/06.jpg',
     ],
     thumb: 'Project file/7 kinds of rest/Styleframe/04.jpg',
-    desc: "In Dr. Saundra Dalton-Smith's book, Sacred Rest, she outlines different kinds of rest you may be craving. From the mental to the physical, Dalton-Smith shares how to identify what kind of respite you need and how to embrace rest.",
+    desc: "Based on Dr. Saundra Dalton-Smith's book <em>Sacred Rest</em>, this project explores the different forms of rest people may need, beginning with mental and emotional rest. I translated these invisible forms of exhaustion into a visual essay through quiet compositions, layered imagery, and a restrained visual rhythm.",
     specs: [{ k: 'Year', v: '2026' }, { k: 'Type', v: 'Styleframe Design' }, { k: 'Location', v: 'USA' }],
     processGroups: [
-      { group: 'Transcripts', type: 'transcripts', entries: [
+      { group: 'Selected Transcripts', type: 'transcripts', entries: [
         { label: 'S01 / 02', body: 'I separate mental and emotional rest because mental rest, we focus primarily on mental processes — decision-making, memory function, the ability to have recall, to concentrate.' },
         { label: 'S03', body: 'or performance where you don\'t have the ability to authentically express your emotions in that moment. Emotional labor in the process of staying at a high level of customer service, ruminating over all of the things that happen in the day.' },
         { label: 'S04 / 05', body: 'Or it\'s a person who finds that they are very forgetful or can\'t seem to focus their attention to get a job done. And so that\'s the mental part of it, the decision, focus aspect of the brain.' },
@@ -225,8 +244,15 @@ const projects = [
         { label: 'S07 / 08', body: 'because many of us have jobs and careers and lifestyles where we carry a large amount of professional emotional labor in the process of staying at a high level of customer service' },
         { label: 'S09', body: 'or performance where you don\'t have the ability to authentically express your emotions in that moment. Emotional labor in the process of staying at a high level of customer service.' },
       ]},
-      { group: '', items: [{ src: 'Project file/7 kinds of rest/Visual Essay Boards.jpg' }] },
-      { group: 'Styleframe', items: [
+      { group: 'Visual Essay Board', items: [{ src: 'Project file/7 kinds of rest/Visual Essay Boards.jpg' }] },
+      { group: 'Storyboard', items: [{ src: 'Project file/7 kinds of rest/Storyboard.jpg' }] },
+      { group: 'Initial Style Frames', cols: 2, items: [
+        { src: 'Project file/7 kinds of rest/Initial Style Frames/01.jpg' },
+        { src: 'Project file/7 kinds of rest/Initial Style Frames/02.jpg' },
+        { src: 'Project file/7 kinds of rest/Initial Style Frames/03.jpg' },
+        { src: 'Project file/7 kinds of rest/Initial Style Frames/04.jpg' },
+      ]},
+      { group: 'Final Style Frames', items: [
         { src: 'Project file/7 kinds of rest/Styleframe/01.jpg' },
         { src: 'Project file/7 kinds of rest/Styleframe/02.jpg' },
         { src: 'Project file/7 kinds of rest/Styleframe/03.jpg' },
@@ -252,7 +278,7 @@ const projects = [
       'Project file/World Athletics/Styleframe/Styleframe 9.jpg',
     ],
     thumb: 'Project file/World Athletics/Styleframe/Styleframe 8.jpg',
-    desc: 'This motion piece focuses on the intricate details of an athlete\'s sprint. Using slowmotion shots to amplify subtle movements, combined with high-speed kinetic lines to show how athletes push past their physical limits.\n\nWorld Athletics is about more than just a race on the track, it\'s a celebration of human strength and potential. Every second, every step, all for pushing the limits.',
+    desc: 'This motion piece focuses on the details of an athlete\'s sprint. Slow-motion imagery amplifies subtle movements, while high-speed kinetic lines convey the force and momentum behind each stride. World Athletics becomes more than a race on the track. It celebrates human strength, discipline, and potential.',
     specs: [{ k: 'Year', v: '2026' }, { k: 'Type', v: 'Styleframe Design' }, { k: 'Location', v: 'USA' }],
     processGroups: [
       { group: 'Storyboard', maxWidth: '50%', items: [{ src: 'Project file/World Athletics/Storyboard.jpg' }] },
@@ -264,7 +290,7 @@ const projects = [
         { src: 'Project file/World Athletics/Visual test/Styleframe 5.jpg' },
         { src: 'Project file/World Athletics/Visual test/Styleframe 6.jpg' },
       ]},
-      { group: 'Final Styleframe', cols: 3, items: [
+      { group: 'Final Style Frames', cols: 3, items: [
         { src: 'Project file/World Athletics/Styleframe/Styleframe 1.jpg' },
         { src: 'Project file/World Athletics/Styleframe/Styleframe 2.jpg' },
         { src: 'Project file/World Athletics/Styleframe/Styleframe 3.jpg' },
@@ -281,7 +307,7 @@ const projects = [
   {
     num: '09', category: 'works', label: 'Projection',
     title: 'CARNIVAL BITES', type: 'Projection · 2026', vimeoId: '1197953604',
-    desc: 'Animation created for the walls of Carnival, capturing the pure joy of savoring a delicious meal. Through organic brushstrokes, the visual brings to life the satisfying moment of enjoying a classic burger. This piece projects the lively, flavorful atmosphere of Carnival to Montgomery Hall, inviting everyone to step inside and join the feast.',
+    desc: "This projection piece was created for the walls of Carnival at SCAD's Montgomery Hall. Organic brushstrokes and layered motion capture the pleasure of sharing a classic burger, transforming the space into a lively and flavorful dining experience.",
     specs: [
       { k: 'Year', v: '2026' },
       { k: 'Type', v: 'Projection' },
@@ -290,11 +316,19 @@ const projects = [
     ],
     thumb: '',
     processGroups: [
-      { group: 'Process', cols: 2, items: [
-        { src: 'Project file/Carnical Bites/Process01.jpeg' },
-        { src: 'Project file/Carnical Bites/Process02.jpeg' },
-        { src: 'Project file/Carnical Bites/Process03.jpeg' },
-        { src: 'Project file/Carnical Bites/Process04.jpg' },
+      { group: 'Proposed Projection Site', maxWidth: '50%', items: [
+        { src: 'Project file/Carnical Bites/Projection Site.jpg' },
+      ]},
+      { group: 'Bird’s-eye Site Plan', maxWidth: '75%', items: [
+        { src: 'Project file/Carnical Bites/Bird’s-eye Site Plan.jpg' },
+      ]},
+      { type: 'text', group: 'Animation Process', body: 'I colored the hand-drawn frames in After Effects and animated them in Procreate, developing a playful visual language for the projection. The final animation was then mapped onto the Carnival wall, translating the drawn motion into the physical site.' },
+      { group: 'Mapping Setup', maxWidth: '75%', items: [
+        { src: 'Project file/Carnical Bites/Mapping Setup.png' },
+      ]},
+      { group: 'Spatial Setup', cols: 2, items: [
+        { src: 'Project file/Carnical Bites/SPATIAL SETUP01.jpeg' },
+        { src: 'Project file/Carnical Bites/SPATIAL SETUP02.jpeg' },
       ]},
     ],
     page: 'work-carnical-bites.html',
@@ -350,6 +384,7 @@ const projects = [
     ],
     thumb: 'Project file/SportingJAX Sports Motion Brending/SportingJAX Sports Motion Brending.png',
     processGroups: [
+      { group: 'Moodboard', items: [{ src: 'Project file/SportingJAX Sports Motion Brending/detail page/moodboard.png' }] },
       { group: 'Bento', items: [{ src: 'Project file/SportingJAX Sports Motion Brending/detail page/Bento.mp4' }] },
       { group: 'Design Exploration', cols: 4, items: [
         { src: 'Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 1.png' },
