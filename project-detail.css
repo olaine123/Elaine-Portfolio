@@ -176,6 +176,10 @@ nav {
 }
 .process-body a { color: var(--red); text-decoration: underline; text-underline-offset: 3px; }
 .process-body a:hover { color: var(--white); }
+.process-body p, .detail-desc p { margin: 0 0 1em; }
+.process-body ul, .process-body ol, .detail-desc ul, .detail-desc ol { padding-left: 1.5em; margin: .6em 0 1em; }
+.process-body h3, .detail-desc h3 { font-size: 1.2em; margin: 1em 0 .5em; }
+.process-two-col > div { min-width: 0; }
 
 /* ─── More Projects Nav ─── */
 .detail-more-projects { padding: 40px 52px 60px; border-top: 1px solid var(--line); margin-top: 60px; }

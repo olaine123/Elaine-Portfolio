@@ -15,6 +15,9 @@
   };
   const state = { projects: clone(repairMojibake(window.PORTFOLIO_PROJECTS || [])), playground: clone(window.PLAYGROUND_ITEMS || []), selected: 0, sha: null, playgroundSha: null, mode: 'projects' };
   let previewTimer;
+  const groupData = new WeakMap();
+  const itemData = new WeakMap();
+  let previewDevice = 'desktop';
   const tokenKey = 'elaine-portfolio-github-token';
   const savedToken = localStorage.getItem(tokenKey) || sessionStorage.getItem(tokenKey) || '';
   $('token').value = savedToken;
@@ -35,19 +38,31 @@
   };
 
   function renderList() {
-    $('projects-list').innerHTML = state.projects.map((project, index) => `
+    const query = $('project-search').value.trim().toLowerCase();
+    $('projects-list').innerHTML = state.projects.map((project, index) => ({ project, index })).filter(({ project }) => `${project.title} ${project.type} ${project.category}`.toLowerCase().includes(query)).map(({ project, index }) => `
       <button class="project-item${index === state.selected ? ' active' : ''}" data-project="${index}">
-        <span class="project-thumb">${projectPreview(project) ? `<img src="${escapeHtml(projectPreview(project))}" alt="">` : '<span>＋</span>'}</span>
+        <span class="project-thumb">${projectPreview(project) ? previewMedia(projectPreview(project)) : '<span>＋</span>'}</span>
         <span class="project-item-copy">${escapeHtml(project.title || 'Untitled project')}<small>${escapeHtml(project.type || project.category || '')}</small></span>
       </button>`).join('');
     $('projects-list').querySelectorAll('[data-project]').forEach(button => {
-      button.addEventListener('click', () => { state.mode = 'projects'; state.selected = Number(button.dataset.project); renderList(); renderEditor(); });
+      button.addEventListener('click', () => { flushEditor(); state.mode = 'projects'; state.selected = Number(button.dataset.project); renderList(); renderEditor(); });
     });
+    $('projects-list').querySelectorAll('.project-thumb img, .project-thumb video').forEach(media => {
+      media.addEventListener('error', () => { media.parentElement.textContent = '◇'; }, { once: true });
+    });
+    if (!$('projects-list').children.length) $('projects-list').innerHTML = '<p class="hint">沒有符合的作品。</p>';
   }
 
   function renderEditor() {
     $('playground-editor').hidden = state.mode !== 'playground';
     $('project-form').hidden = state.mode !== 'projects';
+    if (state.mode === 'playground') {
+      document.querySelector('.live-preview').hidden = true;
+      document.querySelector('.admin-layout').classList.remove('with-preview');
+      $('toggle-preview').setAttribute('aria-expanded', 'false');
+      $('toggle-preview').textContent = '即時預覽';
+    }
+    $('toggle-preview').disabled = state.mode !== 'projects';
     $('empty-state').hidden = state.mode !== 'projects';
     if (state.mode === 'playground') { renderPlayground(); return; }
     const project = state.projects[state.selected];
@@ -60,9 +75,10 @@
     $('type').value = project.type || '';
     $('year').value = project.specs?.find(spec => spec.k === 'Year')?.v || '';
     $('location').value = project.specs?.find(spec => spec.k === 'Location')?.v || '';
-    $('vimeo').value = project.vimeoId || '';
     $('thumb').value = project.thumb || '';
     $('desc').value = project.desc || '';
+    renderCover();
+    $('concept-editor').replaceChildren(createRichEditor(project.desc || '', '作品概念'));
     renderMedia(project);
     renderBlocks(project.processGroups || []);
     bindLivePreviewFields();
@@ -180,21 +196,31 @@
   }
 
   function updateLivePreview(fromForm = true) {
+    if (state.mode !== 'projects') return;
     const project = fromForm ? readForm() : state.projects[state.selected];
     if (!project) return;
-    localStorage.setItem('portfolio-preview-projects', JSON.stringify(state.projects));
+    localStorage.setItem('portfolio-preview-projects', JSON.stringify(publishableProjects()));
     const frame = $('live-preview-frame');
+    if (document.querySelector('.live-preview').hidden) { $('preview-status').textContent = '草稿已更新'; return; }
     const nextUrl = previewUrl(project);
     if (frame.src !== nextUrl) frame.src = nextUrl;
     else if (frame.contentWindow) frame.contentWindow.location.reload();
     $('preview-status').textContent = '草稿同步中';
   }
 
+  function publishableProjects() {
+    const clean = value => {
+      if (Array.isArray(value)) return value.map(clean);
+      if (!value || typeof value !== 'object') return value;
+      const copy = Object.fromEntries(Object.entries(value).map(([key, item]) => [key, clean(item)]));
+      if (Array.isArray(copy.items)) copy.items = copy.items.filter(item => item.src?.trim());
+      return copy;
+    };
+    return state.projects.map(clean);
+  }
+
   function bindLivePreviewFields() {
-    document.querySelectorAll('#project-form input:not(.file-upload), #project-form textarea, #project-form select').forEach(field => {
-      field.addEventListener('input', scheduleLivePreview);
-      field.addEventListener('change', scheduleLivePreview);
-    });
+    // Delegate below so new media rows and nested groups stay in sync.
   }
 
   function scheduleLivePreview() {
@@ -202,130 +228,277 @@
     previewTimer = setTimeout(() => updateLivePreview(true), 250);
   }
 
-  function previewMedia(src) {
-    if (!src) return '<span class="preview-empty">尚未選擇圖片</span>';
-    const safe = escapeHtml(src);
-    return /\.(mp4|webm|mov)$/i.test(src) ? `<video src="${safe}" muted></video>` : `<img src="${safe}" alt="">`;
+  function flushEditor() {
+    clearTimeout(previewTimer);
+    if (state.mode === 'projects' && !$('project-form').hidden) readForm();
   }
 
-  function blockKind(block) {
-    if (block.type === 'text') return 'text';
-    if ((block.cols || 1) === 1 && (block.items || []).length <= 1) return 'full';
-    return 'gallery';
+  function renderCover() {
+    $('cover-preview').innerHTML = previewMedia($('thumb').value.trim());
   }
 
-  function blockSpan(block) {
-    if (block.maxWidth === '30%') return 4;
-    if (block.maxWidth === '50%') return 6;
-    if (block.maxWidth === '75%') return 9;
-    if (block.cols === 4) return 9;
-    if (block.cols === 3) return 8;
-    if (block.cols === 2) return 6;
-    return 12;
-  }
-
-  function imageItem(item = {}) {
-    return `<div class="block-item">
-      <div class="item-preview">${previewMedia(item.src)}</div>
-      <input class="item-src" value="${escapeHtml(item.src || '')}" placeholder="上傳後會自動填入檔案路徑">
-      <input class="item-caption" value="${escapeHtml(item.caption || '')}" placeholder="圖片標題（可留白）">
-      <div class="item-controls"><label class="upload-button">選擇檔案<input class="file-upload" type="file" accept="image/*,video/*"></label><button type="button" class="remove-item">移除這張</button></div>
-    </div>`;
-  }
-
-  function advancedPreview(block) {
-    const groupPreview = group => `<div class="mini-group"><span>${escapeHtml(group.group || '未命名區塊')}</span>${(group.items || []).slice(0, 3).map(item => `<div class="mini-image">${previewMedia(item.src)}</div>`).join('')}${group.type === 'text' ? '<p class="mini-text">文字內容</p>' : ''}</div>`;
-    if (block.layout === 'two-col') {
-      return `<div class="advanced-visual"><div class="advanced-title"><span class="layout-icon">▥</span><strong>雙欄版面</strong><small>左欄＋右欄</small></div><div class="advanced-columns"><div><em>左欄</em>${groupPreview(block.left || {})}</div><div><em>右欄</em>${(block.right || []).map(groupPreview).join('')}</div></div><textarea class="advanced-json" hidden>${escapeHtml(JSON.stringify(block))}</textarea></div>`;
-    }
-    return `<div class="advanced-visual"><div class="advanced-title"><span class="layout-icon">✦</span><strong>特殊內容區塊</strong><small>${escapeHtml(block.group || block.type || '')}</small></div><textarea class="advanced-json" hidden>${escapeHtml(JSON.stringify(block))}</textarea></div>`;
-  }
-
-  function renderBlocks(blocks) {
-    $('blocks').innerHTML = blocks.map((block, index) => {
-      if (block.layout === 'two-col' || ['transcripts', 'youtube-lyrics', 'vimeo-stack'].includes(block.type)) {
-        return `<div class="block advanced-block" draggable="true" style="--block-span:${blockSpan(block)}" data-block="${index}">
-          ${advancedPreview(block)}
-          <div class="block-actions"><button type="button" class="text-button move-up">上移</button><button type="button" class="text-button move-down">下移</button><button type="button" class="danger-button remove-block">移除</button></div>
-        </div>`;
+  function cleanRichHtml(html) {
+    const template = document.createElement('template');
+    template.innerHTML = html;
+    const allowed = new Set(['P', 'DIV', 'BR', 'STRONG', 'B', 'EM', 'I', 'U', 'UL', 'OL', 'LI', 'A', 'H3', 'BLOCKQUOTE']);
+    const clean = parent => [...parent.children].forEach(el => {
+      if (['SCRIPT', 'STYLE', 'IFRAME', 'OBJECT', 'SVG', 'MATH'].includes(el.tagName)) { el.remove(); return; }
+      clean(el);
+      if (!allowed.has(el.tagName)) { el.replaceWith(...el.childNodes); return; }
+      const href = el.getAttribute('href') || '';
+      [...el.attributes].forEach(attr => el.removeAttribute(attr.name));
+      if (el.tagName === 'A' && /^(https?:\/\/|mailto:|\/|#)/i.test(href) && !href.startsWith('//')) {
+        el.setAttribute('href', href); el.setAttribute('target', '_blank'); el.setAttribute('rel', 'noopener noreferrer');
       }
-      const isText = block.type === 'text';
-      const kind = blockKind(block);
-      const items = block.items || [];
-      return `<div class="block" draggable="true" style="--block-span:${blockSpan(block)}" data-block="${index}">
-        <div class="block-toolbar"><span class="drag-handle">⠿</span><strong class="block-card-title">${escapeHtml(block.group || '未命名區塊')}</strong><div class="layout-pills"><button type="button" class="layout-pill${kind === 'text' ? ' active' : ''}" data-kind="text">T 文字</button><button type="button" class="layout-pill${kind === 'full' ? ' active' : ''}" data-kind="full">▰ 單張大圖</button><button type="button" class="layout-pill${kind === 'gallery' ? ' active' : ''}" data-kind="gallery">▦ 圖片畫廊</button></div></div>
-        <div class="block-top">
-          <label>區塊標題<input class="block-group" value="${escapeHtml(block.group || '')}"></label>
-          <label>圖片欄數<select class="block-cols"><option value="1" ${block.cols === 1 ? 'selected' : ''}>單欄</option><option value="2" ${block.cols === 2 || !block.cols ? 'selected' : ''}>兩欄</option><option value="3" ${block.cols === 3 ? 'selected' : ''}>三欄</option><option value="4" ${block.cols === 4 ? 'selected' : ''}>四欄</option></select></label>
-          <label>手機欄數<select class="block-mobile-cols">${[1, 2, 3, 4].map(cols => `<option value="${cols}" ${(block.mobileCols || 1) === cols ? 'selected' : ''}>${['單欄', '兩欄', '三欄', '四欄'][cols - 1]}</option>`).join('')}</select></label>
-          <label>圖片寬度<select class="block-width"><option value="100%" ${!block.maxWidth || block.maxWidth === '100%' ? 'selected' : ''}>滿版</option><option value="75%" ${block.maxWidth === '75%' ? 'selected' : ''}>75%</option><option value="50%" ${block.maxWidth === '50%' ? 'selected' : ''}>50%</option><option value="30%" ${block.maxWidth === '30%' ? 'selected' : ''}>30%</option></select></label>
-          <button type="button" class="text-button move-up">上移</button><button type="button" class="text-button move-down">下移</button><button type="button" class="danger-button remove-block">移除</button>
-        </div>
-        ${isText ? `<label>文字內容<textarea class="block-body" rows="5">${escapeHtml(block.body || '')}</textarea></label>` : `<div class="block-items">${items.map(imageItem).join('')}</div><div class="block-actions"><button type="button" class="text-button add-item">＋ 再加一張圖片／影片</button></div>`}
-      </div>`;
-    }).join('');
-    $('blocks').querySelectorAll('.block').forEach(blockEl => {
-      blockEl.querySelector('.remove-block')?.addEventListener('click', () => { blockEl.remove(); renumberBlocks(); scheduleLivePreview(); });
-      blockEl.querySelector('.move-up')?.addEventListener('click', () => { moveBlock(blockEl, -1); scheduleLivePreview(); });
-      blockEl.querySelector('.move-down')?.addEventListener('click', () => { moveBlock(blockEl, 1); scheduleLivePreview(); });
-      blockEl.querySelectorAll('.layout-pill').forEach(button => button.addEventListener('click', () => switchBlockType(Number(blockEl.dataset.block), button.dataset.kind)));
-      blockEl.addEventListener('click', event => {
-        if (event.target.closest('button, input, textarea, select, label')) return;
-        $('blocks').querySelectorAll('.block').forEach(other => { other.classList.remove('selected'); other.style.removeProperty('grid-column'); });
-        blockEl.classList.add('selected'); blockEl.style.gridColumn = '1 / -1';
-      });
-      blockEl.querySelector('.add-item')?.addEventListener('click', () => {
-        const items = blockEl.querySelector('.block-items');
-        items.insertAdjacentHTML('beforeend', imageItem());
-        bindUpload(items.lastElementChild);
-        items.lastElementChild.querySelector('.remove-item').addEventListener('click', () => { items.lastElementChild.remove(); scheduleLivePreview(); });
-        scheduleLivePreview();
-      });
-      blockEl.querySelectorAll('.remove-item').forEach(button => button.addEventListener('click', () => { button.closest('.block-item').remove(); scheduleLivePreview(); }));
-      blockEl.querySelectorAll('.item-src').forEach(input => input.addEventListener('change', () => {
-        input.closest('.block-item').querySelector('.item-preview').innerHTML = previewMedia(input.value.trim());
-      }));
-      blockEl.querySelectorAll('.file-upload').forEach(input => bindUpload(input.closest('.block-item')));
-      blockEl.addEventListener('dragstart', event => { event.dataTransfer.setData('text/plain', blockEl.dataset.block); blockEl.classList.add('dragging'); });
-      blockEl.addEventListener('dragend', () => { blockEl.classList.remove('dragging'); renumberBlocks(); });
-      blockEl.addEventListener('dragover', event => event.preventDefault());
-      blockEl.addEventListener('drop', event => {
-        event.preventDefault();
-        const from = $('blocks').querySelector(`[data-block="${event.dataTransfer.getData('text/plain')}"]`);
-        if (from && from !== blockEl) blockEl.parentNode.insertBefore(from, blockEl);
-        renumberBlocks();
+    });
+    clean(template.content);
+    return template.innerHTML;
+  }
+
+  function createRichEditor(value, name) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'rich-editor';
+    wrapper.innerHTML = `<div class="rich-toolbar" role="toolbar" aria-label="文字格式">
+      <button type="button" data-command="formatBlock" data-value="p">段落</button><button type="button" data-command="formatBlock" data-value="h3">標題</button>
+      <button type="button" data-command="bold" aria-label="粗體"><b>B</b></button><button type="button" data-command="italic" aria-label="斜體"><i>I</i></button>
+      <button type="button" data-command="insertUnorderedList" aria-label="項目清單">• 清單</button><button type="button" data-command="createLink">連結</button>
+    </div><div class="rich-body" contenteditable="true" role="textbox" aria-multiline="true" aria-label="${escapeHtml(name)}" data-placeholder="輸入文字內容…"></div>`;
+    const body = wrapper.querySelector('.rich-body');
+    body.innerHTML = cleanRichHtml(value);
+    wrapper.originalValue = value;
+    wrapper.originalHtml = body.innerHTML;
+    wrapper.querySelectorAll('[data-command]').forEach(button => {
+      button.addEventListener('mousedown', event => event.preventDefault());
+      button.addEventListener('click', () => {
+        const selection = window.getSelection();
+        if (!selection.rangeCount || !body.contains(selection.anchorNode)) body.focus();
+        let value = button.dataset.value || null;
+        if (button.dataset.command === 'createLink') {
+          value = prompt('輸入連結網址（https://…）');
+          if (!value) return;
+          if (!/^(https?:\/\/|mailto:)/i.test(value)) { setStatus('請使用 https://、http:// 或 mailto: 開頭的連結。', true); return; }
+        }
+        document.execCommand(button.dataset.command, false, value);
         scheduleLivePreview();
       });
     });
+    body.addEventListener('paste', event => {
+      event.preventDefault();
+      document.execCommand('insertText', false, event.clipboardData.getData('text/plain'));
+    });
+    body.addEventListener('drop', event => event.preventDefault());
+    return wrapper;
   }
 
-  function switchBlockType(index, kind) {
-    readForm();
-    const current = state.projects[state.selected].processGroups[index] || {};
-    const group = current.group || 'New Section';
-    const items = current.items?.length ? current.items : [{ src: '' }];
-    state.projects[state.selected].processGroups[index] = kind === 'text'
-      ? { type: 'text', group, body: current.body || '' }
-      : { group, ...(kind === 'full' ? { maxWidth: '100%', cols: 1, items: [items[0]] } : { cols: 2, items }) };
-    renderEditor();
-    scheduleLivePreview();
+  function readRichEditor(wrapper) {
+    const html = wrapper.querySelector('.rich-body').innerHTML;
+    return html === wrapper.originalHtml ? wrapper.originalValue : cleanRichHtml(html);
+  }
+
+  function previewMedia(src) {
+    if (!src) return '<span class="preview-empty">尚未選擇圖片</span>';
+    const safe = escapeHtml(src);
+    return /\.(mp4|webm|mov)(?:[?#]|$)/i.test(src) ? `<video src="${safe}" muted playsinline preload="metadata"></video>` : `<img src="${safe}" alt="">`;
+  }
+
+  function columnOptions(value = 1, preserveExisting = false) {
+    const options = [1, 2, 3, 4];
+    if (preserveExisting && Number.isInteger(Number(value)) && Number(value) > 4) options.push(Number(value));
+    return options.map(n => `<option value="${n}" ${Number(value) === n ? 'selected' : ''}>${n} 欄${n > 4 ? '（原有設定）' : ''}</option>`).join('');
+  }
+
+  function selectOptions(values, value) {
+    const options = [...values];
+    if (!options.some(([key]) => key === value)) options.push([value, `原有設定（${value}）`]);
+    return options.map(([key, label]) => `<option value="${escapeHtml(key)}" ${key === value ? 'selected' : ''}>${escapeHtml(label)}</option>`).join('');
+  }
+
+  function isEditableGroup(group) {
+    return !group.layout && (!group.type || group.type === 'text');
+  }
+
+  function createMediaCard(item = {}) {
+    const row = document.createElement('div');
+    row.className = 'block-item';
+    itemData.set(row, clone(item));
+    row.innerHTML = `<div class="item-preview">${previewMedia(item.src)}</div>
+      <label class="asset-path">圖片／影片路徑<input class="item-src" value="${escapeHtml(item.src || '')}" placeholder="貼上網址或選擇檔案"></label>
+      <label>說明<input class="item-caption" value="${escapeHtml(item.caption || '')}" placeholder="可留白"></label>
+      <div class="item-controls"><label class="upload-button">更換<input class="file-upload" type="file" accept="image/*,video/*"></label>
+      <button type="button" class="text-button item-prev" aria-label="將媒體前移">←</button><button type="button" class="text-button item-next" aria-label="將媒體後移">→</button>
+      <button type="button" class="remove-item" aria-label="移除此媒體">移除</button></div>`;
+    row.querySelector('.item-src').addEventListener('input', event => { row.querySelector('.item-preview').innerHTML = previewMedia(event.target.value.trim()); });
+    row.querySelector('.remove-item').addEventListener('click', () => { row.remove(); scheduleLivePreview(); });
+    row.querySelector('.item-prev').addEventListener('click', () => { moveBlock(row, -1); scheduleLivePreview(); });
+    row.querySelector('.item-next').addEventListener('click', () => { moveBlock(row, 1); scheduleLivePreview(); });
+    bindUpload(row);
+    return row;
+  }
+
+  function createGroupEditor(group = {}) {
+    const el = document.createElement('div');
+    el.className = 'group-editor';
+    groupData.set(el, clone(group));
+    if (!isEditableGroup(group)) {
+      el.classList.add('preserved-group');
+      el.innerHTML = `<p class="preserved-title">${escapeHtml(group.group || '特殊內容')}</p><p class="hint">此區塊使用專屬版型，儲存時會保留原有內容。</p>`;
+      return el;
+    }
+    const isText = group.type === 'text';
+    el.innerHTML = `<label class="cms-row"><span>區塊標題</span><input class="block-group" value="${escapeHtml(group.group || '')}" placeholder="例如 Style Frames、製作過程"></label>`;
+    if (isText) {
+      const row = document.createElement('div');
+      row.className = 'cms-row text-content-row';
+      row.innerHTML = '<span class="field-name">文字內容</span>';
+      row.append(createRichEditor(group.body || '', '區塊文字內容'));
+      el.append(row);
+    } else {
+      const settings = document.createElement('div');
+      settings.className = 'group-settings';
+      settings.innerHTML = `<label>桌面欄數<select class="block-cols">${columnOptions(group.cols || ((group.items || []).length === 1 ? 1 : (group.items || []).length === 2 ? 2 : 3), true)}</select></label>
+        <label>手機欄數<select class="block-mobile-cols">${columnOptions(group.mobileCols || 1)}</select></label>
+        <label>內容寬度<select class="block-width">${selectOptions([['100%', '滿版'], ['75%', '75%'], ['50%', '50%'], ['30%', '30%']], group.maxWidth || '100%')}</select></label>`;
+      el.append(settings);
+      const list = document.createElement('div');
+      list.className = 'block-items';
+      (group.items || []).forEach(item => list.append(createMediaCard(item)));
+      el.append(list);
+      const actions = document.createElement('div');
+      actions.className = 'gallery-actions';
+      actions.innerHTML = '<label class="upload-button">＋ 上傳圖片／影片<input class="gallery-upload" type="file" multiple accept="image/*,video/*"></label><button type="button" class="text-button add-item">＋ 貼上媒體路徑</button>';
+      actions.querySelector('.add-item').addEventListener('click', () => { list.append(createMediaCard()); scheduleLivePreview(); });
+      actions.querySelector('.gallery-upload').addEventListener('change', async event => {
+        const files = [...event.target.files];
+        event.target.disabled = true;
+        try {
+          for (const file of files) {
+            const path = await uploadAsset(file);
+            list.append(createMediaCard({ src: path }));
+          }
+          setStatus('媒體已上傳，發布作品後會顯示在網站。');
+        } catch (error) { setStatus(error.message, true); }
+        finally { event.target.disabled = false; event.target.value = ''; scheduleLivePreview(); }
+      });
+      el.append(actions);
+    }
+    return el;
+  }
+
+  function readGroupEditor(el) {
+    const original = groupData.get(el) || {};
+    if (el.classList.contains('preserved-group')) return clone(original);
+    const group = clone(original);
+    const title = el.querySelector('.block-group').value.trim();
+    if (title || 'group' in group) group.group = title;
+    if (group.type === 'text') {
+      group.body = readRichEditor(el.querySelector('.rich-editor'));
+    } else {
+      const cols = Number(el.querySelector('.block-cols').value);
+      const defaultCols = original.cols || (original.items?.length === 1 ? 1 : original.items?.length === 2 ? 2 : 3);
+      if (cols !== defaultCols || 'cols' in group) group.cols = cols;
+      const mobileCols = Number(el.querySelector('.block-mobile-cols').value);
+      if (mobileCols !== (original.mobileCols || 1) || 'mobileCols' in group) group.mobileCols = mobileCols;
+      const width = el.querySelector('.block-width').value;
+      if (width !== (original.maxWidth || '100%') || 'maxWidth' in group) group.maxWidth = width;
+      group.items = [...el.querySelector('.block-items').children].map(row => {
+        const item = { ...(itemData.get(row) || {}), src: row.querySelector('.item-src').value.trim() };
+        const caption = row.querySelector('.item-caption').value.trim();
+        if (caption || 'caption' in item) item.caption = caption;
+        return item;
+      });
+      if (group.items.length !== (original.items || []).length) group.cols = cols;
+    }
+    return group;
+  }
+
+  function createSplitEditor(block) {
+    const el = document.createElement('div');
+    el.className = 'split-editor';
+    el.innerHTML = `<div class="split-settings"><label>左右寬度<select class="split-ratio">${selectOptions([['1fr 1fr', '左右各半'], ['2fr 1fr', '左寬、右窄'], ['1fr 2fr', '左窄、右寬']], block.ratio || '1fr 2fr')}</select></label><p class="hint">手機版依序顯示左欄、右欄。影片可在左欄設定為 1 欄上下排列，或 2 欄並排。</p></div><div class="split-columns"><section class="split-left"><h4>左欄</h4><div class="split-left-content"></div></section><section class="split-right"><h4>右欄</h4><div class="split-right-content"></div><div class="gallery-actions"><button type="button" class="text-button add-right-text">＋ 文字</button><button type="button" class="text-button add-right-media">＋ 媒體</button></div></section></div>`;
+    el.querySelector('.split-left-content').append(createGroupEditor(block.left || { items: [] }));
+    const right = el.querySelector('.split-right-content');
+    const addRight = group => {
+      const card = document.createElement('div');
+      card.className = 'nested-group';
+      card.innerHTML = '<div class="nested-actions"><button type="button" class="text-button nested-up">上移</button><button type="button" class="text-button nested-down">下移</button><button type="button" class="remove-item nested-remove">移除</button></div>';
+      card.append(createGroupEditor(group));
+      card.querySelector('.nested-up').addEventListener('click', () => { moveBlock(card, -1); scheduleLivePreview(); });
+      card.querySelector('.nested-down').addEventListener('click', () => { moveBlock(card, 1); scheduleLivePreview(); });
+      card.querySelector('.nested-remove').addEventListener('click', () => { card.remove(); scheduleLivePreview(); });
+      right.append(card);
+    };
+    (block.right || []).forEach(addRight);
+    el.querySelector('.add-right-text').addEventListener('click', () => { addRight({ type: 'text', group: '', body: '' }); scheduleLivePreview(); });
+    el.querySelector('.add-right-media').addEventListener('click', () => { addRight({ group: '', cols: 1, items: [] }); scheduleLivePreview(); });
+    return el;
+  }
+
+  function readBlock(blockEl) {
+    const original = groupData.get(blockEl);
+    if (original.layout === 'two-col') {
+      const group = clone(original);
+      const ratio = blockEl.querySelector('.split-ratio').value;
+      if (ratio !== (original.ratio || '1fr 2fr') || 'ratio' in group) group.ratio = ratio;
+      group.left = readGroupEditor(blockEl.querySelector('.split-left-content > .group-editor'));
+      group.right = [...blockEl.querySelector('.split-right-content').children].map(card => readGroupEditor(card.querySelector('.group-editor')));
+      return group;
+    }
+    return readGroupEditor(blockEl.querySelector('.block-content > .group-editor'));
+  }
+
+  function renderBlocks(blocks) {
+    $('blocks').replaceChildren();
+    if (!blocks.length) $('blocks').innerHTML = '<div class="blocks-empty">還沒有作品流程。從上方新增文字、媒體或雙欄圖文。</div>';
+    blocks.forEach((block, index) => {
+      const el = document.createElement('details');
+      el.className = 'block';
+      el.dataset.block = index;
+      groupData.set(el, clone(block));
+      const kind = block.layout === 'two-col' ? '雙欄圖文' : block.type === 'text' ? '文字' : isEditableGroup(block) ? '圖片／影片' : '專屬版型';
+      el.open = index === 0;
+      el.innerHTML = `<summary class="block-toolbar"><span class="block-number">${String(index + 1).padStart(2, '0')}</span><span class="block-card-title">${escapeHtml(block.group || block.left?.group || kind)}</span><span class="block-kind">${kind}</span><span class="expand-indicator">＋</span></summary><div class="block-content"></div><div class="block-actions"><button type="button" class="text-button move-up">↑ 上移</button><button type="button" class="text-button move-down">↓ 下移</button><button type="button" class="text-button duplicate-block">複製</button><button type="button" class="danger-button remove-block">移除區塊</button></div>`;
+      el.querySelector('.block-content').append(block.layout === 'two-col' ? createSplitEditor(block) : createGroupEditor(block));
+      el.querySelector('.remove-block').addEventListener('click', () => {
+        if (!confirm('確定移除此區塊？發布前不會影響線上網站。')) return;
+        el.remove(); renumberBlocks(); scheduleLivePreview();
+      });
+      el.querySelector('.move-up').addEventListener('click', () => { moveBlock(el, -1); renumberBlocks(); scheduleLivePreview(); });
+      el.querySelector('.move-down').addEventListener('click', () => { moveBlock(el, 1); renumberBlocks(); scheduleLivePreview(); });
+      el.querySelector('.duplicate-block').addEventListener('click', () => {
+        const index = [...$('blocks').children].indexOf(el);
+        flushEditor();
+        const groups = state.projects[state.selected].processGroups;
+        groups.splice(index + 1, 0, clone(groups[index]));
+        renderBlocks(groups); $('blocks').children[index + 1].open = true; scheduleLivePreview();
+      });
+      el.addEventListener('input', () => {
+        const field = el.querySelector('.block-group');
+        if (field) el.querySelector('.block-card-title').textContent = field.value || kind;
+      });
+      $('blocks').append(el);
+    });
   }
 
   function bindUpload(row) {
     row?.querySelector('.file-upload')?.addEventListener('change', async event => {
       const file = event.target.files[0]; if (!file) return;
-      if (!$('token').value.trim()) { setStatus('Connect GitHub before uploading.', true); return; }
       try {
-        setStatus(`Uploading ${file.name}…`);
-        const projectFolder = ($('title').value || 'New Project').replace(/[^a-z0-9 -]/gi, '').trim() || 'New Project';
-        const path = `Project file/${projectFolder}/${file.name}`;
-        const content = await fileToBase64(file);
-        await github(`/contents/${encodePath(path)}`, { method: 'PUT', body: JSON.stringify({ message: `Add ${file.name}`, content, branch: $('branch').value.trim() }) });
+        const path = await uploadAsset(file);
         row.querySelector('.item-src').value = path;
         row.querySelector('.item-preview').innerHTML = previewMedia(path);
-        setStatus('Upload complete. Save the project to commit the content update.');
+        setStatus('媒體已上傳，發布作品後會顯示在網站。'); scheduleLivePreview();
       } catch (error) { setStatus(error.message, true); }
     });
+  }
+
+  async function uploadAsset(file) {
+    if (!$('token').value.trim()) throw new Error('請先在 GitHub 設定中連接，再上傳檔案。');
+    setStatus(`正在上傳 ${file.name}…`);
+    const folder = ($('title').value || 'New Project').replace(/[^a-z0-9 -]/gi, '').trim() || 'New Project';
+    const path = `Project file/${folder}/${Date.now()}-${file.name}`;
+    const content = await fileToBase64(file);
+    await github(`/contents/${encodePath(path)}`, { method: 'PUT', body: JSON.stringify({ message: `Add ${file.name}`, content, branch: $('branch').value.trim() }) });
+    return path;
   }
 
   const encodePath = path => path.split('/').map(encodeURIComponent).join('/');
@@ -349,26 +522,25 @@
 
   function readForm() {
     const project = state.projects[state.selected];
-    project.title = $('title').value.trim(); project.label = $('label').value.trim(); project.category = $('category').value.trim(); project.type = $('type').value.trim(); project.vimeoId = $('vimeo').value.trim(); project.thumb = $('thumb').value.trim(); project.desc = $('desc').value;
+    if (!project || state.mode !== 'projects' || $('project-form').hidden) return project;
+    project.title = $('title').value.trim(); project.label = $('label').value.trim(); project.category = $('category').value.trim(); project.type = $('type').value.trim(); project.thumb = $('thumb').value.trim();
+    project.desc = readRichEditor($('concept-editor').querySelector('.rich-editor'));
+    $('desc').value = project.desc;
     const vimeoIds = [...document.querySelectorAll('.vimeo-field')].map(input => input.value.trim()).filter(Boolean);
     if (vimeoIds.length > 1) { project.vimeoIds = vimeoIds; delete project.vimeoId; }
     else { project.vimeoId = vimeoIds[0] || ''; delete project.vimeoIds; }
     const loopVideos = [...document.querySelectorAll('.loop-video-src')].map(input => input.value.trim()).filter(Boolean);
     if (loopVideos.length) project.loopVideos = loopVideos; else delete project.loopVideos;
-    project.specs = (project.specs || []).filter(spec => !['Year', 'Location'].includes(spec.k));
-    if ($('year').value.trim()) project.specs.unshift({ k: 'Year', v: $('year').value.trim() });
-    if ($('location').value.trim()) project.specs.push({ k: 'Location', v: $('location').value.trim() });
-    project.processGroups = [...$('blocks').querySelectorAll('.block')].map(blockEl => {
-      if (blockEl.classList.contains('advanced-block')) return JSON.parse(blockEl.querySelector('.advanced-json').value);
-      const group = { group: blockEl.querySelector('.block-group').value.trim() };
-      const width = blockEl.querySelector('.block-width').value; if (width !== '100%') group.maxWidth = width;
-      const cols = Number(blockEl.querySelector('.block-cols').value); if (cols > 1) group.cols = cols;
-      const mobileCols = Number(blockEl.querySelector('.block-mobile-cols').value); if (mobileCols > 1) group.mobileCols = mobileCols;
-      const body = blockEl.querySelector('.block-body');
-      if (body) { group.type = 'text'; group.body = body.value; }
-      else group.items = [...blockEl.querySelectorAll('.block-item')].map(row => ({ src: row.querySelector('.item-src').value.trim(), ...(row.querySelector('.item-caption').value.trim() ? { caption: row.querySelector('.item-caption').value.trim() } : {}) })).filter(item => item.src);
-      return group;
+    project.specs = project.specs || [];
+    [['Year', 'year'], ['Location', 'location']].forEach(([key, id]) => {
+      const value = $(id).value.trim();
+      const index = project.specs.findIndex(spec => spec.k === key);
+      if (index >= 0) {
+        if (value) project.specs[index].v = value;
+        else project.specs.splice(index, 1);
+      } else if (value) project.specs.push({ k: key, v: value });
     });
+    project.processGroups = [...$('blocks').querySelectorAll(':scope > .block')].map(readBlock);
     return project;
   }
 
@@ -376,7 +548,7 @@
     const sibling = direction < 0 ? element.previousElementSibling : element.nextElementSibling;
     if (sibling) direction < 0 ? element.parentNode.insertBefore(element, sibling) : element.parentNode.insertBefore(sibling, element);
   }
-  function renumberBlocks() { $('blocks').querySelectorAll('.block').forEach((el, i) => { el.dataset.block = i; }); }
+  function renumberBlocks() { $('blocks').querySelectorAll('.block').forEach((el, i) => { el.dataset.block = i; el.querySelector('.block-number').textContent = String(i + 1).padStart(2, '0'); }); }
 
   $('connect').addEventListener('click', async () => {
     try {
@@ -409,7 +581,7 @@
       if (state.mode === 'playground') { setStatus('Saving…'); await savePlayground(); return; }
       readForm(); setStatus('Saving…');
       const current = await github('/contents/content/projects.js?ref=' + encodeURIComponent($('branch').value.trim()));
-      const source = `window.PORTFOLIO_PROJECTS = ${JSON.stringify(state.projects, null, 2)};\n`;
+      const source = `window.PORTFOLIO_PROJECTS = ${JSON.stringify(publishableProjects(), null, 2)};\n`;
       const content = btoa(unescape(encodeURIComponent(source)));
       const saved = await github('/contents/content/projects.js', { method: 'PUT', body: JSON.stringify({ message: 'Update portfolio content', content, sha: current.sha, branch: $('branch').value.trim() }) });
       state.sha = saved.content.sha; setStatus('Saved. The website will redeploy from GitHub.');
@@ -420,15 +592,23 @@
   $('add-playground-image').addEventListener('click', () => { state.playground.push({ type: 'image', title: 'New Image', src: '' }); renderPlayground(); });
   $('add-playground-video').addEventListener('click', () => { state.playground.push({ type: 'video', title: 'New Video', src: '' }); renderPlayground(); });
   $('new-project').addEventListener('click', () => {
-    readForm(); const nextNum = String(state.projects.length + 1).padStart(2, '0');
+    flushEditor(); state.mode = 'projects'; const nextNum = String(state.projects.length + 1).padStart(2, '0');
+    $('project-search').value = '';
     const slug = `project-${Date.now()}`;
     state.projects.push({ slug, num: nextNum, category: 'works', label: 'Motion Graphics', title: 'NEW PROJECT', type: 'Motion Graphics · 2026', desc: '', specs: [{ k: 'Year', v: '2026' }, { k: 'Type', v: 'Motion Graphics' }, { k: 'Location', v: 'USA' }], thumb: '', processGroups: [], page: `work-template.html?project=${slug}` });
     state.selected = state.projects.length - 1; renderList(); renderEditor();
   });
-  const addBlock = (block) => { readForm(); state.projects[state.selected].processGroups.push(block); renderEditor(); scheduleLivePreview(); };
+  const addBlock = (block) => {
+    flushEditor();
+    const groups = state.projects[state.selected].processGroups;
+    groups.push(block); renderBlocks(groups);
+    const last = $('blocks').lastElementChild; last.open = true; last.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    scheduleLivePreview();
+  };
   $('add-text-block').addEventListener('click', () => addBlock({ type: 'text', group: 'New Text Section', body: '' }));
   $('add-gallery-block').addEventListener('click', () => addBlock({ group: 'New Image Gallery', cols: 2, items: [{ src: '' }] }));
   $('add-image-block').addEventListener('click', () => addBlock({ group: 'New Full-width Image', maxWidth: '100%', cols: 1, items: [{ src: '' }] }));
+  $('add-split-block').addEventListener('click', () => addBlock({ layout: 'two-col', ratio: '1fr 1fr', left: { group: '影片', cols: 1, mobileCols: 1, items: [{ src: '' }, { src: '' }] }, right: [{ type: 'text', group: '作品說明', body: '' }] }));
   $('preview-project').addEventListener('click', () => {
     const project = readForm();
     updateLivePreview(false);
@@ -438,5 +618,48 @@
   $('add-vimeo').addEventListener('click', () => { $('vimeo-fields').insertAdjacentHTML('beforeend', '<div class="media-row"><span class="media-icon">V</span><input class="vimeo-field" placeholder="Vimeo ID"><button type="button" class="remove-media">移除</button></div>'); const row = $('vimeo-fields').lastElementChild; row.querySelector('.remove-media').addEventListener('click', () => { row.remove(); scheduleLivePreview(); }); row.querySelector('.vimeo-field').addEventListener('input', scheduleLivePreview); });
   $('add-loop-video').addEventListener('click', () => { $('loop-video-fields').insertAdjacentHTML('beforeend', mediaRow()); bindMediaRow($('loop-video-fields').lastElementChild); scheduleLivePreview(); });
   $('delete-project').addEventListener('click', () => { if (!confirm('Delete this project from the content file?')) return; state.projects.splice(state.selected, 1); state.selected = Math.max(0, state.selected - 1); renderList(); renderEditor(); });
+  $('project-form').addEventListener('submit', event => event.preventDefault());
+  $('project-form').addEventListener('input', event => {
+    if (event.target === $('title')) {
+      $('editor-title').textContent = $('title').value || '未命名作品';
+      const selected = $('projects-list').querySelector(`[data-project="${state.selected}"] .project-item-copy`);
+      if (selected?.firstChild) selected.firstChild.textContent = $('title').value || '未命名作品';
+    }
+    scheduleLivePreview();
+  });
+  $('project-form').addEventListener('change', event => { if (event.target.type !== 'file') scheduleLivePreview(); });
+  $('project-search').addEventListener('input', renderList);
+  $('thumb').addEventListener('input', renderCover);
+  $('cover-upload').addEventListener('change', async event => {
+    const file = event.target.files[0]; if (!file) return;
+    try { $('thumb').value = await uploadAsset(file); renderCover(); scheduleLivePreview(); setStatus('封面已上傳，請發布作品。'); }
+    catch (error) { setStatus(error.message, true); }
+    event.target.value = '';
+  });
+  function sizePreview() {
+    const wrap = document.querySelector('.preview-frame-wrap');
+    const width = previewDevice === 'mobile' ? 390 : 1280;
+    const scale = Math.min(wrap.clientWidth / width, 1);
+    if (!scale) return;
+    const frame = $('live-preview-frame');
+    frame.style.width = `${width}px`;
+    frame.style.height = `${wrap.clientHeight / scale}px`;
+    frame.style.transform = `scale(${scale})`;
+  }
+  $('toggle-preview').addEventListener('click', () => {
+    const pane = document.querySelector('.live-preview');
+    pane.hidden = !pane.hidden;
+    document.querySelector('.admin-layout').classList.toggle('with-preview', !pane.hidden);
+    $('toggle-preview').setAttribute('aria-expanded', String(!pane.hidden));
+    $('toggle-preview').textContent = pane.hidden ? '即時預覽' : '關閉預覽';
+    if (!pane.hidden) { updateLivePreview(); sizePreview(); }
+  });
+  document.querySelectorAll('[data-device]').forEach(button => button.addEventListener('click', () => {
+    previewDevice = button.dataset.device;
+    document.querySelectorAll('[data-device]').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
+    sizePreview();
+  }));
+  new ResizeObserver(sizePreview).observe(document.querySelector('.preview-frame-wrap'));
+  $('live-preview-frame').addEventListener('load', () => { $('preview-status').textContent = '草稿預覽'; });
   renderList(); renderEditor();
 })();

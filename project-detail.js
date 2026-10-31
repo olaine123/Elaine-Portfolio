@@ -593,7 +593,7 @@ function renderGroup(g) {
   if (g.type === 'text') {
     return `<div class="process-section">
       ${g.group ? `<div class="process-section-label">${g.group}</div>` : ''}
-      <p class="process-body">${g.body}</p>
+      <div class="process-body">${g.body}</div>
     </div>`;
   }
   if (g.type === 'transcripts') {
@@ -677,7 +677,15 @@ function renderProject(idx) {
   const titleEl = document.getElementById('d-title');
   titleEl.textContent = p.title;
   titleEl.style.fontSize = p.title.length > 20 ? 'clamp(2rem, 5vw, 5rem)' : '';
-  document.getElementById('d-desc').innerHTML = p.desc;
+  let descEl = document.getElementById('d-desc');
+  if (descEl.tagName === 'P') {
+    const container = document.createElement('div');
+    container.id = descEl.id;
+    container.className = descEl.className;
+    descEl.replaceWith(container);
+    descEl = container;
+  }
+  descEl.innerHTML = p.desc;
 
   const videoWrap = document.getElementById('d-video-wrap');
   const heroEl = document.getElementById('d-hero-images');

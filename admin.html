@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,10 +10,11 @@
   <header class="admin-header">
     <div>
       <p class="eyebrow">Portfolio Admin</p>
-      <h1>編輯我的作品集</h1>
+      <h1>作品集內容管理</h1>
     </div>
     <div class="header-actions">
-      <span id="status" class="status">尚未連接 GitHub</span>
+      <span id="status" class="status" role="status">尚未連接 GitHub</span>
+      <button id="toggle-preview" class="button" aria-expanded="false">即時預覽</button>
       <button id="save" class="button button-primary">儲存並發布</button>
     </div>
   </header>
@@ -36,6 +37,7 @@
   <main class="admin-layout">
     <aside class="project-list panel">
       <div class="panel-heading"><h2>作品</h2><div class="panel-heading-actions"><button id="show-playground" class="text-button">Playground</button><button id="new-project" class="text-button">＋ 新增作品</button></div></div>
+      <label class="project-search"><span class="sr-only">搜尋作品</span><input id="project-search" type="search" placeholder="搜尋作品…"></label>
       <div id="projects-list"></div>
     </aside>
     <section class="editor panel">
@@ -48,29 +50,31 @@
       </section>
       <form id="project-form" hidden>
         <div class="editor-heading"><div><p class="eyebrow">Project details</p><h2 id="editor-title">編輯作品</h2></div><div class="editor-actions"><button id="preview-project" type="button" class="text-button">開啟全螢幕預覽</button><button id="delete-project" type="button" class="danger-button">刪除作品</button></div></div>
-        <div class="field-grid">
+        <nav class="editor-nav" aria-label="編輯區段"><a href="#basic-fields">基本資料</a><a href="#media-fields">影片素材</a><a href="#process-fields">作品流程</a></nav>
+        <div id="basic-fields" class="field-grid cms-fields">
           <label>作品標題<input id="title" required></label>
           <label>作品小標<input id="label"></label>
           <label>分類<input id="category"></label>
           <label>作品類型／年份<input id="type"></label>
           <label>年份<input id="year"></label>
           <label>地點<input id="location"></label>
-          <label>Vimeo ID<input id="vimeo"></label>
-          <label>封面圖片路徑<input id="thumb"></label>
+          <div class="cms-row"><span class="field-name">作品封面</span><div class="cover-editor"><div id="cover-preview" class="cover-preview"></div><label class="upload-button">＋ 選擇封面<input id="cover-upload" type="file" accept="image/*"></label><label class="asset-path">圖片路徑<input id="thumb" placeholder="貼上圖片網址或上傳檔案"></label></div></div>
         </div>
-        <label>Concept<textarea id="desc" rows="7"></textarea></label>
-        <div class="media-manager">
+        <div class="cms-row"><span class="field-name" id="concept-label">Concept / 作品概念</span><div id="concept-editor"></div><textarea id="desc" hidden></textarea></div>
+        <div id="media-fields" class="media-manager">
           <div class="section-heading"><div><p class="eyebrow">Video Media</p><h3>影片素材</h3></div><div class="add-block-actions"><button id="add-vimeo" type="button" class="button">＋ Vimeo</button><button id="add-loop-video" type="button" class="button">＋ 本地影片</button></div></div>
           <div id="vimeo-fields" class="media-list"></div>
           <div id="loop-video-fields" class="media-list"></div>
         </div>
-        <div class="section-heading"><div><p class="eyebrow">Process layout</p><h3>作品流程</h3></div><div class="add-block-actions"><button id="add-text-block" type="button" class="button">＋ 文字區塊</button><button id="add-gallery-block" type="button" class="button">＋ 圖片畫廊</button><button id="add-image-block" type="button" class="button">＋ 單張大圖</button></div></div>
-        <div class="canvas-note">把滑鼠移到區塊左上角的拖曳符號，就可以直接拖曳調整流程順序。版型按鈕會改變區塊在畫布上的寬度。</div>
+        <div id="process-fields" class="section-heading"><div><p class="eyebrow">Case study</p><h3>作品流程</h3></div></div>
+        <p class="canvas-note">依顯示順序編輯內容。使用「雙欄圖文」可將影片放左側、文字放右側；手機版會依序顯示左欄、右欄。</p>
+        <div class="add-block-actions block-insert"><button id="add-text-block" type="button" class="button">＋ 文字</button><button id="add-gallery-block" type="button" class="button">＋ 圖片／影片</button><button id="add-image-block" type="button" class="button">＋ 滿版圖片</button><button id="add-split-block" type="button" class="button">＋ 雙欄圖文</button></div>
         <div id="blocks" class="visual-canvas"></div>
       </form>
     </section>
-    <aside class="live-preview panel">
+    <aside class="live-preview panel" hidden>
       <div class="panel-heading"><div><p class="eyebrow">Live Preview</p><h2>即時預覽</h2></div><span id="preview-status">草稿</span></div>
+      <div class="preview-devices" role="group" aria-label="預覽裝置"><button type="button" data-device="desktop" aria-pressed="true">桌面</button><button type="button" data-device="mobile" aria-pressed="false">手機</button></div>
       <div class="preview-frame-wrap"><iframe id="live-preview-frame" title="Live project preview"></iframe></div>
     </aside>
   </main>
