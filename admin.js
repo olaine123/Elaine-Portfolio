@@ -257,7 +257,7 @@
         <div class="block-top">
           <label>區塊標題<input class="block-group" value="${escapeHtml(block.group || '')}"></label>
           <label>圖片欄數<select class="block-cols"><option value="1" ${block.cols === 1 ? 'selected' : ''}>單欄</option><option value="2" ${block.cols === 2 || !block.cols ? 'selected' : ''}>兩欄</option><option value="3" ${block.cols === 3 ? 'selected' : ''}>三欄</option><option value="4" ${block.cols === 4 ? 'selected' : ''}>四欄</option></select></label>
-          <label>手機欄數<select class="block-mobile-cols"><option value="1" ${block.mobileCols !== 2 ? 'selected' : ''}>單欄</option><option value="2" ${block.mobileCols === 2 ? 'selected' : ''}>兩欄</option></select></label>
+          <label>手機欄數<select class="block-mobile-cols">${[1, 2, 3, 4].map(cols => `<option value="${cols}" ${(block.mobileCols || 1) === cols ? 'selected' : ''}>${['單欄', '兩欄', '三欄', '四欄'][cols - 1]}</option>`).join('')}</select></label>
           <label>圖片寬度<select class="block-width"><option value="100%" ${!block.maxWidth || block.maxWidth === '100%' ? 'selected' : ''}>滿版</option><option value="75%" ${block.maxWidth === '75%' ? 'selected' : ''}>75%</option><option value="50%" ${block.maxWidth === '50%' ? 'selected' : ''}>50%</option><option value="30%" ${block.maxWidth === '30%' ? 'selected' : ''}>30%</option></select></label>
           <button type="button" class="text-button move-up">上移</button><button type="button" class="text-button move-down">下移</button><button type="button" class="danger-button remove-block">移除</button>
         </div>
