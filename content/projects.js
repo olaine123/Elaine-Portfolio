@@ -66,7 +66,7 @@ window.PORTFOLIO_PROJECTS = [
       },
       {
         "group": "Styleframe",
-        "cols": 2,
+        "cols": 3,
         "items": [
           {
             "src": "Project file/NEW YORK PULSE/Styleframe01.jpg"
@@ -95,7 +95,8 @@ window.PORTFOLIO_PROJECTS = [
           {
             "src": "Project file/NEW YORK PULSE/Styleframe09.png"
           }
-        ]
+        ],
+        "mobileCols": 3
       }
     ],
     "page": "work-new-york-pulse.html"
