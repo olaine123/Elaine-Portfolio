@@ -604,7 +604,7 @@ function renderGroup(g) {
       </div>
     </div>`;
   }
-  const isVideo = src => /\.(mp4|webm|mov)$/i.test(src);
+  const isVideo = src => /\.(mp4|webm|mov)(?:[?#]|$)/i.test(src);
   const grpIdx = window._lbGroups.length;
   window._lbGroups.push({ label: groupLabel, srcs: g.items.filter(i => !isVideo(i.src)).map(i => repairMojibake(i.src)) });
   const n = g.cols || (g.items.length === 1 ? 1 : g.items.length === 2 ? 2 : 3);
@@ -616,7 +616,7 @@ function renderGroup(g) {
       ${g.items.map((item) => {
         const mediaSrc = assetUrl(repairMojibake(item.src));
         const media = isVideo(item.src)
-          ? `<video src="${mediaSrc}" autoplay muted loop playsinline preload="auto" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover"></video>`
+          ? `<video src="${mediaSrc}" autoplay muted loop playsinline preload="auto"></video>`
           : `<img src="${mediaSrc}" alt="${groupLabel}" loading="lazy" onclick="lbOpen(${grpIdx},${imgIdx++})">`;
         return item.caption ? `<div><div class="process-video-label">${item.caption}</div>${media}</div>` : media;
       }).join('')}

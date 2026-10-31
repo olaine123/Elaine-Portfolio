@@ -123,7 +123,7 @@ nav {
 
 /* ─── Loop Videos ─── */
 .detail-loop-videos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-bottom: 60px; }
-.detail-loop-videos video { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; pointer-events: none; }
+.detail-loop-videos video { width: 100%; height: auto; display: block; object-fit: contain; align-self: start; pointer-events: none; }
 
 /* ─── Hero Images ─── */
 .detail-hero-images { display: none; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-bottom: 60px; }
@@ -160,6 +160,7 @@ nav {
 .process-section { margin-bottom: 52px; }
 .process-section-label { font-size: .75rem; letter-spacing: .22em; text-transform: uppercase; color: var(--red); margin-bottom: 20px; }
 .process-section-grid { display: grid; gap: 3px; }
+.process-section-grid video { width: 100%; height: auto; display: block; object-fit: contain; align-self: start; }
 .process-credit { margin-top: 12px; font-family: "Elms Sans", sans-serif; font-size: .875rem; line-height: 1.6; color: rgba(240,237,230,.72); }
 .process-section-grid img { width: 100%; height: auto; display: block; cursor: none; transition: transform .3s ease; }
 .process-section-grid img:hover { transform: scale(1.02); }
