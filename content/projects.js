@@ -4,7 +4,7 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Motion Graphics",
     "title": "NEW YORK PULSE",
-    "type": "Motion Graphics Â· 2026",
+    "type": "Motion Graphics · 2026",
     "vimeoId": "1170310909",
     "desc": "This project expresses the pure excitement of finally experiencing New York City, a city I had always dreamed of visiting. Through the language of geometry, I aim to simplify and celebrate the city's complexity. Different shapes symbolize the global diversity of people. The animation captures the energy and limitless possibilities of New York, translating my personal excitement into a vibrant, rhythmic motion piece.",
     "specs": [
@@ -105,7 +105,7 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Motion Graphics",
     "title": "THE MILKY WAY HOME",
-    "type": "Motion Graphics Â· 2026",
+    "type": "Motion Graphics · 2026",
     "vimeoId": "1170313437",
     "desc": "An alien takes a magical journey to Earth, discovering wonder in the everyday things we take for granted.\n\nThis project is about a trip to Earth through the eyes of an alien. He visits the pyramids of Egypt, is amazed by the different shapes of popcorn, watches a movie in a theater, and even meets cats for the first time and forms a connection with them. Through his eyes, ordinary things on Earth become new and surprising.\n\nBut what fascinates him most is milk, something that does not exist on his home planet. When it is time to leave, he chooses a cow instead of gold, taking home a lifetime supply of fresh milk as the ultimate souvenir.",
     "specs": [
@@ -245,7 +245,7 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Motion Graphics",
     "title": "THE GOOD, THE BAD, and THE UGLY - OFFICIAL TITLE SEQUENCE",
-    "type": "Ending Title Sequence Â· 2025",
+    "type": "Ending Title Sequence · 2025",
     "vimeoId": "1170318485",
     "desc": "For this original drama's end credits, I dove deep into the script and worked closely with the director and writer. We wanted to create a visual journey that really captured the protagonist's search for happiness.\n\nUsing kaleidoscope effects and Dolly-in visuals to pull the audience into the story. I also wove in key locations like the breakfast shop, beauty salon, and toy store. To add more narrative tension, I hid \"Easter eggs\" throughout the sequence, such as a Chinese chess piece that symbolizes manipulation.",
     "specs": [
@@ -417,7 +417,7 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Motion Graphic",
     "title": "The Geometry of Logic - Adelphi",
-    "type": "Motion Graphic Â· 2026",
+    "type": "Motion Graphic · 2026",
     "vimeoId": "1183195558",
     "desc": "<strong>Bridging Rationality and Form</strong>\n\n<a href=\"https://rosettatype.com/AdelphiPE\" target=\"_blank\" rel=\"noopener noreferrer\">Adelphi</a> is a geometric sans-serif typeface with a modern British style. This motion piece explores the balance between its clean geometric shapes and practical design.\nInspired by Bauhaus, the animation brings the letters to life through movement, showing how simple shapes can create interesting and dynamic compositions.",
     "specs": [
@@ -516,7 +516,7 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Motion Graphics",
     "title": "OREO: BRIGHT IDEAS",
-    "type": "Motion Graphics Â· 2026",
+    "type": "Motion Graphics · 2026",
     "vimeoId": "1190259118",
     "desc": "This project reimagines the iconic 1983 Oreo \"Bright Ideas\" commercial by turning its vintage jingle into the visual star. Through expressive kinetic typography, the animation deconstructs the 80s soundtrack, allowing letters to embody the playful and nostalgic energy of \"Milk's Favorite Cookie.\"",
     "specs": [
@@ -540,7 +540,7 @@ window.PORTFOLIO_PROJECTS = [
         "group": "Original Commercial",
         "youtubeId": "k4XvShzNvX4",
         "lyricsTitle": "Transcription",
-        "lyrics": "âª Oh oh oh, bright ideas and an Oreo cookie âª<br>âª It's a bright idea to dunk it, or to crunch it or unscrew it âª<br>âª Or to lick it, or to trick it, but no matter whatcha do âª<br>âª It's true, it's fun to munch a creamy crunchy chocolate O-R-E-O âª<br>âª Goes great with imagination, put the yum in your creation âª<br>Oreo, and Oreo Double Stuf cookies"
+        "lyrics": "♪ Oh oh oh, bright ideas and an Oreo cookie ♪<br>♪ It's a bright idea to dunk it, or to crunch it or unscrew it ♪<br>♪ Or to lick it, or to trick it, but no matter whatcha do ♪<br>♪ It's true, it's fun to munch a creamy crunchy chocolate O-R-E-O ♪<br>♪ Goes great with imagination, put the yum in your creation ♪<br>Oreo, and Oreo Double Stuf cookies"
       },
       {
         "type": "text",
@@ -563,7 +563,7 @@ window.PORTFOLIO_PROJECTS = [
         "specs": [
           {
             "k": "Period of Popularity",
-            "v": "Late 1970s â Early 1980s"
+            "v": "Late 1970s — Early 1980s"
           },
           {
             "k": "Visual Connection",
@@ -679,7 +679,7 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Projection",
     "title": "NIKE SNEAKER PROJECTION",
-    "type": "Projection Â· 2026",
+    "type": "Projection · 2026",
     "vimeoId": "1186439648",
     "desc": "This projection piece uses a retro CRT aesthetic to explore how Nike's visual identity can transform a physical space. Through motion, light, and texture, the animation channels the energy of sneaker culture.",
     "specs": [
@@ -746,7 +746,7 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Styleframe Design",
     "title": "7 KINDS OF REST",
-    "type": "Styleframe Design Â· 2026",
+    "type": "Styleframe Design · 2026",
     "heroImages": [
       "Project file/7 kinds of rest/Styleframe/01.jpg",
       "Project file/7 kinds of rest/Styleframe/02.jpg",
@@ -778,7 +778,7 @@ window.PORTFOLIO_PROJECTS = [
         "entries": [
           {
             "label": "S01 / 02",
-            "body": "I separate mental and emotional rest because mental rest, we focus primarily on mental processes â decision-making, memory function, the ability to have recall, to concentrate."
+            "body": "I separate mental and emotional rest because mental rest, we focus primarily on mental processes — decision-making, memory function, the ability to have recall, to concentrate."
           },
           {
             "label": "S03",
@@ -867,7 +867,7 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Styleframe Design",
     "title": "WORLD ATHLETICS",
-    "type": "Styleframe Design Â· 2026",
+    "type": "Styleframe Design · 2026",
     "heroImages": [
       "Project file/World Athletics/Styleframe/Styleframe 1.jpg",
       "Project file/World Athletics/Styleframe/Styleframe 2.jpg",
@@ -969,7 +969,7 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Projection",
     "title": "CARNIVAL BITES",
-    "type": "Projection Â· 2026",
+    "type": "Projection · 2026",
     "vimeoId": "1197953604",
     "desc": "This projection piece was created for the walls of Carnival at SCAD's Montgomery Hall. Organic brushstrokes and layered motion capture the pleasure of sharing a classic burger, transforming the space into a lively and flavorful dining experience.",
     "specs": [
@@ -1002,11 +1002,11 @@ window.PORTFOLIO_PROJECTS = [
         ]
       },
       {
-        "group": "Birdâs-eye Site Plan",
+        "group": "Bird’s-eye Site Plan",
         "maxWidth": "75%",
         "items": [
           {
-            "src": "Project file/Carnical Bites/Birdâs-eye Site Plan.jpg"
+            "src": "Project file/Carnical Bites/Bird’s-eye Site Plan.jpg"
           }
         ]
       },
@@ -1044,7 +1044,7 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Projection",
     "title": "FROM 1 TO MANY: THE SHARED BREATH",
-    "type": "Projection Â· May 2026",
+    "type": "Projection · May 2026",
     "vimeoId": "1198294003",
     "desc": "We all start with a single, solitary breath. As time moves forward, one becomes many, exploding into a massive society.\n\nUltimately, we are fully socialized. Breathing together in the same rhythm, yet each other holding our own unique pace.",
     "specs": [
@@ -1087,7 +1087,7 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Broadcast Design",
     "title": "NBA ON ESPN BROADCAST DESIGN",
-    "type": "Graphics Package Â· May 2026",
+    "type": "Graphics Package · May 2026",
     "vimeoId": "1198298776",
     "desc": "",
     "specs": [
@@ -1136,7 +1136,7 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Motion Branding",
     "title": "SportingJAX Sports Motion Branding",
-    "type": "Motion Branding Â· October 2026",
+    "type": "Motion Branding · October 2026",
     "vimeoId": "1233598020",
     "vimeoHash": "16d83eaf6c",
     "desc": "The Horizon Line\n\nThe horizontal line defines our visual core, but ocean waves give it life. Across the layout, wave-inspired curves and rolling contours cut through the horizon.\n\nThis line is all about constant flow, rising energy, and forward momentum. Warm sunrise colors and deep ocean blues cut across the layout, reflecting the St. Johns River flowing directly into the Atlantic Ocean.\n\nIt is never static. Instead, it serves as an active visual base that drives the team forward. Bold, clean, and strong, the horizon line embodies the relentless power, passion, and spirit of Jacksonville.",
@@ -1161,14 +1161,6 @@ window.PORTFOLIO_PROJECTS = [
         "items": [
           {
             "src": "Project file/SportingJAX Sports Motion Brending/detail page/moodboard.png"
-          }
-        ]
-      },
-      {
-        "group": "Bento",
-        "items": [
-          {
-            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Bento.mp4"
           }
         ]
       },
@@ -1200,6 +1192,84 @@ window.PORTFOLIO_PROJECTS = [
           {
             "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 8.png"
           }
+        ],
+        "mobileCols": 4
+      },
+      {
+        "group": "Athlete ID",
+        "cols": 4,
+        "items": [
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415140419-T2_ATH_ID_M_01.mp4"
+          },
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415144069-T2_ATH_ID_M_02.mp4"
+          },
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415147348-T2_ATH_ID_W_01.mp4"
+          },
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415150351-T2_ATH_ID_W_02.mp4"
+          }
+        ],
+        "mobileCols": 4,
+        "maxWidth": "50%"
+      },
+      {
+        "group": "Competition Promo",
+        "cols": 2,
+        "items": [
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415261712-Competition_01.mp4"
+          },
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415266864-Competition_02.mp4"
+          }
+        ],
+        "mobileCols": 2,
+        "maxWidth": "50%"
+      },
+      {
+        "group": "Logo Reveal",
+        "cols": 1,
+        "items": [
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415323923-Logo.mov"
+          }
+        ],
+        "maxWidth": "50%"
+      },
+      {
+        "group": "Wipe",
+        "cols": 3,
+        "items": [
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415380101-Wipe01.mp4"
+          },
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415382123-Wipe02.mp4"
+          },
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415383562-Wipe03.mp4"
+          }
+        ],
+        "mobileCols": 3
+      },
+      {
+        "group": "Text Animation",
+        "cols": 1,
+        "items": [
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415407886-We are sj.mp4"
+          }
+        ]
+      },
+      {
+        "group": "Final Bento Box",
+        "items": [
+          {
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Bento.mp4"
+          }
         ]
       }
     ],
@@ -1209,8 +1279,8 @@ window.PORTFOLIO_PROJECTS = [
     "num": "01",
     "category": "live-action",
     "label": "Live Action Motion",
-    "title": "ChristmasÂ­land in New Taipei City",
-    "type": "Television Commercial Â· 2025",
+    "title": "Christmas­land in New Taipei City",
+    "type": "Television Commercial · 2025",
     "vimeoId": "1187493872",
     "desc": "The Magic of Christmas\n\nThere's something special about the way light brings the holidays to life. For this project, I used glowing lines to unveil the festive energy of the city's Christmas event, leading the audience through a wonderland of festive decorations.\n\nTo keep the vibe warm and joyful, I used the animation with charming, childlike illustrations. It's a mix of that pure, innocent Christmas spirit we all love.",
     "specs": [
@@ -1233,9 +1303,9 @@ window.PORTFOLIO_PROJECTS = [
     ],
     "thumb": "",
     "loopVideos": [
-      "Project file/Live action motion/æ°åè¶èªå/01.mp4",
-      "Project file/Live action motion/æ°åè¶èªå/02.mp4",
-      "Project file/Live action motion/æ°åè¶èªå/03.mp4"
+      "Project file/Live action motion/新北耶誕城/01.mp4",
+      "Project file/Live action motion/新北耶誕城/02.mp4",
+      "Project file/Live action motion/新北耶誕城/03.mp4"
     ],
     "processGroups": [],
     "page": "work-christmasland.html"
@@ -1245,7 +1315,7 @@ window.PORTFOLIO_PROJECTS = [
     "category": "live-action",
     "label": "Live Action Motion",
     "title": "Taoyuan Pearl Coast Music Festival",
-    "type": "Television Commercial Â· 2025",
+    "type": "Television Commercial · 2025",
     "vimeoId": "1187495431",
     "desc": "",
     "specs": [
@@ -1268,9 +1338,9 @@ window.PORTFOLIO_PROJECTS = [
     ],
     "thumb": "",
     "loopVideos": [
-      "Project file/Live action motion/æ¡åé³æ¨ç¯/01.mp4",
-      "Project file/Live action motion/æ¡åé³æ¨ç¯/02.mp4",
-      "Project file/Live action motion/æ¡åé³æ¨ç¯/03.mp4"
+      "Project file/Live action motion/桃園音樂節/01.mp4",
+      "Project file/Live action motion/桃園音樂節/02.mp4",
+      "Project file/Live action motion/桃園音樂節/03.mp4"
     ],
     "processGroups": [],
     "page": "work-taoyuan.html"
@@ -1280,7 +1350,7 @@ window.PORTFOLIO_PROJECTS = [
     "category": "live-action",
     "label": "Live Action Motion",
     "title": "Love On a Shoestring",
-    "type": "Television Commercial Â· 2024",
+    "type": "Television Commercial · 2024",
     "vimeoIds": [
       "1187499775",
       "1187499776",
@@ -1307,13 +1377,13 @@ window.PORTFOLIO_PROJECTS = [
     ],
     "thumb": "",
     "loopVideos": [
-      "Project file/Live action motion/å®å¨çé¢/01.mp4",
-      "Project file/Live action motion/å®å¨çé¢/02.mp4",
-      "Project file/Live action motion/å®å¨çé¢/03.mp4",
-      "Project file/Live action motion/å®å¨çé¢/04.mp4",
-      "Project file/Live action motion/å®å¨çé¢/05.mp4",
-      "Project file/Live action motion/å®å¨çé¢/06.mp4",
-      "Project file/Live action motion/å®å¨çé¢/07.mp4"
+      "Project file/Live action motion/完全省錢/01.mp4",
+      "Project file/Live action motion/完全省錢/02.mp4",
+      "Project file/Live action motion/完全省錢/03.mp4",
+      "Project file/Live action motion/完全省錢/04.mp4",
+      "Project file/Live action motion/完全省錢/05.mp4",
+      "Project file/Live action motion/完全省錢/06.mp4",
+      "Project file/Live action motion/完全省錢/07.mp4"
     ],
     "processGroups": [
       {
@@ -1325,7 +1395,7 @@ window.PORTFOLIO_PROJECTS = [
           "maxWidth": "50%",
           "items": [
             {
-              "src": "Project file/Live action motion/å®å¨çé¢/Assist of the filming set.png"
+              "src": "Project file/Live action motion/完全省錢/Assist of the filming set.png"
             }
           ]
         },
@@ -1334,7 +1404,7 @@ window.PORTFOLIO_PROJECTS = [
             "group": "Visual experiments and prototyping",
             "items": [
               {
-                "src": "Project file/Live action motion/å®å¨çé¢/Visual experiment.png"
+                "src": "Project file/Live action motion/完全省錢/Visual experiment.png"
               }
             ]
           },
@@ -1350,7 +1420,7 @@ window.PORTFOLIO_PROJECTS = [
         "maxWidth": "60%",
         "items": [
           {
-            "src": "Project file/Live action motion/å®å¨çé¢/moodboard.png"
+            "src": "Project file/Live action motion/完全省錢/moodboard.png"
           }
         ]
       }
@@ -1362,7 +1432,7 @@ window.PORTFOLIO_PROJECTS = [
     "category": "live-action",
     "label": "Live Action Motion",
     "title": "Taipei City Cup International Esports Tournament",
-    "type": "Television Commercial Â· 2025",
+    "type": "Television Commercial · 2025",
     "vimeoId": "1187495234",
     "desc": "",
     "specs": [
@@ -1381,9 +1451,9 @@ window.PORTFOLIO_PROJECTS = [
     ],
     "thumb": "",
     "loopVideos": [
-      "Project file/Live action motion/å°ååå¸ç/01.mp4",
-      "Project file/Live action motion/å°ååå¸ç/02.mp4",
-      "Project file/Live action motion/å°ååå¸ç/03.mp4"
+      "Project file/Live action motion/台北城市盃/01.mp4",
+      "Project file/Live action motion/台北城市盃/02.mp4",
+      "Project file/Live action motion/台北城市盃/03.mp4"
     ],
     "processGroups": [],
     "page": "work-taipei-esports.html"
@@ -1393,7 +1463,7 @@ window.PORTFOLIO_PROJECTS = [
     "category": "live-action",
     "label": "Live Action Motion",
     "title": "Who's The Boss Teaser",
-    "type": "Television Commercial Â· 2024",
+    "type": "Television Commercial · 2024",
     "vimeoId": "1187501636",
     "desc": "",
     "specs": [
@@ -1416,9 +1486,9 @@ window.PORTFOLIO_PROJECTS = [
     ],
     "thumb": "",
     "loopVideos": [
-      "Project file/Live action motion/ç§æ¸ä¿±æ¨é¨/01.mp4",
-      "Project file/Live action motion/ç§æ¸ä¿±æ¨é¨/02.mp4",
-      "Project file/Live action motion/ç§æ¸ä¿±æ¨é¨/03.mp4"
+      "Project file/Live action motion/秘書俱樂部/01.mp4",
+      "Project file/Live action motion/秘書俱樂部/02.mp4",
+      "Project file/Live action motion/秘書俱樂部/03.mp4"
     ],
     "processGroups": [],
     "page": "work-whos-the-boss.html"
