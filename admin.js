@@ -555,7 +555,10 @@
     };
     collect(project);
     const existing = paths.find(path => path.split('/').length >= 3);
-    if (existing) return existing.split('/').slice(0, 3).join('/');
+    // Keep only `Project file/<project folder>`. The previous slice included
+    // the first media filename, so GitHub tried to create a subdirectory
+    // inside an existing file.
+    if (existing) return existing.split('/').slice(0, 2).join('/');
     const folder = ($('title').value || 'New Project').replace(/[^a-z0-9 -]/gi, '').trim() || 'New Project';
     return `Project file/${folder}`;
   }
