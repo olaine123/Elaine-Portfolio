@@ -573,7 +573,23 @@
   };
   async function github(path, options = {}) {
     const token = $('token').value.trim();
-    const response = await fetch(`https://api.github.com/${repoPath()}/${path.replace(/^\//, '')}`, { ...options, headers: { Accept: 'application/vnd.github+json', Authorization: `Bearer ${token}`, 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json', ...(options.headers || {}) } });
+    const method = String(options.method || 'GET').toUpperCase();
+    const requestPath = method === 'GET'
+      ? `${path}${path.includes('?') ? '&' : '?'}_=${Date.now()}`
+      : path;
+    const requestOptions = {
+      ...options,
+      headers: {
+        Accept: 'application/vnd.github+json',
+        Authorization: `Bearer ${token}`,
+        'X-GitHub-Api-Version': '2022-11-28',
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache',
+        ...(options.headers || {})
+      }
+    };
+    if (method === 'GET') requestOptions.cache = 'no-store';
+    const response = await fetch(`https://api.github.com/${repoPath()}/${requestPath.replace(/^\//, '')}`, requestOptions);
     const data = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(data.message || `GitHub request failed (${response.status})`);
     return data;
@@ -642,7 +658,16 @@
       const current = await github('/contents/content/projects.js?ref=' + encodeURIComponent($('branch').value.trim()));
       const source = `window.PORTFOLIO_PROJECTS = ${JSON.stringify(publishableProjects(), null, 2)};\n`;
       const content = btoa(unescape(encodeURIComponent(source)));
-      const saved = await github('/contents/content/projects.js', { method: 'PUT', body: JSON.stringify({ message: 'Update portfolio content', content, sha: current.sha, branch: $('branch').value.trim() }) });
+      const saveFile = sha => github('/contents/content/projects.js', { method: 'PUT', body: JSON.stringify({ message: 'Update portfolio content', content, sha, branch: $('branch').value.trim() }) });
+      let saved;
+      try {
+        saved = await saveFile(current.sha);
+      } catch (error) {
+        if (!/does not match|sha/i.test(String(error.message))) throw error;
+        setStatus('GitHub 版本剛更新，正在重新取得最新版本…');
+        const latest = await github('/contents/content/projects.js?ref=' + encodeURIComponent($('branch').value.trim()));
+        saved = await saveFile(latest.sha);
+      }
       state.sha = saved.content.sha; setStatus('Saved. The website will redeploy from GitHub.');
     } catch (error) { setStatus(error.message, true); }
   });
