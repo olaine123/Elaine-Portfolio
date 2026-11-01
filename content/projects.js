@@ -96,7 +96,7 @@ window.PORTFOLIO_PROJECTS = [
             "src": "Project file/NEW YORK PULSE/Styleframe09.png"
           }
         ],
-        "mobileCols": 3
+        "mobileCols": 2
       }
     ],
     "page": "work-new-york-pulse.html"
@@ -237,7 +237,8 @@ window.PORTFOLIO_PROJECTS = [
           {
             "src": "Project file/The Milky Way Home/Styleframe/Frame-10.jpg"
           }
-        ]
+        ],
+        "mobileCols": 2
       }
     ],
     "page": "work-milky-way-home.html"
@@ -354,7 +355,7 @@ window.PORTFOLIO_PROJECTS = [
       },
       {
         "group": "Styleframe",
-        "cols": 5,
+        "cols": 3,
         "items": [
           {
             "src": "Project file/THE GOOD, THE BAD, and THE UGLY/styleframe/styleframe01.png"
@@ -401,7 +402,8 @@ window.PORTFOLIO_PROJECTS = [
           {
             "src": "Project file/THE GOOD, THE BAD, and THE UGLY/styleframe/styleframe15.png"
           }
-        ]
+        ],
+        "mobileCols": 3
       },
       {
         "group": "It's on Netflix Now!",
@@ -467,7 +469,7 @@ window.PORTFOLIO_PROJECTS = [
       },
       {
         "group": "Styleframe",
-        "cols": 4,
+        "cols": 3,
         "items": [
           {
             "src": "Project file/The Geometry of Logic - Adelphi/Styleframe/StyleFrame-01.jpg"
@@ -508,7 +510,8 @@ window.PORTFOLIO_PROJECTS = [
           {
             "src": "Project file/The Geometry of Logic - Adelphi/Styleframe/StyleFrame-13.jpg"
           }
-        ]
+        ],
+        "mobileCols": 3
       }
     ],
     "page": "work-adelphi.html"
@@ -836,7 +839,8 @@ window.PORTFOLIO_PROJECTS = [
           {
             "src": "Project file/7 kinds of rest/Initial Style Frames/04.jpg"
           }
-        ]
+        ],
+        "maxWidth": "75%"
       },
       {
         "group": "Final Style Frames",
@@ -862,7 +866,8 @@ window.PORTFOLIO_PROJECTS = [
         ]
       }
     ],
-    "page": "work-7-kinds-of-rest.html"
+    "page": "work-7-kinds-of-rest.html",
+    "vimeoId": ""
   },
   {
     "num": "08",
