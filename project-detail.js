@@ -1,6 +1,7 @@
 const localPreviewProjects = new URLSearchParams(window.location.search).get('preview') === '1'
   ? (() => { try { return JSON.parse(localStorage.getItem('portfolio-preview-projects') || 'null'); } catch { return null; } })()
   : null;
+const previewLoading = localPreviewProjects ? '' : ' loading="lazy"';
 const repairMojibake = value => {
   if (typeof value === 'string') {
     if (!/[ÃÂâåæçèé]/.test(value)) return value;
@@ -560,12 +561,12 @@ function renderGroup(g) {
       const aIdxs = pair.after.map(() => sIdx++);
       const afterCells = Array.from({length: maxAfter}, (_, i) => {
         if (i < pair.after.length) {
-          return `<img src="${pair.after[i]}" loading="lazy" onclick="lbOpen(${grpIdx},${aIdxs[i]})" style="width:100%;display:block;cursor:none;transition:transform .3s ease" onmouseenter="document.body.classList.add('hovering');this.style.transform='scale(1.02)'" onmouseleave="document.body.classList.remove('hovering');this.style.transform='scale(1)'">`;
+          return `<img src="${pair.after[i]}"${previewLoading} onclick="lbOpen(${grpIdx},${aIdxs[i]})" style="width:100%;display:block;cursor:none;transition:transform .3s ease" onmouseenter="document.body.classList.add('hovering');this.style.transform='scale(1.02)'" onmouseleave="document.body.classList.remove('hovering');this.style.transform='scale(1)'">`;
         }
         return '<div></div>';
       }).join('');
       return `<div style="display:grid;grid-template-columns:${gridCols};gap:8px;align-items:center">
-        <img src="${pair.before}" loading="lazy" onclick="lbOpen(${grpIdx},${bIdx})" style="width:100%;display:block;cursor:none;transition:transform .3s ease" onmouseenter="document.body.classList.add('hovering');this.style.transform='scale(1.02)'" onmouseleave="document.body.classList.remove('hovering');this.style.transform='scale(1)'">
+        <img src="${pair.before}"${previewLoading} onclick="lbOpen(${grpIdx},${bIdx})" style="width:100%;display:block;cursor:none;transition:transform .3s ease" onmouseenter="document.body.classList.add('hovering');this.style.transform='scale(1.02)'" onmouseleave="document.body.classList.remove('hovering');this.style.transform='scale(1)'">
         <div style="color:var(--red);font-family:'Anton',sans-serif;font-size:1.8rem;line-height:1;text-align:center">→</div>
         ${afterCells}
       </div>`;
@@ -582,7 +583,7 @@ function renderGroup(g) {
       ${g.group ? `<div class="process-section-label">${g.group}</div>` : ''}
       <div style="max-width:50%;margin:0 auto;text-align:center">
         <div class="process-section-grid" style="grid-template-columns:repeat(1,1fr)">
-          <img src="${g.src}" alt="${g.group}" loading="lazy" onclick="lbOpen(${grpIdx},0)">
+          <img src="${g.src}" alt="${g.group}"${previewLoading} onclick="lbOpen(${grpIdx},0)">
         </div>
         <div style="margin-top:20px;display:flex;gap:48px;flex-wrap:wrap;justify-content:center">
           ${g.specs.map(s => `<div><div class="spec-label">${s.k}</div><div style="font-size:.9rem;color:var(--muted);margin-top:4px">${s.v}</div></div>`).join('')}
@@ -617,7 +618,7 @@ function renderGroup(g) {
         const mediaSrc = assetUrl(repairMojibake(item.src));
         const media = isVideo(item.src)
           ? `<video src="${mediaSrc}" autoplay muted loop playsinline preload="auto"></video>`
-          : `<img src="${mediaSrc}" alt="${groupLabel}" loading="lazy" onclick="lbOpen(${grpIdx},${imgIdx++})">`;
+          : `<img src="${mediaSrc}" alt="${groupLabel}"${previewLoading} onclick="lbOpen(${grpIdx},${imgIdx++})">`;
         return item.caption ? `<div><div class="process-video-label">${item.caption}</div>${media}</div>` : media;
       }).join('')}
     </div>
@@ -631,7 +632,7 @@ function updateMoreProjects(currentIdx) {
   const nextIdx = (currentIdx + 1) % n;
   const prev = projects[prevIdx], next = projects[nextIdx];
   const thumbHtml = (p) => {
-    if (p.thumb) return `<img src="${p.thumb}" alt="${p.title}" loading="lazy">`;
+    if (p.thumb) return `<img src="${p.thumb}" alt="${p.title}"${previewLoading}>`;
     const vid = p.vimeoId || (p.vimeoIds && p.vimeoIds[0]) || '';
     return vid ? `<span class="dmp-vimeo-ph" data-vimeo="${vid}" style="display:block;width:100%;height:100%"></span>` : '';
   };
@@ -751,7 +752,7 @@ function renderProject(idx) {
     const lbIdx = window._lbGroups.length;
     window._lbGroups.push({ label: 'Styleframe', srcs: p.heroImages });
     heroEl.innerHTML = p.heroImages.map((src, i) =>
-      `<img src="${src}" alt="${p.title}" loading="lazy" onclick="lbOpen(${lbIdx},${i})">`
+      `<img src="${src}" alt="${p.title}"${previewLoading} onclick="lbOpen(${lbIdx},${i})">`
     ).join('');
   }
 
