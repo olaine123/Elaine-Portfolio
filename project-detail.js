@@ -1,7 +1,8 @@
-const localPreviewProjects = new URLSearchParams(window.location.search).get('preview') === '1'
+const isPreviewMode = new URLSearchParams(window.location.search).get('preview') === '1';
+const localPreviewProjects = isPreviewMode
   ? (() => { try { return JSON.parse(localStorage.getItem('portfolio-preview-projects') || 'null'); } catch { return null; } })()
   : null;
-const previewLoading = localPreviewProjects ? '' : ' loading="lazy"';
+const previewLoading = isPreviewMode ? '' : ' loading="lazy"';
 const repairMojibake = value => {
   if (typeof value === 'string') {
     if (!/[ÃÂâåæçèé]/.test(value)) return value;
