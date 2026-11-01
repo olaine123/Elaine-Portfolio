@@ -129,6 +129,8 @@ textarea { resize:vertical; line-height:1.65; }
 .item-controls .upload-button { margin-right:auto; padding:5px 8px; }
 .upload-button { position:relative; display:inline-flex; align-items:center; justify-content:center; padding:10px 13px; border:1px dashed #454545; border-radius:8px; color:#aaa; cursor:pointer; font-size:12px; background:var(--field); }
 .upload-button:hover { border-color:#aaa; color:#fff; }
+.drop-upload { transition:border-color .15s ease, background .15s ease, color .15s ease; }
+.drop-upload.is-dragging { border-color:var(--red); background:rgba(239,53,53,.12); color:#fff; }
 .upload-button:focus-within { outline:2px solid var(--red); outline-offset:3px; }
 .upload-button input { position:absolute; inset:0; opacity:0; cursor:pointer; padding:0; }
 .remove-item { border:0; background:transparent; color:#9d9d9d; padding:5px; font-size:11px; }

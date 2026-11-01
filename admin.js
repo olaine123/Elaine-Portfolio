@@ -30,12 +30,40 @@
 
   const escapeHtml = (value = '') => String(value).replace(/[&<>'"]/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '"':'&quot;' }[char]));
   const repoPath = () => `repos/${$('owner').value.trim()}/${$('repo').value.trim()}`;
+  const encodeAssetPath = path => String(path || '').split('/').map(encodeURIComponent).join('/');
+  const previewAssetUrl = src => {
+    const value = repairMojibake(String(src || ''));
+    if (!value) return '';
+    if (/^(?:[a-z]+:)?\/\//i.test(value) || value.startsWith('data:')) return encodeURI(value);
+    const owner = $('owner')?.value.trim();
+    const repo = $('repo')?.value.trim();
+    const branch = $('branch')?.value.trim() || 'main';
+    return owner && repo ? `https://raw.githubusercontent.com/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/${encodeURIComponent(branch)}/${encodeAssetPath(value)}` : encodeURI(value);
+  };
   const setStatus = (text, error = false) => { $('status').textContent = text; $('status').style.color = error ? '#ef7777' : ''; };
   const projectPreview = project => {
     if (project.thumb) return project.thumb;
     const firstGroup = (project.processGroups || []).find(group => group.items?.length || group.left?.items?.length);
     return firstGroup?.items?.[0]?.src || firstGroup?.left?.items?.[0]?.src || '';
   };
+
+  function bindDropUpload(zone, input, onFiles) {
+    if (!zone || !input) return;
+    ['dragenter', 'dragover'].forEach(type => zone.addEventListener(type, event => {
+      event.preventDefault();
+      event.stopPropagation();
+      zone.classList.add('is-dragging');
+    }));
+    ['dragleave', 'drop'].forEach(type => zone.addEventListener(type, event => {
+      event.preventDefault();
+      event.stopPropagation();
+      zone.classList.remove('is-dragging');
+    }));
+    zone.addEventListener('drop', event => {
+      const files = [...(event.dataTransfer?.files || [])];
+      if (files.length) onFiles(files);
+    });
+  }
 
   function renderList() {
     const query = $('project-search').value.trim().toLowerCase();
@@ -89,12 +117,12 @@
     $('playground-items').innerHTML = state.playground.map((item, index) => `
       <article class="playground-editor-card" draggable="true" data-playground-index="${index}">
         <span class="drag-handle">⠿</span>
-        <div class="playground-editor-preview">${item.src ? (item.type === 'video' ? `<video src="${escapeHtml(item.src)}" muted loop autoplay playsinline></video>` : `<img src="${escapeHtml(item.src)}" alt="">`) : '<span>尚未選擇檔案</span>'}</div>
+        <div class="playground-editor-preview">${item.src ? (item.type === 'video' ? `<video src="${escapeHtml(previewAssetUrl(item.src))}" muted loop autoplay playsinline></video>` : `<img src="${escapeHtml(previewAssetUrl(item.src))}" alt="">`) : '<span>尚未選擇檔案</span>'}</div>
         <div class="playground-editor-fields">
           <label>標題<input class="playground-title" value="${escapeHtml(item.title || '')}" placeholder="例如 Memory"></label>
           <label>類型<select class="playground-type"><option value="image" ${item.type === 'image' ? 'selected' : ''}>圖片</option><option value="video" ${item.type === 'video' ? 'selected' : ''}>影片</option></select></label>
           <label>檔案路徑<input class="playground-src" value="${escapeHtml(item.src || '')}" placeholder="Project file/Playground/..."></label>
-          <div class="item-controls"><label class="upload-button">選擇檔案<input class="playground-upload" type="file" accept="image/*,video/*"></label><button type="button" class="danger-button remove-playground">移除</button></div>
+          <div class="item-controls"><label class="upload-button drop-upload">拖曳或選擇檔案<input class="playground-upload" type="file" accept="image/*,video/*"></label><button type="button" class="danger-button remove-playground">移除</button></div>
         </div>
       </article>`).join('');
     $('playground-items').querySelectorAll('.playground-editor-card').forEach(card => {
@@ -104,6 +132,7 @@
       card.querySelector('.playground-src').addEventListener('change', event => { state.playground[index].src = event.target.value.trim(); renderPlayground(); });
       card.querySelector('.remove-playground').addEventListener('click', () => { state.playground.splice(index, 1); renderPlayground(); });
       card.querySelector('.playground-upload').addEventListener('change', event => uploadPlaygroundFile(index, event.target.files[0]));
+      bindDropUpload(card.querySelector('.drop-upload'), card.querySelector('.playground-upload'), files => uploadPlaygroundFile(index, files[0]));
       card.addEventListener('dragstart', event => { event.dataTransfer.setData('text/plain', String(index)); card.classList.add('dragging'); });
       card.addEventListener('dragend', () => card.classList.remove('dragging'));
       card.addEventListener('dragover', event => event.preventDefault());
@@ -166,26 +195,27 @@
   }
 
   function mediaRow(src = '') {
-    return `<div class="media-row"><span class="media-icon">▶</span><div class="media-preview">${src ? `<video src="${escapeHtml(src)}" muted></video>` : '<span>尚未選擇影片</span>'}</div><input class="loop-video-src" value="${escapeHtml(src)}" placeholder="Project file/.../video.mp4"><label class="upload-button">選擇影片<input class="media-upload" type="file" accept="video/*"></label><button type="button" class="remove-media">移除</button></div>`;
+    return `<div class="media-row"><span class="media-icon">▶</span><div class="media-preview">${src ? `<video src="${escapeHtml(previewAssetUrl(src))}" muted></video>` : '<span>尚未選擇影片</span>'}</div><input class="loop-video-src" value="${escapeHtml(src)}" placeholder="Project file/.../video.mp4"><label class="upload-button drop-upload">拖曳或選擇影片<input class="media-upload" type="file" accept="video/*"></label><button type="button" class="remove-media">移除</button></div>`;
   }
 
   function bindMediaRow(row) {
     row.querySelector('.remove-media')?.addEventListener('click', () => { row.remove(); scheduleLivePreview(); });
-    row.querySelector('.loop-video-src')?.addEventListener('change', () => { row.querySelector('.media-preview').innerHTML = row.querySelector('.loop-video-src').value ? `<video src="${escapeHtml(row.querySelector('.loop-video-src').value)}" muted></video>` : '<span>尚未選擇影片</span>'; scheduleLivePreview(); });
-    row.querySelector('.media-upload')?.addEventListener('change', async event => {
-      const file = event.target.files[0]; if (!file) return;
+    row.querySelector('.loop-video-src')?.addEventListener('change', () => { row.querySelector('.media-preview').innerHTML = row.querySelector('.loop-video-src').value ? `<video src="${escapeHtml(previewAssetUrl(row.querySelector('.loop-video-src').value))}" muted></video>` : '<span>尚未選擇影片</span>'; scheduleLivePreview(); });
+    const uploadVideo = async file => {
+      if (!file) return;
       if (!$('token').value.trim()) { setStatus('請先連接 GitHub 再上傳影片。', true); return; }
       try {
         setStatus(`Uploading ${file.name}…`);
-        const projectFolder = ($('title').value || 'New Project').replace(/[^a-z0-9 -]/gi, '').trim() || 'New Project';
-        const path = `Project file/${projectFolder}/${file.name}`;
+        const path = `${projectAssetFolder()}/${file.name}`;
         const content = await fileToBase64(file);
         await github(`/contents/${encodePath(path)}`, { method: 'PUT', body: JSON.stringify({ message: `Add ${file.name}`, content, branch: $('branch').value.trim() }) });
         row.querySelector('.loop-video-src').value = path;
-        row.querySelector('.media-preview').innerHTML = `<video src="${escapeHtml(path)}" muted></video>`;
+        row.querySelector('.media-preview').innerHTML = `<video src="${escapeHtml(previewAssetUrl(path))}" muted></video>`;
         setStatus('影片已上傳，請再儲存作品內容。'); scheduleLivePreview();
       } catch (error) { setStatus(error.message, true); }
-    });
+    };
+    row.querySelector('.media-upload')?.addEventListener('change', event => uploadVideo(event.target.files[0]));
+    bindDropUpload(row.querySelector('.drop-upload'), row.querySelector('.media-upload'), files => uploadVideo(files[0]));
   }
 
   function previewUrl(project) {
@@ -199,7 +229,7 @@
     if (state.mode !== 'projects') return;
     const project = fromForm ? readForm() : state.projects[state.selected];
     if (!project) return;
-    localStorage.setItem('portfolio-preview-projects', JSON.stringify(publishableProjects()));
+    localStorage.setItem('portfolio-preview-projects', JSON.stringify(previewableProjects()));
     const frame = $('live-preview-frame');
     if (document.querySelector('.live-preview').hidden) { $('preview-status').textContent = '草稿已更新'; return; }
     const nextUrl = previewUrl(project);
@@ -217,6 +247,15 @@
       return copy;
     };
     return state.projects.map(clean);
+  }
+
+  function previewableProjects() {
+    const convert = (value, key = '') => {
+      if (Array.isArray(value)) return value.map(item => convert(item, key));
+      if (!value || typeof value !== 'object') return ['src', 'thumb'].includes(key) ? previewAssetUrl(value) : value;
+      return Object.fromEntries(Object.entries(value).map(([childKey, item]) => [childKey, childKey === 'loopVideos' && Array.isArray(item) ? item.map(previewAssetUrl) : convert(item, childKey)]));
+    };
+    return convert(publishableProjects());
   }
 
   function bindLivePreviewFields() {
@@ -297,7 +336,7 @@
 
   function previewMedia(src) {
     if (!src) return '<span class="preview-empty">尚未選擇圖片</span>';
-    const safe = escapeHtml(src);
+    const safe = escapeHtml(previewAssetUrl(src));
     return /\.(mp4|webm|mov)(?:[?#]|$)/i.test(src) ? `<video src="${safe}" muted playsinline preload="metadata"></video>` : `<img src="${safe}" alt="">`;
   }
 
@@ -324,7 +363,7 @@
     row.innerHTML = `<div class="item-preview">${previewMedia(item.src)}</div>
       <label class="asset-path">圖片／影片路徑<input class="item-src" value="${escapeHtml(item.src || '')}" placeholder="貼上網址或選擇檔案"></label>
       <label>說明<input class="item-caption" value="${escapeHtml(item.caption || '')}" placeholder="可留白"></label>
-      <div class="item-controls"><label class="upload-button">更換<input class="file-upload" type="file" accept="image/*,video/*"></label>
+      <div class="item-controls"><label class="upload-button drop-upload">拖曳或更換<input class="file-upload" type="file" accept="image/*,video/*"></label>
       <button type="button" class="text-button item-prev" aria-label="將媒體前移">←</button><button type="button" class="text-button item-next" aria-label="將媒體後移">→</button>
       <button type="button" class="remove-item" aria-label="移除此媒體">移除</button></div>`;
     row.querySelector('.item-src').addEventListener('input', event => { row.querySelector('.item-preview').innerHTML = previewMedia(event.target.value.trim()); });
@@ -365,11 +404,11 @@
       el.append(list);
       const actions = document.createElement('div');
       actions.className = 'gallery-actions';
-      actions.innerHTML = '<label class="upload-button">＋ 上傳圖片／影片<input class="gallery-upload" type="file" multiple accept="image/*,video/*"></label><button type="button" class="text-button add-item">＋ 貼上媒體路徑</button>';
+      actions.innerHTML = '<label class="upload-button drop-upload">拖曳或選擇圖片／影片<input class="gallery-upload" type="file" multiple accept="image/*,video/*"></label><button type="button" class="text-button add-item">＋ 貼上媒體路徑</button>';
       actions.querySelector('.add-item').addEventListener('click', () => { list.append(createMediaCard()); scheduleLivePreview(); });
-      actions.querySelector('.gallery-upload').addEventListener('change', async event => {
-        const files = [...event.target.files];
-        event.target.disabled = true;
+      const uploadGalleryFiles = async files => {
+        const input = actions.querySelector('.gallery-upload');
+        input.disabled = true;
         try {
           for (const file of files) {
             const path = await uploadAsset(file);
@@ -377,8 +416,10 @@
           }
           setStatus('媒體已上傳，發布作品後會顯示在網站。');
         } catch (error) { setStatus(error.message, true); }
-        finally { event.target.disabled = false; event.target.value = ''; scheduleLivePreview(); }
-      });
+        finally { actions.querySelector('.gallery-upload').disabled = false; actions.querySelector('.gallery-upload').value = ''; scheduleLivePreview(); }
+      };
+      actions.querySelector('.gallery-upload').addEventListener('change', event => uploadGalleryFiles([...event.target.files]));
+      bindDropUpload(actions.querySelector('.drop-upload'), actions.querySelector('.gallery-upload'), uploadGalleryFiles);
       el.append(actions);
     }
     return el;
@@ -480,25 +521,42 @@
   }
 
   function bindUpload(row) {
-    row?.querySelector('.file-upload')?.addEventListener('change', async event => {
-      const file = event.target.files[0]; if (!file) return;
+    const uploadItem = async file => {
+      if (!file) return;
       try {
         const path = await uploadAsset(file);
         row.querySelector('.item-src').value = path;
         row.querySelector('.item-preview').innerHTML = previewMedia(path);
         setStatus('媒體已上傳，發布作品後會顯示在網站。'); scheduleLivePreview();
       } catch (error) { setStatus(error.message, true); }
-    });
+    };
+    const input = row?.querySelector('.file-upload');
+    input?.addEventListener('change', event => uploadItem(event.target.files[0]));
+    bindDropUpload(row?.querySelector('.drop-upload'), input, files => uploadItem(files[0]));
   }
 
   async function uploadAsset(file) {
     if (!$('token').value.trim()) throw new Error('請先在 GitHub 設定中連接，再上傳檔案。');
     setStatus(`正在上傳 ${file.name}…`);
-    const folder = ($('title').value || 'New Project').replace(/[^a-z0-9 -]/gi, '').trim() || 'New Project';
-    const path = `Project file/${folder}/${Date.now()}-${file.name}`;
+    const path = `${projectAssetFolder()}/${Date.now()}-${file.name}`;
     const content = await fileToBase64(file);
     await github(`/contents/${encodePath(path)}`, { method: 'PUT', body: JSON.stringify({ message: `Add ${file.name}`, content, branch: $('branch').value.trim() }) });
     return path;
+  }
+
+  function projectAssetFolder() {
+    const project = state.projects[state.selected];
+    const paths = [];
+    const collect = value => {
+      if (typeof value === 'string' && value.startsWith('Project file/')) paths.push(value);
+      else if (Array.isArray(value)) value.forEach(collect);
+      else if (value && typeof value === 'object') Object.values(value).forEach(collect);
+    };
+    collect(project);
+    const existing = paths.find(path => path.split('/').length >= 3);
+    if (existing) return existing.split('/').slice(0, 3).join('/');
+    const folder = ($('title').value || 'New Project').replace(/[^a-z0-9 -]/gi, '').trim() || 'New Project';
+    return `Project file/${folder}`;
   }
 
   const encodePath = path => path.split('/').map(encodeURIComponent).join('/');
@@ -630,12 +688,14 @@
   $('project-form').addEventListener('change', event => { if (event.target.type !== 'file') scheduleLivePreview(); });
   $('project-search').addEventListener('input', renderList);
   $('thumb').addEventListener('input', renderCover);
-  $('cover-upload').addEventListener('change', async event => {
-    const file = event.target.files[0]; if (!file) return;
+  const uploadCover = async file => {
+    if (!file) return;
     try { $('thumb').value = await uploadAsset(file); renderCover(); scheduleLivePreview(); setStatus('封面已上傳，請發布作品。'); }
     catch (error) { setStatus(error.message, true); }
-    event.target.value = '';
-  });
+    finally { $('cover-upload').value = ''; }
+  };
+  $('cover-upload').addEventListener('change', event => uploadCover(event.target.files[0]));
+  bindDropUpload(document.querySelector('#cover-upload')?.closest('.drop-upload'), $('cover-upload'), files => uploadCover(files[0]));
   function sizePreview() {
     const wrap = document.querySelector('.preview-frame-wrap');
     const width = previewDevice === 'mobile' ? 390 : 1280;
