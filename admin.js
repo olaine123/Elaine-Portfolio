@@ -18,6 +18,7 @@
   const groupData = new WeakMap();
   const itemData = new WeakMap();
   let previewDevice = 'desktop';
+  const localPreviewByPath = new Map();
   const tokenKey = 'elaine-portfolio-github-token';
   const savedToken = localStorage.getItem(tokenKey) || sessionStorage.getItem(tokenKey) || '';
   $('token').value = savedToken;
@@ -34,6 +35,7 @@
   const previewAssetUrl = src => {
     const value = repairMojibake(String(src || ''));
     if (!value) return '';
+    if (localPreviewByPath.has(value)) return localPreviewByPath.get(value);
     if (/^(?:[a-z]+:)?\/\//i.test(value) || value.startsWith('data:')) return encodeURI(value);
     if (/^https?:$/i.test(window.location.protocol)) return `${window.location.origin}/${encodeAssetPath(value)}`;
     const owner = $('owner')?.value.trim();
@@ -196,24 +198,32 @@
   }
 
   function mediaRow(src = '') {
-    return `<div class="media-row"><span class="media-icon">▶</span><div class="media-preview">${src ? `<video src="${escapeHtml(previewAssetUrl(src))}" muted></video>` : '<span>尚未選擇影片</span>'}</div><input class="loop-video-src" value="${escapeHtml(src)}" placeholder="Project file/.../video.mp4"><label class="upload-button drop-upload">拖曳或選擇影片<input class="media-upload" type="file" accept="video/*"></label><button type="button" class="remove-media">移除</button></div>`;
+    return `<div class="media-row"><span class="media-icon">▶</span><div class="media-preview">${src ? `<video src="${escapeHtml(previewAssetUrl(src))}" muted autoplay loop playsinline preload="metadata"></video>` : '<span>尚未選擇影片</span>'}</div><input class="loop-video-src" value="${escapeHtml(src)}" placeholder="Project file/.../video.mp4"><label class="upload-button drop-upload">拖曳或選擇影片<input class="media-upload" type="file" accept="video/*"></label><button type="button" class="remove-media">移除</button></div>`;
   }
 
   function bindMediaRow(row) {
     row.querySelector('.remove-media')?.addEventListener('click', () => { row.remove(); scheduleLivePreview(); });
-    row.querySelector('.loop-video-src')?.addEventListener('change', () => { row.querySelector('.media-preview').innerHTML = row.querySelector('.loop-video-src').value ? `<video src="${escapeHtml(previewAssetUrl(row.querySelector('.loop-video-src').value))}" muted></video>` : '<span>尚未選擇影片</span>'; scheduleLivePreview(); });
+    row.querySelector('.loop-video-src')?.addEventListener('change', () => { row.querySelector('.media-preview').innerHTML = row.querySelector('.loop-video-src').value ? `<video src="${escapeHtml(previewAssetUrl(row.querySelector('.loop-video-src').value))}" muted autoplay loop playsinline preload="metadata"></video>` : '<span>尚未選擇影片</span>'; scheduleLivePreview(); });
     const uploadVideo = async file => {
       if (!file) return;
       if (!$('token').value.trim()) { setStatus('請先連接 GitHub 再上傳影片。', true); return; }
+      const previousPath = row.querySelector('.loop-video-src').value.trim();
+      const localPreview = URL.createObjectURL(file);
+      row.querySelector('.media-preview').innerHTML = `<video src="${escapeHtml(localPreview)}" muted autoplay loop playsinline preload="metadata"></video>`;
       try {
         setStatus(`Uploading ${file.name}…`);
         const path = `${projectAssetFolder()}/${file.name}`;
         const content = await fileToBase64(file);
         await github(`/contents/${encodePath(path)}`, { method: 'PUT', body: JSON.stringify({ message: `Add ${file.name}`, content, branch: $('branch').value.trim() }) });
+        localPreviewByPath.set(path, localPreview);
         row.querySelector('.loop-video-src').value = path;
-        row.querySelector('.media-preview').innerHTML = `<video src="${escapeHtml(previewAssetUrl(path))}" muted></video>`;
-        setStatus('影片已上傳，請再儲存作品內容。'); scheduleLivePreview();
-      } catch (error) { setStatus(error.message, true); }
+        row.querySelector('.media-preview').innerHTML = `<video src="${escapeHtml(previewAssetUrl(path))}" muted autoplay loop playsinline preload="metadata"></video>`;
+        setStatus('影片已上傳，已先顯示本機預覽；發布後會使用線上檔案。'); scheduleLivePreview();
+      } catch (error) {
+        URL.revokeObjectURL(localPreview);
+        row.querySelector('.media-preview').innerHTML = previousPath ? `<video src="${escapeHtml(previewAssetUrl(previousPath))}" muted autoplay loop playsinline preload="metadata"></video>` : '<span>尚未選擇影片</span>';
+        setStatus(error.message, true);
+      }
     };
     row.querySelector('.media-upload')?.addEventListener('change', event => uploadVideo(event.target.files[0]));
     bindDropUpload(row.querySelector('.drop-upload'), row.querySelector('.media-upload'), files => uploadVideo(files[0]));
@@ -335,10 +345,11 @@
     return html === wrapper.originalHtml ? wrapper.originalValue : cleanRichHtml(html);
   }
 
-  function previewMedia(src) {
-    if (!src) return '<span class="preview-empty">尚未選擇圖片</span>';
-    const safe = escapeHtml(previewAssetUrl(src));
-    return /\.(mp4|webm|mov)(?:[?#]|$)/i.test(src) ? `<video src="${safe}" muted autoplay loop playsinline preload="metadata"></video>` : `<img src="${safe}" alt="">`;
+  function previewMedia(src, localSrc = '', mediaType = '') {
+    if (!src && !localSrc) return '<span class="preview-empty">尚未選擇圖片</span>';
+    const safe = escapeHtml(localSrc || previewAssetUrl(src));
+    const isVideo = mediaType.startsWith('video/') || /\.(mp4|webm|mov)(?:[?#]|$)/i.test(src || '');
+    return isVideo ? `<video src="${safe}" muted autoplay loop playsinline preload="metadata"></video>` : `<img src="${safe}" alt="">`;
   }
 
   function columnOptions(value = 1, preserveExisting = false) {
@@ -412,10 +423,17 @@
         input.disabled = true;
         try {
           for (const file of files) {
-            const path = await uploadAsset(file);
-            list.append(createMediaCard({ src: path }));
+            const localPreview = URL.createObjectURL(file);
+            try {
+              const path = await uploadAsset(file);
+              localPreviewByPath.set(path, localPreview);
+              list.append(createMediaCard({ src: path }));
+            } catch (error) {
+              URL.revokeObjectURL(localPreview);
+              throw error;
+            }
           }
-          setStatus('媒體已上傳，發布作品後會顯示在網站。');
+          setStatus('媒體已上傳，已先顯示本機預覽；發布後會使用線上檔案。');
         } catch (error) { setStatus(error.message, true); }
         finally { actions.querySelector('.gallery-upload').disabled = false; actions.querySelector('.gallery-upload').value = ''; scheduleLivePreview(); }
       };
@@ -524,12 +542,20 @@
   function bindUpload(row) {
     const uploadItem = async file => {
       if (!file) return;
+      const previousPath = row.querySelector('.item-src').value.trim();
+      const localPreview = URL.createObjectURL(file);
+      row.querySelector('.item-preview').innerHTML = previewMedia(file.name, localPreview, file.type);
       try {
         const path = await uploadAsset(file);
+        localPreviewByPath.set(path, localPreview);
         row.querySelector('.item-src').value = path;
         row.querySelector('.item-preview').innerHTML = previewMedia(path);
-        setStatus('媒體已上傳，發布作品後會顯示在網站。'); scheduleLivePreview();
-      } catch (error) { setStatus(error.message, true); }
+        setStatus('媒體已上傳，已先顯示本機預覽；發布後會使用線上檔案。'); scheduleLivePreview();
+      } catch (error) {
+        URL.revokeObjectURL(localPreview);
+        row.querySelector('.item-preview').innerHTML = previewMedia(previousPath);
+        setStatus(error.message, true);
+      }
     };
     const input = row?.querySelector('.file-upload');
     input?.addEventListener('change', event => uploadItem(event.target.files[0]));
@@ -718,8 +744,20 @@
   $('thumb').addEventListener('input', renderCover);
   const uploadCover = async file => {
     if (!file) return;
-    try { $('thumb').value = await uploadAsset(file); renderCover(); scheduleLivePreview(); setStatus('封面已上傳，請發布作品。'); }
-    catch (error) { setStatus(error.message, true); }
+    const previousPath = $('thumb').value.trim();
+    const localPreview = URL.createObjectURL(file);
+    $('cover-preview').innerHTML = previewMedia(file.name, localPreview, file.type);
+    try {
+      const path = await uploadAsset(file);
+      localPreviewByPath.set(path, localPreview);
+      $('thumb').value = path;
+      renderCover(); scheduleLivePreview(); setStatus('封面已上傳，已先顯示本機預覽；發布後會使用線上檔案。');
+    } catch (error) {
+      URL.revokeObjectURL(localPreview);
+      $('thumb').value = previousPath;
+      renderCover();
+      setStatus(error.message, true);
+    }
     finally { $('cover-upload').value = ''; }
   };
   $('cover-upload').addEventListener('change', event => uploadCover(event.target.files[0]));
