@@ -1255,7 +1255,7 @@ window.PORTFOLIO_PROJECTS = [
         "cols": 1,
         "items": [
           {
-            "src": "Project file/SportingJAX Sports Motion Branding/1793517843867-Logo.mov"
+            "src": "Project file/SportingJAX Sports Motion Brending/1793563491589-Logo.mp4"
           }
         ],
         "maxWidth": "50%"
