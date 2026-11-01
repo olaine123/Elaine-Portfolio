@@ -516,7 +516,15 @@ function stackSelect(idx) {
   tabs.forEach((tab, i) => tab.classList.toggle('active', i === idx));
 }
 
-const assetUrl = src => encodeURI(String(src || ''));
+// Preview data can already contain a fully encoded URL from the admin editor.
+// Build the URL through the browser so spaces are encoded once, not twice
+// (`%20` must stay `%20`, not become `%2520`).
+const assetUrl = src => {
+  const value = String(src || '');
+  if (!value) return '';
+  try { return new URL(value, window.location.href).href; }
+  catch { return encodeURI(value); }
+};
 
 function renderGroup(g) {
   const groupLabel = repairMojibake(g.group || '');
