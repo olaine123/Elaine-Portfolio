@@ -56,8 +56,8 @@ window.PORTFOLIO_PROJECTS = [
       },
       {
         "group": "Color",
-        "maxWidth": "30%",
-        "cols": 2,
+        "maxWidth": "50%",
+        "cols": 1,
         "items": [
           {
             "src": "Project file/NEW YORK PULSE/Color.webp"
