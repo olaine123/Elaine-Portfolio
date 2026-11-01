@@ -964,7 +964,8 @@ window.PORTFOLIO_PROJECTS = [
         ]
       }
     ],
-    "page": "work-world-athletics.html"
+    "page": "work-world-athletics.html",
+    "vimeoId": ""
   },
   {
     "num": "09",
@@ -1040,7 +1041,7 @@ window.PORTFOLIO_PROJECTS = [
       },
       {
         "group": "Final!",
-        "cols": 2,
+        "cols": 1,
         "items": [
           {
             "src": "Project file/CARNIVAL BITES/1793517558398-Process03.jpeg"
