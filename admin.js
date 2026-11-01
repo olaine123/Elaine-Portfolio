@@ -584,7 +584,6 @@
         Authorization: `Bearer ${token}`,
         'X-GitHub-Api-Version': '2022-11-28',
         'Content-Type': 'application/json',
-        'Cache-Control': 'no-cache',
         ...(options.headers || {})
       }
     };
