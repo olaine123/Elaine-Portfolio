@@ -26,7 +26,7 @@ window.PORTFOLIO_PROJECTS = [
     "processGroups": [
       {
         "group": "Mind Map",
-        "cols": 2,
+        "cols": 1,
         "items": [
           {
             "src": "Project file/NEW YORK PULSE/mindmap.png"
@@ -35,7 +35,7 @@ window.PORTFOLIO_PROJECTS = [
       },
       {
         "group": "Moodboard",
-        "cols": 2,
+        "cols": 1,
         "items": [
           {
             "src": "Project file/NEW YORK PULSE/moodboard.png"
@@ -156,7 +156,7 @@ window.PORTFOLIO_PROJECTS = [
       },
       {
         "group": "Color",
-        "maxWidth": "30%",
+        "maxWidth": "75%",
         "items": [
           {
             "src": "Project file/The Milky Way Home/color.png"
@@ -191,7 +191,8 @@ window.PORTFOLIO_PROJECTS = [
           {
             "src": "Project file/The Milky Way Home/Initial Style Frame Tests/Frame 4.jpg"
           }
-        ]
+        ],
+        "maxWidth": "75%"
       },
       {
         "group": "Work in Progress",
@@ -1004,7 +1005,7 @@ window.PORTFOLIO_PROJECTS = [
       },
       {
         "group": "Bird’s-eye Site Plan",
-        "maxWidth": "75%",
+        "maxWidth": "50%",
         "items": [
           {
             "src": "Project file/Carnical Bites/Bird’s-eye Site Plan.jpg"
@@ -1018,7 +1019,7 @@ window.PORTFOLIO_PROJECTS = [
       },
       {
         "group": "Mapping Setup",
-        "maxWidth": "75%",
+        "maxWidth": "50%",
         "items": [
           {
             "src": "Project file/Carnical Bites/Mapping Setup.png"
@@ -1036,6 +1037,16 @@ window.PORTFOLIO_PROJECTS = [
             "src": "Project file/Carnical Bites/SPATIAL SETUP02.jpeg"
           }
         ]
+      },
+      {
+        "group": "Final!",
+        "cols": 2,
+        "items": [
+          {
+            "src": "Project file/CARNIVAL BITES/1793517558398-Process03.jpeg"
+          }
+        ],
+        "maxWidth": "50%"
       }
     ],
     "page": "work-carnical-bites.html"
@@ -1158,6 +1169,14 @@ window.PORTFOLIO_PROJECTS = [
     "thumb": "Project file/SportingJAX Sports Motion Brending/SportingJAX Sports Motion Brending.png",
     "processGroups": [
       {
+        "group": "Final Bento Box",
+        "items": [
+          {
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Bento.mp4"
+          }
+        ]
+      },
+      {
         "group": "Moodboard",
         "items": [
           {
@@ -1214,7 +1233,7 @@ window.PORTFOLIO_PROJECTS = [
           }
         ],
         "mobileCols": 4,
-        "maxWidth": "50%"
+        "maxWidth": "100%"
       },
       {
         "group": "Competition Promo",
@@ -1235,7 +1254,7 @@ window.PORTFOLIO_PROJECTS = [
         "cols": 1,
         "items": [
           {
-            "src": "Project file/SportingJAX Sports Motion Branding/1793415323923-Logo.mov"
+            "src": "Project file/SportingJAX Sports Motion Branding/1793517843867-Logo.mov"
           }
         ],
         "maxWidth": "50%"
@@ -1263,15 +1282,8 @@ window.PORTFOLIO_PROJECTS = [
           {
             "src": "Project file/SportingJAX Sports Motion Branding/1793415407886-We are sj.mp4"
           }
-        ]
-      },
-      {
-        "group": "Final Bento Box",
-        "items": [
-          {
-            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Bento.mp4"
-          }
-        ]
+        ],
+        "maxWidth": "50%"
       }
     ],
     "page": "work-sportingjax.html"
