@@ -338,7 +338,7 @@
   function previewMedia(src) {
     if (!src) return '<span class="preview-empty">尚未選擇圖片</span>';
     const safe = escapeHtml(previewAssetUrl(src));
-    return /\.(mp4|webm|mov)(?:[?#]|$)/i.test(src) ? `<video src="${safe}" muted playsinline preload="metadata"></video>` : `<img src="${safe}" alt="">`;
+    return /\.(mp4|webm|mov)(?:[?#]|$)/i.test(src) ? `<video src="${safe}" muted autoplay loop playsinline preload="metadata"></video>` : `<img src="${safe}" alt="">`;
   }
 
   function columnOptions(value = 1, preserveExisting = false) {
