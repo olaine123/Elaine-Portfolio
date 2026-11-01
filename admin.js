@@ -35,6 +35,7 @@
     const value = repairMojibake(String(src || ''));
     if (!value) return '';
     if (/^(?:[a-z]+:)?\/\//i.test(value) || value.startsWith('data:')) return encodeURI(value);
+    if (/^https?:$/i.test(window.location.protocol)) return `${window.location.origin}/${encodeAssetPath(value)}`;
     const owner = $('owner')?.value.trim();
     const repo = $('repo')?.value.trim();
     const branch = $('branch')?.value.trim() || 'main';
