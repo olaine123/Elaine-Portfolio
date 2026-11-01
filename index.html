@@ -538,7 +538,7 @@
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-video">
-    <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+    <video autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="brand_assets/hero-reel-poster.jpg">
       <source src="Project file/Demoreel-background-compressed.mp4" type="video/mp4">
     </video>
   </div>
@@ -637,15 +637,16 @@
   const pl=document.getElementById('preloader');
   const plLine=document.getElementById('pl-line');
   const pctEl=document.getElementById('pl-pct');
-  const heroVid=document.querySelector('.hero-video video');
   let progress=0, dismissed=false;
   if(sessionStorage.getItem('visited')){pl.remove();return;}
   sessionStorage.setItem('visited','1');
   function setP(p){progress=Math.min(97,p);plLine.style.transform='scaleX('+(progress/100)+')';pctEl.textContent=Math.round(progress)+'%';}
   function dismiss(){if(dismissed)return;dismissed=true;plLine.style.transition='transform .3s ease';plLine.style.transform='scaleX(1)';pctEl.textContent='100%';setTimeout(()=>{pl.classList.add('pl-done');pl.addEventListener('transitionend',()=>pl.remove(),{once:true});},350);}
   let iv=setInterval(()=>{const step=progress<50?6:progress<75?3:progress<90?1.2:.3;setP(progress+step*(Math.random()*.6+.4));if(progress>=97)clearInterval(iv);},120);
-  if(heroVid){heroVid.addEventListener('canplay',dismiss);heroVid.addEventListener('canplaythrough',dismiss);}
-  setTimeout(dismiss,6000);
+  // Do not keep the whole homepage behind the preloader while the background
+  // reel downloads. The poster gives an immediate visual fallback and the
+  // video can continue loading and start in the background.
+  setTimeout(dismiss,900);
 })();
 
 /* Safari can defer muted autoplay until the media element is explicitly started. */
