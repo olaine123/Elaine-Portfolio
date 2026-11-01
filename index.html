@@ -538,7 +538,7 @@
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-video">
-    <video autoplay muted loop playsinline>
+    <video autoplay muted loop playsinline webkit-playsinline preload="auto">
       <source src="Project file/Demoreel-background-compressed.mp4" type="video/mp4">
     </video>
   </div>
@@ -647,6 +647,18 @@
   if(heroVid){heroVid.addEventListener('canplay',dismiss);heroVid.addEventListener('canplaythrough',dismiss);}
   setTimeout(dismiss,6000);
 })();
+
+/* Safari can defer muted autoplay until the media element is explicitly started. */
+const heroVideo = document.querySelector('.hero-video video');
+if (heroVideo) {
+  heroVideo.muted = true;
+  heroVideo.defaultMuted = true;
+  const startHeroVideo = () => heroVideo.play().catch(() => {});
+  heroVideo.addEventListener('canplay', startHeroVideo, { once: true });
+  startHeroVideo();
+  document.addEventListener('visibilitychange', startHeroVideo);
+  document.addEventListener('pointerdown', startHeroVideo, { once: true, passive: true });
+}
 
 /* ── Data ── */
 const projects = window.PORTFOLIO_PROJECTS || [
