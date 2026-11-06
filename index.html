@@ -29,6 +29,7 @@
     gtag('config', 'G-KENVXXSRHL');
   </script>
   <link rel="icon" href="brand_assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="brand_assets/hero-reel-poster.jpg" fetchpriority="high">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,7 +111,7 @@
       animation: bgPulse 8s ease-in-out infinite alternate;
     }
     @keyframes bgPulse { 0% { opacity: .8; } 100% { opacity: 1; } }
-    .hero-video { position: absolute; inset: 0; pointer-events: none; }
+    .hero-video { position: absolute; inset: 0; pointer-events: none; background: url("brand_assets/hero-reel-poster.jpg") center / cover no-repeat; }
     .hero-video video {
       position: absolute; top: 50%; left: 50%;
       transform: translate(-50%,-50%);
@@ -538,7 +539,7 @@
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-video">
-    <video autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="brand_assets/hero-reel-poster.jpg">
+    <video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="brand_assets/hero-reel-poster.jpg">
       <source src="Project file/Demoreel-background-compressed.mp4" type="video/mp4">
     </video>
   </div>
