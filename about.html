@@ -112,10 +112,11 @@
     }
     .edu-item { padding: 22px 0; border-top: 1px solid var(--line); }
     .edu-item:last-child { border-bottom: 1px solid var(--line); }
-    .edu-year { font-size: .75rem; letter-spacing: .14em; color: var(--muted); margin-bottom: 5px; }
+    .edu-meta { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 5px; }
+    .edu-year { font-size: .75rem; letter-spacing: .14em; color: var(--muted); }
     .edu-school { font-size: 1.1rem; margin-bottom: 3px; }
     .edu-degree { font-size: 1rem; color: var(--muted); line-height: 1.5; }
-    .edu-loc { font-size: .82rem; color: var(--muted); margin-top: 4px; }
+    .edu-loc { font-size: .82rem; color: var(--muted); text-align: right; }
     .awards-wrap { margin-top: 48px; }
     .award-item {
       display: flex; justify-content: space-between; align-items: flex-start;
@@ -235,19 +236,23 @@
       <div class="reveal" style="transition-delay:.18s">
         <p class="edu-head">Education /</p>
         <div class="edu-item">
-          <div class="edu-year">2025 — 2027</div>
+          <div class="edu-meta">
+            <div class="edu-year">2025 — 2027</div>
+            <div class="edu-loc">Savannah, GA, USA</div>
+          </div>
           <div class="edu-school">Savannah College of Art and Design</div>
           <div class="edu-degree">Master of Art in Motion Media Design</div>
-          <div class="edu-loc">Savannah, GA, USA</div>
         </div>
         <div class="edu-item">
-          <div class="edu-year">2018 — 2022</div>
+          <div class="edu-meta">
+            <div class="edu-year">2018 — 2022</div>
+            <div class="edu-loc">New Taipei, Taiwan</div>
+          </div>
           <div class="edu-school">Fu Jen Catholic University</div>
           <div class="edu-degree">
             Bachelor of Fine Arts in Applied Arts<br>
             InfoMotion Graphic Micro Program
           </div>
-          <div class="edu-loc">New Taipei, Taiwan</div>
         </div>
       </div>
 
