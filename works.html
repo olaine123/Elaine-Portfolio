@@ -28,7 +28,7 @@
       --line:  #222222;
       --muted: rgba(240,237,230,0.45);
     }
-    html { scroll-behavior: smooth; }
+    html { font-size: 18px; scroll-behavior: smooth; }
     body {
       background: var(--black); color: var(--white);
       font-family: 'IBM Plex Mono', monospace;
@@ -458,6 +458,7 @@
     .reveal.vis { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 900px) {
+      html { font-size: 17px; }
       nav { padding: 20px 24px; }
       .page-header { padding: 120px 24px 60px; }
       .header-row { flex-direction: column; align-items: flex-start; gap: 24px; }
