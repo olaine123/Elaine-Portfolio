@@ -108,6 +108,7 @@
     $('location').value = project.specs?.find(spec => spec.k === 'Location')?.v || '';
     $('thumb').value = project.thumb || '';
     $('deco').value = project.deco || '';
+    $('deco-width').value = project.decoWidth || '37.5%';
     $('desc').value = project.desc || '';
     renderCover();
     renderDeco();
@@ -634,7 +635,7 @@
   function readForm() {
     const project = state.projects[state.selected];
     if (!project || state.mode !== 'projects' || $('project-form').hidden) return project;
-    project.title = $('title').value.trim(); project.label = $('label').value.trim(); project.category = $('category').value.trim(); project.type = $('type').value.trim(); project.thumb = $('thumb').value.trim(); project.deco = $('deco').value.trim();
+    project.title = $('title').value.trim(); project.label = $('label').value.trim(); project.category = $('category').value.trim(); project.type = $('type').value.trim(); project.thumb = $('thumb').value.trim(); project.deco = $('deco').value.trim(); project.decoWidth = $('deco-width').value;
     project.desc = readRichEditor($('concept-editor').querySelector('.rich-editor'));
     $('desc').value = project.desc;
     const vimeoIds = [...document.querySelectorAll('.vimeo-field')].map(input => input.value.trim()).filter(Boolean);

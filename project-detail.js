@@ -751,8 +751,10 @@ function renderProject(idx) {
     ? `<div class="detail-illustration"><img src="${p.illustration}" alt="Illustration"></div>` : '';
 
   const decoEl = document.getElementById('d-deco');
+  const decoWidth = Number.parseFloat(p.decoWidth);
+  const decoStyle = Number.isFinite(decoWidth) ? ` style="width:${Math.min(100, Math.max(10, decoWidth))}%"` : '';
   decoEl.innerHTML = p.deco
-    ? `<div class="detail-deco"><img src="${p.deco}" alt="Deco"></div>` : '';
+    ? `<div class="detail-deco"><img src="${p.deco}" alt="Deco"${decoStyle}></div>` : '';
 
   window._lbGroups = [];
   const procEl = document.getElementById('d-process');
