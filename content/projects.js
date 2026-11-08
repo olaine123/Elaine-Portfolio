@@ -56,7 +56,7 @@ window.PORTFOLIO_PROJECTS = [
       },
       {
         "group": "Color",
-        "maxWidth": "50%",
+        "maxWidth": "75%",
         "cols": 1,
         "items": [
           {
@@ -194,16 +194,20 @@ window.PORTFOLIO_PROJECTS = [
             "src": "Project file/The Milky Way Home/Initial Style Frame Tests/Frame 4.jpg"
           }
         ],
-        "maxWidth": "75%"
+        "maxWidth": "100%"
       },
       {
         "group": "Work in Progress",
         "maxWidth": "100%",
         "items": [
           {
-            "src": "Project file/The Milky Way Home/Work in Progress/Work in Progress.png"
+            "src": "Project file/The Milky Way Home/1794165745899-Work in Progress01-01.png"
+          },
+          {
+            "src": "Project file/The Milky Way Home/1794165754723-Work in Progress01-02.png"
           }
-        ]
+        ],
+        "cols": 2
       },
       {
         "group": "Styleframe",
@@ -313,7 +317,7 @@ window.PORTFOLIO_PROJECTS = [
       },
       {
         "group": "Moodboard",
-        "maxWidth": "75%",
+        "maxWidth": "100%",
         "items": [
           {
             "src": "Project file/THE GOOD, THE BAD, and THE UGLY/moodboard.png"
@@ -327,7 +331,7 @@ window.PORTFOLIO_PROJECTS = [
       },
       {
         "group": "Planning the roll cut positions across multiple scenes",
-        "maxWidth": "75%",
+        "maxWidth": "100%",
         "items": [
           {
             "src": "Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/Planning the roll cut positions.png"
@@ -336,7 +340,7 @@ window.PORTFOLIO_PROJECTS = [
       },
       {
         "group": "Using MidJourney to create the needed objects and conduct visual experiments",
-        "maxWidth": "75%",
+        "maxWidth": "100%",
         "items": [
           {
             "src": "Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/Using MidJourney.png"
@@ -345,10 +349,10 @@ window.PORTFOLIO_PROJECTS = [
       },
       {
         "group": "Visual Exploration",
-        "maxWidth": "75%",
+        "maxWidth": "100%",
         "items": [
           {
-            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/Process and Visual Tests/Visual Exploration.png"
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/1794165436515-Visual Exploration.png"
           }
         ]
       },
@@ -590,7 +594,7 @@ window.PORTFOLIO_PROJECTS = [
       },
       {
         "group": "Research",
-        "maxWidth": "50%",
+        "maxWidth": "100%",
         "items": [
           {
             "src": "Project file/Oreo/Research.png"
@@ -599,7 +603,7 @@ window.PORTFOLIO_PROJECTS = [
       },
       {
         "group": "Initial Design Test",
-        "cols": 4,
+        "cols": 2,
         "items": [
           {
             "src": "Project file/Oreo/Initial design test/test01.png"
@@ -617,7 +621,7 @@ window.PORTFOLIO_PROJECTS = [
       },
       {
         "group": "Styleframe",
-        "cols": 4,
+        "cols": 3,
         "items": [
           {
             "src": "Project file/Oreo/Styleframe/Artboard 1.jpg"
