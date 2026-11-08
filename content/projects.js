@@ -99,7 +99,9 @@ window.PORTFOLIO_PROJECTS = [
         "mobileCols": 2
       }
     ],
-    "page": "work-new-york-pulse.html"
+    "page": "work-new-york-pulse.html",
+    "deco": "",
+    "decoWidth": "37.5%"
   },
   {
     "num": "02",
@@ -270,6 +272,16 @@ window.PORTFOLIO_PROJECTS = [
     "deco": "Project file/THE GOOD, THE BAD, and THE UGLY/Deco.png",
     "processGroups": [
       {
+        "group": "",
+        "cols": 1,
+        "items": [
+          {
+            "src": "Project file/THE GOOD, THE BAD, and THE UGLY/1794164364732-Deco.png"
+          }
+        ],
+        "maxWidth": "50%"
+      },
+      {
         "layout": "two-col",
         "ratio": "0.8fr 1.7fr",
         "rightStyle": "gap: 32px",
@@ -414,7 +426,8 @@ window.PORTFOLIO_PROJECTS = [
         ]
       }
     ],
-    "page": "work-good-bad-ugly.html"
+    "page": "work-good-bad-ugly.html",
+    "decoWidth": "100%"
   },
   {
     "num": "04",
