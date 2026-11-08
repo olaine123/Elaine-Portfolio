@@ -107,11 +107,8 @@
     $('year').value = project.specs?.find(spec => spec.k === 'Year')?.v || '';
     $('location').value = project.specs?.find(spec => spec.k === 'Location')?.v || '';
     $('thumb').value = project.thumb || '';
-    $('deco').value = project.deco || '';
-    $('deco-width').value = project.decoWidth || '37.5%';
     $('desc').value = project.desc || '';
     renderCover();
-    renderDeco();
     $('concept-editor').replaceChildren(createRichEditor(project.desc || '', '作品概念'));
     renderMedia(project);
     renderBlocks(project.processGroups || []);
@@ -266,7 +263,7 @@
   function previewableProjects() {
     const convert = (value, key = '') => {
       if (Array.isArray(value)) return value.map(item => convert(item, key));
-      if (!value || typeof value !== 'object') return ['src', 'thumb', 'deco'].includes(key) ? previewAssetUrl(value) : value;
+      if (!value || typeof value !== 'object') return ['src', 'thumb'].includes(key) ? previewAssetUrl(value) : value;
       return Object.fromEntries(Object.entries(value).map(([childKey, item]) => [childKey, childKey === 'loopVideos' && Array.isArray(item) ? item.map(previewAssetUrl) : convert(item, childKey)]));
     };
     return convert(publishableProjects());
@@ -288,12 +285,6 @@
 
   function renderCover() {
     $('cover-preview').innerHTML = previewMedia($('thumb').value.trim());
-  }
-
-  function renderDeco() {
-    $('deco-preview').innerHTML = $('deco').value.trim()
-      ? previewMedia($('deco').value.trim())
-      : '<span class="preview-empty">無裝飾圖片</span>';
   }
 
   function cleanRichHtml(html) {
@@ -635,7 +626,7 @@
   function readForm() {
     const project = state.projects[state.selected];
     if (!project || state.mode !== 'projects' || $('project-form').hidden) return project;
-    project.title = $('title').value.trim(); project.label = $('label').value.trim(); project.category = $('category').value.trim(); project.type = $('type').value.trim(); project.thumb = $('thumb').value.trim(); project.deco = $('deco').value.trim(); project.decoWidth = $('deco-width').value;
+    project.title = $('title').value.trim(); project.label = $('label').value.trim(); project.category = $('category').value.trim(); project.type = $('type').value.trim(); project.thumb = $('thumb').value.trim();
     project.desc = readRichEditor($('concept-editor').querySelector('.rich-editor'));
     $('desc').value = project.desc;
     const vimeoIds = [...document.querySelectorAll('.vimeo-field')].map(input => input.value.trim()).filter(Boolean);
@@ -771,27 +762,6 @@
   };
   $('cover-upload').addEventListener('change', event => uploadCover(event.target.files[0]));
   bindDropUpload(document.querySelector('#cover-upload')?.closest('.drop-upload'), $('cover-upload'), files => uploadCover(files[0]));
-  $('deco').addEventListener('input', renderDeco);
-  const uploadDeco = async file => {
-    if (!file) return;
-    const previousPath = $('deco').value.trim();
-    const localPreview = URL.createObjectURL(file);
-    $('deco-preview').innerHTML = previewMedia(file.name, localPreview, file.type);
-    try {
-      const path = await uploadAsset(file);
-      localPreviewByPath.set(path, localPreview);
-      $('deco').value = path;
-      renderDeco(); scheduleLivePreview(); setStatus('裝飾圖片已上傳，已先顯示本機預覽；發布後會使用線上檔案。');
-    } catch (error) {
-      URL.revokeObjectURL(localPreview);
-      $('deco').value = previousPath;
-      renderDeco();
-      setStatus(error.message, true);
-    }
-    finally { $('deco-upload').value = ''; }
-  };
-  $('deco-upload').addEventListener('change', event => uploadDeco(event.target.files[0]));
-  bindDropUpload(document.querySelector('#deco-upload')?.closest('.drop-upload'), $('deco-upload'), files => uploadDeco(files[0]));
   function sizePreview() {
     const wrap = document.querySelector('.preview-frame-wrap');
     const width = previewDevice === 'mobile' ? 390 : 1280;

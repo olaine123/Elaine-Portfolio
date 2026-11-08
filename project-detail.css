@@ -153,8 +153,6 @@ nav {
 /* ─── Illustration / Deco ─── */
 .detail-illustration { margin-bottom: 60px; display: flex; justify-content: center; }
 .detail-illustration img { max-width: 120px; width: 10%; filter: drop-shadow(0 0 40px rgba(227,62,62,.15)); }
-.detail-deco { margin: 40px 0 60px; display: flex; justify-content: center; }
-.detail-deco img { max-width: 420px; width: 37.5%; }
 
 /* ─── Process Sections ─── */
 .process-section { margin-bottom: 52px; }

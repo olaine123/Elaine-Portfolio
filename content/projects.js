@@ -269,7 +269,6 @@ window.PORTFOLIO_PROJECTS = [
     ],
     "thumb": "Project file/THE GOOD, THE BAD, and THE UGLY/thumbnail.webp",
     "thumbZoom": true,
-    "deco": "Project file/THE GOOD, THE BAD, and THE UGLY/Deco.png",
     "processGroups": [
       {
         "group": "",

@@ -93,7 +93,6 @@ const projects = repairMojibake(localPreviewProjects || window.PORTFOLIO_PROJECT
     specs: [{ k: 'Year', v: '2025' }, { k: 'Type', v: 'Ending Title Sequence' }, { k: 'Location', v: 'Taiwan' }],
     thumb: 'Project file/THE GOOD, THE BAD, and THE UGLY/thumbnail.webp',
     thumbZoom: true,
-    deco: 'Project file/THE GOOD, THE BAD, and THE UGLY/Deco.png',
     processGroups: [
       {
         layout: 'two-col', ratio: '0.8fr 1.7fr', rightStyle: 'gap: 32px',
@@ -750,11 +749,6 @@ function renderProject(idx) {
   illEl.innerHTML = p.illustration
     ? `<div class="detail-illustration"><img src="${p.illustration}" alt="Illustration"></div>` : '';
 
-  const decoEl = document.getElementById('d-deco');
-  const decoWidth = Number.parseFloat(p.decoWidth);
-  const decoStyle = Number.isFinite(decoWidth) ? ` style="width:${Math.min(100, Math.max(10, decoWidth))}%"` : '';
-  decoEl.innerHTML = p.deco
-    ? `<div class="detail-deco"><img src="${p.deco}" alt="Deco"${decoStyle}></div>` : '';
 
   window._lbGroups = [];
   const procEl = document.getElementById('d-process');
