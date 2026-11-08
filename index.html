@@ -164,21 +164,6 @@
     .hero-reel-link:hover { color: var(--red); }
     .hero-reel-link:focus-visible { outline: 2px solid var(--red); outline-offset: 6px; }
     .hero-reel-link:active { opacity: .75; }
-    .hero-scroll {
-      position: absolute; bottom: 44px; right: 52px; z-index: 3;
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-      font-size: .6rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted);
-      opacity: 0; animation: fadeIn 1s ease 1.4s forwards;
-    }
-    .scroll-line {
-      width: 1px; height: 56px;
-      background: linear-gradient(to bottom, var(--red), transparent);
-      animation: scrollPulse 2.2s ease-in-out infinite;
-    }
-    @keyframes scrollPulse {
-      0%,100% { transform: scaleY(1); transform-origin: top; opacity: 1; }
-      50%      { transform: scaleY(.4); transform-origin: top; opacity: .5; }
-    }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
@@ -496,7 +481,6 @@
       .playground-grid { grid-template-columns: repeat(2,1fr); margin-left: -24px; margin-right: -24px; }
       .nav-links { gap: 24px; }
       .hero-content { padding: 0 24px; }
-      .hero-scroll { right: 24px; }
       footer { padding: 60px 24px 32px; }
       .foot-main { grid-template-columns: 1fr; gap: 48px; }
       .filter-tabs { flex-wrap: wrap; gap: 12px 20px; }
@@ -553,10 +537,6 @@
     </h1>
     <p class="hero-tagline">Motion design across branding, kinetic typography, title design &amp; visual storytelling.</p>
     <a class="hero-reel-link" href="reel.html?play=1"><span class="hero-reel-label">Watch Reel <span aria-hidden="true">↗</span></span></a>
-  </div>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
   </div>
 </section>
 
@@ -808,8 +788,7 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   window.addEventListener('blur', resetPlayCursor);
   mouseCursor.addEventListener('change', resetPlayCursor);
   hero.addEventListener('click', e => {
-    // Don't trigger if clicking the scroll indicator
-    if (e.target.closest('a, button, .hero-scroll')) return;
+    if (e.target.closest('a, button')) return;
     window.location.href = 'reel.html?play=1';
   });
 })();
