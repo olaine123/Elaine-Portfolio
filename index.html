@@ -47,7 +47,7 @@
       --muted: rgba(240,237,230,0.64);
     }
 
-    html { font-size: 20px; scroll-behavior: smooth; }
+    html { font-size: 19px; scroll-behavior: smooth; }
     body {
       background: var(--black);
       color: var(--white);
@@ -469,8 +469,11 @@
     #pl-pct { font-size: .58rem; letter-spacing: .15em; color: var(--red); font-variant-numeric: tabular-nums; }
 
     /* ─── Responsive ─── */
+    @media (min-width: 901px) and (max-width: 1100px) {
+      html { font-size: 17px; }
+    }
     @media (max-width: 900px) {
-      html { font-size: 18px; }
+      html { font-size: 16px; }
       .hero-reel-link { display: inline-flex; }
       #cur, #cur-ring, #play-cursor { display: none; }
       nav { padding: 20px 24px; }
