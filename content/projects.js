@@ -617,7 +617,8 @@ window.PORTFOLIO_PROJECTS = [
           {
             "src": "Project file/Oreo/Initial design test/test04.png"
           }
-        ]
+        ],
+        "mobileCols": 2
       },
       {
         "group": "Styleframe",
@@ -659,7 +660,8 @@ window.PORTFOLIO_PROJECTS = [
           {
             "src": "Project file/Oreo/Styleframe/Artboard 12.png"
           }
-        ]
+        ],
+        "mobileCols": 3
       },
       {
         "type": "refine-compare",
