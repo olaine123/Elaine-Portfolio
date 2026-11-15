@@ -858,7 +858,8 @@ window.PORTFOLIO_PROJECTS = [
             "src": "Project file/7 kinds of rest/Initial Style Frames/04.jpg"
           }
         ],
-        "maxWidth": "75%"
+        "maxWidth": "75%",
+        "mobileCols": 2
       },
       {
         "group": "Final Style Frames",
