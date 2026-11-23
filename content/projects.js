@@ -1530,5 +1530,138 @@ window.PORTFOLIO_PROJECTS = [
     ],
     "processGroups": [],
     "page": "work-whos-the-boss.html"
+  },
+  {
+    "slug": "project-1795402546804",
+    "num": "18",
+    "category": "works",
+    "label": "Title Sequence",
+    "title": "Everything Evertwhere All At Once Main Title Sequence",
+    "type": "Motion Graphics · 2026",
+    "desc": "THE WEIGHT OF EVERY THING<div>Explores the overwhelming weight of infinite possibilities and the choices that shape our lives.</div><div>Using googly eyes and the Everything Bagel as contrasting visual symbols, the sequence transforms ordinary objects into a surreal and increasingly chaotic experience.&nbsp;</div><div>Through reflections, water movement, repetition, and circular match cuts, a single googly eye multiplies into countless possibilities before everything converges into the darkness of the Everything Bagel.</div><div>The sequence captures the film's playful absurdity and existential chaos, while suggesting that even when we cannot control every possibility, we can choose how we see the world.</div>",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "NOV 2026"
+      },
+      {
+        "k": "Type",
+        "v": "Motion Graphics"
+      },
+      {
+        "k": "Location",
+        "v": "USA"
+      }
+    ],
+    "thumb": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402613879-Frame_20.jpg",
+    "processGroups": [
+      {
+        "group": "Initial Styleframe Design",
+        "cols": 2,
+        "items": [
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402720449-Styleframe.png"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402727570-Styleframe02.png"
+          }
+        ],
+        "mobileCols": 2
+      },
+      {
+        "group": "Behind the scenes",
+        "cols": 3,
+        "items": [
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402807811-IMG_4190.heic"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402847363-IMG_4208.HEIC"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402942200-IMG_4212.heic"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402874929-IMG_4214.heic"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402883171-IMG_4224.HEIC"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402890877-IMG_4228.HEIC"
+          }
+        ],
+        "mobileCols": 3
+      },
+      {
+        "group": "Final Frames",
+        "cols": 4,
+        "items": [
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403006120-Frame_01.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403009652-Frame_02.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403012765-Frame_03.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403015762-Frame_04.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403018964-Frame_05.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403022547-Frame_06.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403025929-Frame_07.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403029206-Frame_08.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403032275-Frame_09.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403035374-Frame_10.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403038571-Frame_11.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403041826-Frame_12.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403045001-Frame_13.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403048883-Frame_14.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403051954-Frame_15.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403055137-Frame_16.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403058078-Frame_17.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403060818-Frame_18.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403064380-Frame_19.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403067135-Frame_20.jpg"
+          }
+        ],
+        "mobileCols": 4
+      }
+    ],
+    "page": "work-template.html?project=project-1795402546804",
+    "vimeoId": "1249201811"
   }
 ];
