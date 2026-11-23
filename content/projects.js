@@ -1537,7 +1537,7 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Title Sequence",
     "title": "Everything Evertwhere All At Once Main Title Sequence",
-    "type": "Motion Graphics · 2026",
+    "type": "Title Sequence · 2026",
     "desc": "THE WEIGHT OF EVERY THING<div>Explores the overwhelming weight of infinite possibilities and the choices that shape our lives.</div><div>Using googly eyes and the Everything Bagel as contrasting visual symbols, the sequence transforms ordinary objects into a surreal and increasingly chaotic experience.&nbsp;</div><div>Through reflections, water movement, repetition, and circular match cuts, a single googly eye multiplies into countless possibilities before everything converges into the darkness of the Everything Bagel.</div><div>The sequence captures the film's playful absurdity and existential chaos, while suggesting that even when we cannot control every possibility, we can choose how we see the world.</div>",
     "specs": [
       {
