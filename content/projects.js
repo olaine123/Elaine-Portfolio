@@ -1566,7 +1566,7 @@ window.PORTFOLIO_PROJECTS = [
             "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402727570-Styleframe02.png"
           }
         ],
-        "mobileCols": 2
+        "mobileCols": 1
       },
       {
         "group": "Behind the scenes",
@@ -1591,7 +1591,7 @@ window.PORTFOLIO_PROJECTS = [
             "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402890877-IMG_4228.HEIC"
           }
         ],
-        "mobileCols": 3
+        "mobileCols": 2
       },
       {
         "group": "Final Frames",
@@ -1658,7 +1658,7 @@ window.PORTFOLIO_PROJECTS = [
             "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403067135-Frame_20.jpg"
           }
         ],
-        "mobileCols": 4
+        "mobileCols": 2
       }
     ],
     "page": "work-template.html?project=project-1795402546804",
