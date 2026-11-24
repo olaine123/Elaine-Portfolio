@@ -688,6 +688,12 @@
         else project.specs.splice(index, 1);
       } else if (value) project.specs.push({ k: key, v: value });
     });
+    const monthIndex = project.specs.findIndex(spec => spec.k === 'Month');
+    const yearIndex = project.specs.findIndex(spec => spec.k === 'Year');
+    if (monthIndex >= 0 && yearIndex >= 0 && monthIndex > yearIndex) {
+      const [monthSpec] = project.specs.splice(monthIndex, 1);
+      project.specs.splice(yearIndex, 0, monthSpec);
+    }
     project.processGroups = [...$('blocks').querySelectorAll(':scope > .block')].map(readBlock);
     return project;
   }
