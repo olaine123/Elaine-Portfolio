@@ -882,7 +882,9 @@ document.addEventListener('mouseout', e => {
 // PROJECT_INDEX is set by the inline <script> in each project page.
 // Top-level `const` is not a window property, so we access it directly.
 /* global PROJECT_INDEX */
+const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+const pageProjectIndex = projects.findIndex(project => String(project.page || '').split('?')[0] === currentPage);
 const requestedProject = typeof projectSlug !== 'undefined' && projectSlug
   ? projects.findIndex(project => project.slug === projectSlug || project.page === `work-template.html?project=${projectSlug}`)
-  : -1;
+  : pageProjectIndex;
 renderProject(requestedProject >= 0 ? requestedProject : (typeof PROJECT_INDEX !== 'undefined' && PROJECT_INDEX >= 0 ? PROJECT_INDEX : 0));
