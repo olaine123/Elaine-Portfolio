@@ -54,7 +54,10 @@ textarea { resize:vertical; line-height:1.65; }
 .panel-heading-actions button { font-size:11px; padding:6px 8px; }
 .project-search { margin-bottom:14px; }
 .project-search input { font-size:12px; }
-#projects-list { display:flex; flex-direction:column; gap:4px; overflow-y:auto; max-height:calc(100vh - 280px); }
+#projects-list { display:flex; flex-direction:column; gap:12px; overflow-y:auto; max-height:calc(100vh - 280px); }
+.project-group { display:flex; flex-direction:column; gap:4px; }
+.project-group-heading { display:flex; align-items:center; justify-content:space-between; margin:10px 6px 4px; color:#ddd; font-size:11px; font-weight:600; letter-spacing:.04em; }
+.project-group-heading span { color:#777; font-size:10px; font-weight:400; }
 .project-item-row { display:flex; align-items:stretch; gap:4px; }
 .project-item { display:flex; align-items:center; gap:10px; text-align:left; background:transparent; border:1px solid transparent; border-radius:8px; padding:9px 7px; color:var(--muted); width:100%; min-width:0; flex:1; }
 .project-item.active { background:#242424; color:var(--text); border-color:#3b3b3b; }
