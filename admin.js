@@ -68,19 +68,38 @@
     });
   }
 
+  function projectGroupName(category) {
+    if (category === 'live-action') return 'Live Action';
+    if (category === 'works') return 'Motion Graphics & Design';
+    return 'Other Works';
+  }
+
   function renderList() {
     const query = $('project-search').value.trim().toLowerCase();
-    $('projects-list').innerHTML = state.projects.map((project, index) => ({ project, index })).filter(({ project }) => `${project.title} ${project.type} ${project.category}`.toLowerCase().includes(query)).map(({ project, index }) => `
-      <div class="project-item-row">
-        <button type="button" class="project-item${index === state.selected ? ' active' : ''}" data-project="${index}">
-          <span class="project-thumb">${projectPreview(project) ? previewMedia(projectPreview(project)) : '<span>＋</span>'}</span>
-          <span class="project-item-copy">${escapeHtml(project.title || 'Untitled project')}<small>${escapeHtml(project.type || project.category || '')}</small></span>
-        </button>
-        <span class="project-order-controls" aria-label="調整作品順序">
-          <button type="button" data-move="-1" data-index="${index}" aria-label="將 ${escapeHtml(project.title || '作品')} 往前移" title="往前移"${index === 0 ? ' disabled' : ''}>↑</button>
-          <button type="button" data-move="1" data-index="${index}" aria-label="將 ${escapeHtml(project.title || '作品')} 往後移" title="往後移"${index === state.projects.length - 1 ? ' disabled' : ''}>↓</button>
-        </span>
-      </div>`).join('');
+    const filtered = state.projects.map((project, index) => ({ project, index })).filter(({ project }) => `${project.title} ${project.type} ${project.category}`.toLowerCase().includes(query));
+    const categories = [...new Set([...['works', 'live-action'], ...filtered.map(({ project }) => project.category || 'other')])].filter(category => filtered.some(({ project }) => (project.category || 'other') === category));
+    $('projects-list').innerHTML = categories.map(category => {
+      const items = filtered.filter(({ project }) => (project.category || 'other') === category);
+      return `
+        <section class="project-group">
+          <h3 class="project-group-heading">${projectGroupName(category)} <span>${items.length}</span></h3>
+          ${items.map(({ project, index }) => {
+            const categoryIndexes = state.projects.map((item, itemIndex) => (item.category || 'other') === category ? itemIndex : -1).filter(itemIndex => itemIndex >= 0);
+            const position = categoryIndexes.indexOf(index);
+            return `
+              <div class="project-item-row">
+                <button type="button" class="project-item${index === state.selected ? ' active' : ''}" data-project="${index}">
+                  <span class="project-thumb">${projectPreview(project) ? previewMedia(projectPreview(project)) : '<span>＋</span>'}</span>
+                  <span class="project-item-copy">${escapeHtml(project.title || 'Untitled project')}<small>${escapeHtml(project.type || project.category || '')}</small></span>
+                </button>
+                <span class="project-order-controls" aria-label="調整作品順序">
+                  <button type="button" data-move="-1" data-index="${index}" aria-label="將 ${escapeHtml(project.title || '作品')} 往前移" title="往前移"${position === 0 ? ' disabled' : ''}>↑</button>
+                  <button type="button" data-move="1" data-index="${index}" aria-label="將 ${escapeHtml(project.title || '作品')} 往後移" title="往後移"${position === categoryIndexes.length - 1 ? ' disabled' : ''}>↓</button>
+                </span>
+              </div>`;
+          }).join('')}
+        </section>`;
+    }).join('');
     $('projects-list').querySelectorAll('[data-project]').forEach(button => {
       button.addEventListener('click', () => { flushEditor(); state.mode = 'projects'; state.selected = Number(button.dataset.project); renderList(); renderEditor(); });
     });
@@ -89,8 +108,13 @@
         event.stopPropagation();
         flushEditor();
         const from = Number(button.dataset.index);
-        const to = from + Number(button.dataset.move);
-        if (to < 0 || to >= state.projects.length) return;
+        const project = state.projects[from];
+        const category = project.category || 'other';
+        const categoryIndexes = state.projects.map((item, itemIndex) => (item.category || 'other') === category ? itemIndex : -1).filter(itemIndex => itemIndex >= 0);
+        const position = categoryIndexes.indexOf(from);
+        const targetPosition = position + Number(button.dataset.move);
+        if (targetPosition < 0 || targetPosition >= categoryIndexes.length) return;
+        const to = categoryIndexes[targetPosition];
         const selectedProject = state.projects[state.selected];
         [state.projects[from], state.projects[to]] = [state.projects[to], state.projects[from]];
         state.selected = selectedProject ? state.projects.indexOf(selectedProject) : to;
