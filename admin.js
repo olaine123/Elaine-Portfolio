@@ -149,6 +149,7 @@
     $('category').value = project.category || '';
     $('type').value = project.type || '';
     $('year').value = project.specs?.find(spec => spec.k === 'Year')?.v || '';
+    $('month').value = project.specs?.find(spec => spec.k === 'Month')?.v || '';
     $('location').value = project.specs?.find(spec => spec.k === 'Location')?.v || '';
     $('thumb').value = project.thumb || '';
     $('desc').value = project.desc || '';
@@ -679,7 +680,7 @@
     const loopVideos = [...document.querySelectorAll('.loop-video-src')].map(input => input.value.trim()).filter(Boolean);
     if (loopVideos.length) project.loopVideos = loopVideos; else delete project.loopVideos;
     project.specs = project.specs || [];
-    [['Year', 'year'], ['Location', 'location']].forEach(([key, id]) => {
+    [['Month', 'month'], ['Year', 'year'], ['Location', 'location']].forEach(([key, id]) => {
       const value = $(id).value.trim();
       const index = project.specs.findIndex(spec => spec.k === key);
       if (index >= 0) {
