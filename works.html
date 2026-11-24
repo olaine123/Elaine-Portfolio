@@ -1155,7 +1155,7 @@
       const thumb = p.thumb
         ? `<img class="work-thumb${p.thumbZoom ? ' work-thumb--zoom' : ''}" src="${p.thumb}" alt="${p.title}" loading="lazy">`
         : `<div class="work-placeholder" data-vimeo="${vimeoSrc}" data-title="${p.title}"></div>`;
-      return `<a class="work-card" href="${PROJECT_PAGES[i]}" aria-label="${p.title.replace(/&/g,'&amp;').replace(/"/g,'&quot;')}">
+      return `<a class="work-card" href="${p.page || PROJECT_PAGES[i] || '#'}" aria-label="${p.title.replace(/&/g,'&amp;').replace(/"/g,'&quot;')}">
         ${thumb}
         <div class="work-card-overlay"><div class="work-meta">
           <div class="work-num">${p.num}</div>
