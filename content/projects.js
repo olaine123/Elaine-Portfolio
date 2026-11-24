@@ -698,6 +698,139 @@ window.PORTFOLIO_PROJECTS = [
     "page": "work-oreo.html"
   },
   {
+    "slug": "project-1795402546804",
+    "num": "18",
+    "category": "works",
+    "label": "Title Sequence",
+    "title": "Everything Evertwhere All At Once Main Title Sequence",
+    "type": "Title Sequence · 2026",
+    "desc": "THE WEIGHT OF EVERY THING<div>Explores the overwhelming weight of infinite possibilities and the choices that shape our lives.</div><div>Using googly eyes and the Everything Bagel as contrasting visual symbols, the sequence transforms ordinary objects into a surreal and increasingly chaotic experience.&nbsp;</div><div>Through reflections, water movement, repetition, and circular match cuts, a single googly eye multiplies into countless possibilities before everything converges into the darkness of the Everything Bagel.</div><div>The sequence captures the film's playful absurdity and existential chaos, while suggesting that even when we cannot control every possibility, we can choose how we see the world.</div>",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "NOV 2026"
+      },
+      {
+        "k": "Type",
+        "v": "Motion Graphics"
+      },
+      {
+        "k": "Location",
+        "v": "USA"
+      }
+    ],
+    "thumb": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402613879-Frame_20.jpg",
+    "processGroups": [
+      {
+        "group": "Initial Styleframe Design",
+        "cols": 2,
+        "items": [
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402720449-Styleframe.png"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402727570-Styleframe02.png"
+          }
+        ],
+        "mobileCols": 1
+      },
+      {
+        "group": "Behind the scenes",
+        "cols": 3,
+        "items": [
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402807811-IMG_4190.heic"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402847363-IMG_4208.HEIC"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402942200-IMG_4212.heic"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402874929-IMG_4214.heic"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402883171-IMG_4224.HEIC"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402890877-IMG_4228.HEIC"
+          }
+        ],
+        "mobileCols": 2
+      },
+      {
+        "group": "Final Frames",
+        "cols": 4,
+        "items": [
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403006120-Frame_01.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403009652-Frame_02.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403012765-Frame_03.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403015762-Frame_04.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403018964-Frame_05.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403022547-Frame_06.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403025929-Frame_07.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403029206-Frame_08.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403032275-Frame_09.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403035374-Frame_10.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403038571-Frame_11.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403041826-Frame_12.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403045001-Frame_13.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403048883-Frame_14.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403051954-Frame_15.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403055137-Frame_16.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403058078-Frame_17.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403060818-Frame_18.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403064380-Frame_19.jpg"
+          },
+          {
+            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403067135-Frame_20.jpg"
+          }
+        ],
+        "mobileCols": 2
+      }
+    ],
+    "page": "work-template.html?project=project-1795402546804",
+    "vimeoId": "1249383418"
+  },
+  {
     "num": "06",
     "category": "works",
     "label": "Projection",
@@ -889,109 +1022,6 @@ window.PORTFOLIO_PROJECTS = [
     "vimeoId": ""
   },
   {
-    "num": "08",
-    "category": "works",
-    "label": "Styleframe Design",
-    "title": "WORLD ATHLETICS",
-    "type": "Styleframe Design · 2026",
-    "heroImages": [
-      "Project file/World Athletics/Styleframe/Styleframe 1.jpg",
-      "Project file/World Athletics/Styleframe/Styleframe 2.jpg",
-      "Project file/World Athletics/Styleframe/Styleframe 3.jpg",
-      "Project file/World Athletics/Styleframe/Styleframe 4.jpg",
-      "Project file/World Athletics/Styleframe/Styleframe 5.jpg",
-      "Project file/World Athletics/Styleframe/Styleframe 6.jpg",
-      "Project file/World Athletics/Styleframe/Styleframe 7.jpg",
-      "Project file/World Athletics/Styleframe/Styleframe 8.jpg",
-      "Project file/World Athletics/Styleframe/Styleframe 9.jpg"
-    ],
-    "thumb": "Project file/World Athletics/Styleframe/Styleframe 8.jpg",
-    "desc": "This motion piece focuses on the details of an athlete's sprint. Slow-motion imagery amplifies subtle movements, while high-speed kinetic lines convey the force and momentum behind each stride. World Athletics becomes more than a race on the track. It celebrates human strength, discipline, and potential.",
-    "specs": [
-      {
-        "k": "Year",
-        "v": "2026"
-      },
-      {
-        "k": "Type",
-        "v": "Styleframe Design"
-      },
-      {
-        "k": "Location",
-        "v": "USA"
-      }
-    ],
-    "processGroups": [
-      {
-        "group": "Storyboard",
-        "maxWidth": "50%",
-        "items": [
-          {
-            "src": "Project file/World Athletics/Storyboard.jpg"
-          }
-        ]
-      },
-      {
-        "group": "Visual Experiment",
-        "items": [
-          {
-            "src": "Project file/World Athletics/Visual test/Styleframe 1.jpg"
-          },
-          {
-            "src": "Project file/World Athletics/Visual test/Styleframe 2.jpg"
-          },
-          {
-            "src": "Project file/World Athletics/Visual test/Styleframe 3.jpg"
-          },
-          {
-            "src": "Project file/World Athletics/Visual test/Styleframe 4.jpg"
-          },
-          {
-            "src": "Project file/World Athletics/Visual test/Styleframe 5.jpg"
-          },
-          {
-            "src": "Project file/World Athletics/Visual test/Styleframe 6.jpg"
-          }
-        ]
-      },
-      {
-        "group": "Final Style Frames",
-        "cols": 3,
-        "items": [
-          {
-            "src": "Project file/World Athletics/Styleframe/Styleframe 1.jpg"
-          },
-          {
-            "src": "Project file/World Athletics/Styleframe/Styleframe 2.jpg"
-          },
-          {
-            "src": "Project file/World Athletics/Styleframe/Styleframe 3.jpg"
-          },
-          {
-            "src": "Project file/World Athletics/Styleframe/Styleframe 4.jpg"
-          },
-          {
-            "src": "Project file/World Athletics/Styleframe/Styleframe 5.jpg"
-          },
-          {
-            "src": "Project file/World Athletics/Styleframe/Styleframe 6.jpg"
-          },
-          {
-            "src": "Project file/World Athletics/Styleframe/Styleframe 7.jpg"
-          },
-          {
-            "src": "Project file/World Athletics/Styleframe/Styleframe 8.jpg"
-          },
-          {
-            "src": "Project file/World Athletics/Styleframe/Styleframe 9.jpg"
-          }
-        ]
-      }
-    ],
-    "page": "work-world-athletics.html",
-    "vimeoId": ""
-  },
-  {
     "num": "09",
     "category": "works",
     "label": "Projection",
@@ -1120,6 +1150,109 @@ window.PORTFOLIO_PROJECTS = [
     "page": "work-from-1-to-many.html"
   },
   {
+    "num": "08",
+    "category": "works",
+    "label": "Styleframe Design",
+    "title": "WORLD ATHLETICS",
+    "type": "Styleframe Design · 2026",
+    "heroImages": [
+      "Project file/World Athletics/Styleframe/Styleframe 1.jpg",
+      "Project file/World Athletics/Styleframe/Styleframe 2.jpg",
+      "Project file/World Athletics/Styleframe/Styleframe 3.jpg",
+      "Project file/World Athletics/Styleframe/Styleframe 4.jpg",
+      "Project file/World Athletics/Styleframe/Styleframe 5.jpg",
+      "Project file/World Athletics/Styleframe/Styleframe 6.jpg",
+      "Project file/World Athletics/Styleframe/Styleframe 7.jpg",
+      "Project file/World Athletics/Styleframe/Styleframe 8.jpg",
+      "Project file/World Athletics/Styleframe/Styleframe 9.jpg"
+    ],
+    "thumb": "Project file/World Athletics/Styleframe/Styleframe 8.jpg",
+    "desc": "This motion piece focuses on the details of an athlete's sprint. Slow-motion imagery amplifies subtle movements, while high-speed kinetic lines convey the force and momentum behind each stride. World Athletics becomes more than a race on the track. It celebrates human strength, discipline, and potential.",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "2026"
+      },
+      {
+        "k": "Type",
+        "v": "Styleframe Design"
+      },
+      {
+        "k": "Location",
+        "v": "USA"
+      }
+    ],
+    "processGroups": [
+      {
+        "group": "Storyboard",
+        "maxWidth": "50%",
+        "items": [
+          {
+            "src": "Project file/World Athletics/Storyboard.jpg"
+          }
+        ]
+      },
+      {
+        "group": "Visual Experiment",
+        "items": [
+          {
+            "src": "Project file/World Athletics/Visual test/Styleframe 1.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Visual test/Styleframe 2.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Visual test/Styleframe 3.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Visual test/Styleframe 4.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Visual test/Styleframe 5.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Visual test/Styleframe 6.jpg"
+          }
+        ]
+      },
+      {
+        "group": "Final Style Frames",
+        "cols": 3,
+        "items": [
+          {
+            "src": "Project file/World Athletics/Styleframe/Styleframe 1.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Styleframe/Styleframe 2.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Styleframe/Styleframe 3.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Styleframe/Styleframe 4.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Styleframe/Styleframe 5.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Styleframe/Styleframe 6.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Styleframe/Styleframe 7.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Styleframe/Styleframe 8.jpg"
+          },
+          {
+            "src": "Project file/World Athletics/Styleframe/Styleframe 9.jpg"
+          }
+        ]
+      }
+    ],
+    "page": "work-world-athletics.html",
+    "vimeoId": ""
+  },
+  {
     "num": "11",
     "category": "works",
     "label": "Broadcast Design",
@@ -1167,151 +1300,6 @@ window.PORTFOLIO_PROJECTS = [
       }
     ],
     "page": "work-nba-on-espn.html"
-  },
-  {
-    "num": "12",
-    "category": "works",
-    "label": "Motion Branding",
-    "title": "SportingJAX Sports Motion Branding",
-    "type": "Motion Branding · October 2026",
-    "vimeoId": "1233598020",
-    "vimeoHash": "16d83eaf6c",
-    "desc": "The Horizon Line\n\nThe horizontal line defines our visual core, but ocean waves give it life. Across the layout, wave-inspired curves and rolling contours cut through the horizon.\n\nThis line is all about constant flow, rising energy, and forward momentum. Warm sunrise colors and deep ocean blues cut across the layout, reflecting the St. Johns River flowing directly into the Atlantic Ocean.\n\nIt is never static. Instead, it serves as an active visual base that drives the team forward. Bold, clean, and strong, the horizon line embodies the relentless power, passion, and spirit of Jacksonville.",
-    "specs": [
-      {
-        "k": "Year",
-        "v": "October 2026"
-      },
-      {
-        "k": "Type",
-        "v": "Motion Branding"
-      },
-      {
-        "k": "Location",
-        "v": "USA"
-      }
-    ],
-    "thumb": "Project file/SportingJAX Sports Motion Brending/SportingJAX Sports Motion Brending.png",
-    "processGroups": [
-      {
-        "group": "Final Bento Box",
-        "items": [
-          {
-            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Bento.mp4"
-          }
-        ]
-      },
-      {
-        "group": "Moodboard",
-        "items": [
-          {
-            "src": "Project file/SportingJAX Sports Motion Brending/detail page/moodboard.png"
-          }
-        ]
-      },
-      {
-        "group": "Design Exploration",
-        "cols": 4,
-        "items": [
-          {
-            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 1.png"
-          },
-          {
-            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 2.png"
-          },
-          {
-            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 3.png"
-          },
-          {
-            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 4.png"
-          },
-          {
-            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 5.png"
-          },
-          {
-            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 6.png"
-          },
-          {
-            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 7.png"
-          },
-          {
-            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 8.png"
-          }
-        ],
-        "mobileCols": 4
-      },
-      {
-        "group": "Athlete ID",
-        "cols": 4,
-        "items": [
-          {
-            "src": "Project file/SportingJAX Sports Motion Branding/1793415140419-T2_ATH_ID_M_01.mp4"
-          },
-          {
-            "src": "Project file/SportingJAX Sports Motion Branding/1793415144069-T2_ATH_ID_M_02.mp4"
-          },
-          {
-            "src": "Project file/SportingJAX Sports Motion Branding/1793415147348-T2_ATH_ID_W_01.mp4"
-          },
-          {
-            "src": "Project file/SportingJAX Sports Motion Branding/1793415150351-T2_ATH_ID_W_02.mp4"
-          }
-        ],
-        "mobileCols": 4,
-        "maxWidth": "100%"
-      },
-      {
-        "group": "Competition Promo",
-        "cols": 2,
-        "items": [
-          {
-            "src": "Project file/SportingJAX Sports Motion Branding/1793415261712-Competition_01.mp4"
-          },
-          {
-            "src": "Project file/SportingJAX Sports Motion Branding/1793415266864-Competition_02.mp4"
-          }
-        ],
-        "mobileCols": 2,
-        "maxWidth": "50%"
-      },
-      {
-        "group": "Logo Reveal",
-        "cols": 1,
-        "items": [
-          {
-            "src": "Project file/SportingJAX Sports Motion Brending/1793563491589-Logo.mp4"
-          }
-        ],
-        "maxWidth": "50%"
-      },
-      {
-        "group": "Wipe",
-        "cols": 3,
-        "items": [
-          {
-            "src": "Project file/SportingJAX Sports Motion Branding/1793415380101-Wipe01.mp4"
-          },
-          {
-            "src": "Project file/SportingJAX Sports Motion Branding/1793415382123-Wipe02.mp4"
-          },
-          {
-            "src": "Project file/SportingJAX Sports Motion Branding/1793415383562-Wipe03.mp4"
-          }
-        ],
-        "mobileCols": 3
-      },
-      {
-        "group": "Text Animation",
-        "cols": 1,
-        "items": [
-          {
-            "src": "Project file/SportingJAX Sports Motion Branding/1793415407886-We are sj.mp4"
-          }
-        ],
-        "maxWidth": "50%"
-      }
-    ],
-    "page": "work-sportingjax.html"
   },
   {
     "num": "01",
@@ -1532,136 +1520,148 @@ window.PORTFOLIO_PROJECTS = [
     "page": "work-whos-the-boss.html"
   },
   {
-    "slug": "project-1795402546804",
-    "num": "18",
+    "num": "12",
     "category": "works",
-    "label": "Title Sequence",
-    "title": "Everything Evertwhere All At Once Main Title Sequence",
-    "type": "Title Sequence · 2026",
-    "desc": "THE WEIGHT OF EVERY THING<div>Explores the overwhelming weight of infinite possibilities and the choices that shape our lives.</div><div>Using googly eyes and the Everything Bagel as contrasting visual symbols, the sequence transforms ordinary objects into a surreal and increasingly chaotic experience.&nbsp;</div><div>Through reflections, water movement, repetition, and circular match cuts, a single googly eye multiplies into countless possibilities before everything converges into the darkness of the Everything Bagel.</div><div>The sequence captures the film's playful absurdity and existential chaos, while suggesting that even when we cannot control every possibility, we can choose how we see the world.</div>",
+    "label": "Motion Branding",
+    "title": "SportingJAX Sports Motion Branding",
+    "type": "Motion Branding · October 2026",
+    "vimeoId": "1233598020",
+    "vimeoHash": "16d83eaf6c",
+    "desc": "The Horizon Line\n\nThe horizontal line defines our visual core, but ocean waves give it life. Across the layout, wave-inspired curves and rolling contours cut through the horizon.\n\nThis line is all about constant flow, rising energy, and forward momentum. Warm sunrise colors and deep ocean blues cut across the layout, reflecting the St. Johns River flowing directly into the Atlantic Ocean.\n\nIt is never static. Instead, it serves as an active visual base that drives the team forward. Bold, clean, and strong, the horizon line embodies the relentless power, passion, and spirit of Jacksonville.",
     "specs": [
       {
         "k": "Year",
-        "v": "NOV 2026"
+        "v": "October 2026"
       },
       {
         "k": "Type",
-        "v": "Motion Graphics"
+        "v": "Motion Branding"
       },
       {
         "k": "Location",
         "v": "USA"
       }
     ],
-    "thumb": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402613879-Frame_20.jpg",
+    "thumb": "Project file/SportingJAX Sports Motion Brending/SportingJAX Sports Motion Brending.png",
     "processGroups": [
       {
-        "group": "Initial Styleframe Design",
-        "cols": 2,
+        "group": "Final Bento Box",
         "items": [
           {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402720449-Styleframe.png"
-          },
-          {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402727570-Styleframe02.png"
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Bento.mp4"
           }
-        ],
-        "mobileCols": 1
+        ]
       },
       {
-        "group": "Behind the scenes",
-        "cols": 3,
+        "group": "Moodboard",
         "items": [
           {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402807811-IMG_4190.heic"
-          },
-          {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402847363-IMG_4208.HEIC"
-          },
-          {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402942200-IMG_4212.heic"
-          },
-          {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402874929-IMG_4214.heic"
-          },
-          {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402883171-IMG_4224.HEIC"
-          },
-          {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795402890877-IMG_4228.HEIC"
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/moodboard.png"
           }
-        ],
-        "mobileCols": 2
+        ]
       },
       {
-        "group": "Final Frames",
+        "group": "Design Exploration",
         "cols": 4,
         "items": [
           {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403006120-Frame_01.jpg"
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 1.png"
           },
           {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403009652-Frame_02.jpg"
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 2.png"
           },
           {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403012765-Frame_03.jpg"
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 3.png"
           },
           {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403015762-Frame_04.jpg"
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 4.png"
           },
           {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403018964-Frame_05.jpg"
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 5.png"
           },
           {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403022547-Frame_06.jpg"
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 6.png"
           },
           {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403025929-Frame_07.jpg"
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 7.png"
           },
           {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403029206-Frame_08.jpg"
-          },
-          {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403032275-Frame_09.jpg"
-          },
-          {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403035374-Frame_10.jpg"
-          },
-          {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403038571-Frame_11.jpg"
-          },
-          {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403041826-Frame_12.jpg"
-          },
-          {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403045001-Frame_13.jpg"
-          },
-          {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403048883-Frame_14.jpg"
-          },
-          {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403051954-Frame_15.jpg"
-          },
-          {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403055137-Frame_16.jpg"
-          },
-          {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403058078-Frame_17.jpg"
-          },
-          {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403060818-Frame_18.jpg"
-          },
-          {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403064380-Frame_19.jpg"
-          },
-          {
-            "src": "Project file/Everything Evertwhere All At Once Main Title Sequence/1795403067135-Frame_20.jpg"
+            "src": "Project file/SportingJAX Sports Motion Brending/detail page/Design Exploration/Design exploration 8.png"
           }
         ],
-        "mobileCols": 2
+        "mobileCols": 4
+      },
+      {
+        "group": "Athlete ID",
+        "cols": 4,
+        "items": [
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415140419-T2_ATH_ID_M_01.mp4"
+          },
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415144069-T2_ATH_ID_M_02.mp4"
+          },
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415147348-T2_ATH_ID_W_01.mp4"
+          },
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415150351-T2_ATH_ID_W_02.mp4"
+          }
+        ],
+        "mobileCols": 4,
+        "maxWidth": "100%"
+      },
+      {
+        "group": "Competition Promo",
+        "cols": 2,
+        "items": [
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415261712-Competition_01.mp4"
+          },
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415266864-Competition_02.mp4"
+          }
+        ],
+        "mobileCols": 2,
+        "maxWidth": "50%"
+      },
+      {
+        "group": "Logo Reveal",
+        "cols": 1,
+        "items": [
+          {
+            "src": "Project file/SportingJAX Sports Motion Brending/1793563491589-Logo.mp4"
+          }
+        ],
+        "maxWidth": "50%"
+      },
+      {
+        "group": "Wipe",
+        "cols": 3,
+        "items": [
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415380101-Wipe01.mp4"
+          },
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415382123-Wipe02.mp4"
+          },
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415383562-Wipe03.mp4"
+          }
+        ],
+        "mobileCols": 3
+      },
+      {
+        "group": "Text Animation",
+        "cols": 1,
+        "items": [
+          {
+            "src": "Project file/SportingJAX Sports Motion Branding/1793415407886-We are sj.mp4"
+          }
+        ],
+        "maxWidth": "50%"
       }
     ],
-    "page": "work-template.html?project=project-1795402546804",
-    "vimeoId": "1249383418"
+    "page": "work-sportingjax.html"
   }
 ];
