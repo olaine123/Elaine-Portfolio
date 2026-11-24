@@ -71,12 +71,32 @@
   function renderList() {
     const query = $('project-search').value.trim().toLowerCase();
     $('projects-list').innerHTML = state.projects.map((project, index) => ({ project, index })).filter(({ project }) => `${project.title} ${project.type} ${project.category}`.toLowerCase().includes(query)).map(({ project, index }) => `
-      <button class="project-item${index === state.selected ? ' active' : ''}" data-project="${index}">
-        <span class="project-thumb">${projectPreview(project) ? previewMedia(projectPreview(project)) : '<span>＋</span>'}</span>
-        <span class="project-item-copy">${escapeHtml(project.title || 'Untitled project')}<small>${escapeHtml(project.type || project.category || '')}</small></span>
-      </button>`).join('');
+      <div class="project-item-row">
+        <button type="button" class="project-item${index === state.selected ? ' active' : ''}" data-project="${index}">
+          <span class="project-thumb">${projectPreview(project) ? previewMedia(projectPreview(project)) : '<span>＋</span>'}</span>
+          <span class="project-item-copy">${escapeHtml(project.title || 'Untitled project')}<small>${escapeHtml(project.type || project.category || '')}</small></span>
+        </button>
+        <span class="project-order-controls" aria-label="調整作品順序">
+          <button type="button" data-move="-1" data-index="${index}" aria-label="將 ${escapeHtml(project.title || '作品')} 往前移" title="往前移"${index === 0 ? ' disabled' : ''}>↑</button>
+          <button type="button" data-move="1" data-index="${index}" aria-label="將 ${escapeHtml(project.title || '作品')} 往後移" title="往後移"${index === state.projects.length - 1 ? ' disabled' : ''}>↓</button>
+        </span>
+      </div>`).join('');
     $('projects-list').querySelectorAll('[data-project]').forEach(button => {
       button.addEventListener('click', () => { flushEditor(); state.mode = 'projects'; state.selected = Number(button.dataset.project); renderList(); renderEditor(); });
+    });
+    $('projects-list').querySelectorAll('[data-move]').forEach(button => {
+      button.addEventListener('click', event => {
+        event.stopPropagation();
+        flushEditor();
+        const from = Number(button.dataset.index);
+        const to = from + Number(button.dataset.move);
+        if (to < 0 || to >= state.projects.length) return;
+        const selectedProject = state.projects[state.selected];
+        [state.projects[from], state.projects[to]] = [state.projects[to], state.projects[from]];
+        state.selected = selectedProject ? state.projects.indexOf(selectedProject) : to;
+        renderList();
+        renderEditor();
+      });
     });
     $('projects-list').querySelectorAll('.project-thumb img, .project-thumb video').forEach(media => {
       media.addEventListener('error', () => { media.parentElement.textContent = '◇'; }, { once: true });
