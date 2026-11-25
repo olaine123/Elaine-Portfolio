@@ -1710,7 +1710,35 @@ window.PORTFOLIO_PROJECTS = [
       {
         "group": "Final Frames",
         "cols": 2,
-        "items": []
+        "items": [
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626646643-Motivated by Light _01.jpg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626648916-Motivated by Light _02.jpg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626650705-Motivated by Light _03.jpg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626653118-Motivated by Light _04.jpg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626655494-Motivated by Light _05.jpg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626657531-Motivated by Light _06.jpg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626659984-Motivated by Light _07.jpg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626661977-Motivated by Light _08.jpg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626664076-Motivated by Light _09.jpg"
+          }
+        ]
       }
     ],
     "page": "work-template.html?project=project-1795626392072",
