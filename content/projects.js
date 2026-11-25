@@ -701,10 +701,10 @@ window.PORTFOLIO_PROJECTS = [
     "slug": "project-1795402546804",
     "num": "18",
     "category": "works",
-    "label": "Title Sequence",
-    "title": "Everything Evertwhere All At Once Main Title Sequence",
+    "label": "Live-Action Title Sequence",
+    "title": "Everything Everywhere All at Once — Title Sequence",
     "type": "Title Sequence · 2026",
-    "desc": "THE WEIGHT OF EVERY THING<div>Explores the overwhelming weight of infinite possibilities and the choices that shape our lives.</div><div>Using googly eyes and the Everything Bagel as contrasting visual symbols, the sequence transforms ordinary objects into a surreal and increasingly chaotic experience.&nbsp;</div><div>Through reflections, water movement, repetition, and circular match cuts, a single googly eye multiplies into countless possibilities before everything converges into the darkness of the Everything Bagel.</div><div>The sequence captures the film's playful absurdity and existential chaos, while suggesting that even when we cannot control every possibility, we can choose how we see the world.</div>",
+    "desc": "THE WEIGHT OF EVERYTHING<div>Explores the overwhelming weight of infinite possibilities and the choices that shape our lives.</div><div>Using googly eyes and the Everything Bagel as contrasting visual symbols, the sequence transforms ordinary objects into a surreal and increasingly chaotic experience.&nbsp;</div><div>Through reflections, water movement, repetition, and circular match cuts, a single googly eye multiplies into countless possibilities before everything converges into the darkness of the Everything Bagel.</div><div>The sequence captures the film's playful absurdity and existential chaos, while suggesting that even when we cannot control every possibility, we can choose how we see the world.</div>",
     "specs": [
       {
         "k": "Year",
@@ -1663,5 +1663,57 @@ window.PORTFOLIO_PROJECTS = [
       }
     ],
     "page": "work-sportingjax.html"
+  },
+  {
+    "slug": "project-1795626392072",
+    "num": "19",
+    "category": "works",
+    "label": "Live Action",
+    "title": "Aesop Tacit — Spec Fragrance Film",
+    "type": "Motion Graphics · 2026",
+    "desc": "",
+    "specs": [
+      {
+        "k": "Month",
+        "v": "November"
+      },
+      {
+        "k": "Year",
+        "v": "2026"
+      },
+      {
+        "k": "Type",
+        "v": "Motion Graphics"
+      },
+      {
+        "k": "Location",
+        "v": "USA"
+      }
+    ],
+    "thumb": "Project file/Aesop Tacit  Spec Fragrance Film/1795626447371-Motivated by Light _09.jpg",
+    "processGroups": [
+      {
+        "group": "Behind The Scene",
+        "cols": 2,
+        "items": [
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626465069-IMG_3721.jpeg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626466831-IMG_3722.jpeg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626468570-IMG_3723.jpeg"
+          }
+        ]
+      },
+      {
+        "group": "Final Frames",
+        "cols": 2,
+        "items": []
+      }
+    ],
+    "page": "work-template.html?project=project-1795626392072",
+    "vimeoId": ""
   }
 ];
