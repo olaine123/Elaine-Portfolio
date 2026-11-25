@@ -831,6 +831,86 @@ window.PORTFOLIO_PROJECTS = [
     "vimeoId": "1249383418"
   },
   {
+    "slug": "project-1795626392072",
+    "num": "19",
+    "category": "works",
+    "label": "Live Action",
+    "title": "Aesop Tacit — Spec Fragrance Film",
+    "type": "Motion Graphics · 2026",
+    "desc": "",
+    "specs": [
+      {
+        "k": "Month",
+        "v": "November"
+      },
+      {
+        "k": "Year",
+        "v": "2026"
+      },
+      {
+        "k": "Type",
+        "v": "Motion Graphics"
+      },
+      {
+        "k": "Location",
+        "v": "USA"
+      }
+    ],
+    "thumb": "Project file/Aesop Tacit  Spec Fragrance Film/1795626447371-Motivated by Light _09.jpg",
+    "processGroups": [
+      {
+        "group": "Behind The Scene",
+        "cols": 2,
+        "items": [
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626465069-IMG_3721.jpeg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626466831-IMG_3722.jpeg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626468570-IMG_3723.jpeg"
+          }
+        ]
+      },
+      {
+        "group": "Final Frames",
+        "cols": 2,
+        "items": [
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626646643-Motivated by Light _01.jpg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626648916-Motivated by Light _02.jpg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626650705-Motivated by Light _03.jpg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626653118-Motivated by Light _04.jpg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626655494-Motivated by Light _05.jpg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626657531-Motivated by Light _06.jpg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626659984-Motivated by Light _07.jpg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626661977-Motivated by Light _08.jpg"
+          },
+          {
+            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626664076-Motivated by Light _09.jpg"
+          }
+        ]
+      }
+    ],
+    "page": "work-template.html?project=project-1795626392072",
+    "vimeoId": ""
+  },
+  {
     "num": "06",
     "category": "works",
     "label": "Projection",
@@ -1253,55 +1333,6 @@ window.PORTFOLIO_PROJECTS = [
     "vimeoId": ""
   },
   {
-    "num": "11",
-    "category": "works",
-    "label": "Broadcast Design",
-    "title": "NBA ON ESPN BROADCAST DESIGN",
-    "type": "Graphics Package · May 2026",
-    "vimeoId": "1198298776",
-    "desc": "",
-    "specs": [
-      {
-        "k": "Year",
-        "v": "May 2026"
-      },
-      {
-        "k": "Type",
-        "v": "Graphics Package"
-      },
-      {
-        "k": "Location",
-        "v": "USA"
-      }
-    ],
-    "thumb": "https://i.vimeocdn.com/video/2165186943-a51ed673e44c9668f52895370c73a4447b2e5558c9b72b7456a9c03e97426557-d_1280",
-    "processGroups": [
-      {
-        "group": "",
-        "cols": 2,
-        "items": [
-          {
-            "src": "Project file/NBA on ESP Broadcast Design/01-Head to head 10 Sec_1.mp4",
-            "caption": "Head to Head"
-          },
-          {
-            "src": "Project file/NBA on ESP Broadcast Design/02-Player Profile 10 Sec_1.mp4",
-            "caption": "Player Profile"
-          },
-          {
-            "src": "Project file/NBA on ESP Broadcast Design/03-Wipe from live 5 Sec_1.mp4",
-            "caption": "Wipe from Live"
-          },
-          {
-            "src": "Project file/NBA on ESP Broadcast Design/04-Info Overlay 5 Sec_1.mp4",
-            "caption": "Info Overlay"
-          }
-        ]
-      }
-    ],
-    "page": "work-nba-on-espn.html"
-  },
-  {
     "num": "01",
     "category": "live-action",
     "label": "Live Action Motion",
@@ -1520,6 +1551,55 @@ window.PORTFOLIO_PROJECTS = [
     "page": "work-whos-the-boss.html"
   },
   {
+    "num": "11",
+    "category": "works",
+    "label": "Broadcast Design",
+    "title": "NBA ON ESPN BROADCAST DESIGN",
+    "type": "Graphics Package · May 2026",
+    "vimeoId": "1198298776",
+    "desc": "",
+    "specs": [
+      {
+        "k": "Year",
+        "v": "May 2026"
+      },
+      {
+        "k": "Type",
+        "v": "Graphics Package"
+      },
+      {
+        "k": "Location",
+        "v": "USA"
+      }
+    ],
+    "thumb": "https://i.vimeocdn.com/video/2165186943-a51ed673e44c9668f52895370c73a4447b2e5558c9b72b7456a9c03e97426557-d_1280",
+    "processGroups": [
+      {
+        "group": "",
+        "cols": 2,
+        "items": [
+          {
+            "src": "Project file/NBA on ESP Broadcast Design/01-Head to head 10 Sec_1.mp4",
+            "caption": "Head to Head"
+          },
+          {
+            "src": "Project file/NBA on ESP Broadcast Design/02-Player Profile 10 Sec_1.mp4",
+            "caption": "Player Profile"
+          },
+          {
+            "src": "Project file/NBA on ESP Broadcast Design/03-Wipe from live 5 Sec_1.mp4",
+            "caption": "Wipe from Live"
+          },
+          {
+            "src": "Project file/NBA on ESP Broadcast Design/04-Info Overlay 5 Sec_1.mp4",
+            "caption": "Info Overlay"
+          }
+        ]
+      }
+    ],
+    "page": "work-nba-on-espn.html"
+  },
+  {
     "num": "12",
     "category": "works",
     "label": "Motion Branding",
@@ -1663,85 +1743,5 @@ window.PORTFOLIO_PROJECTS = [
       }
     ],
     "page": "work-sportingjax.html"
-  },
-  {
-    "slug": "project-1795626392072",
-    "num": "19",
-    "category": "works",
-    "label": "Live Action",
-    "title": "Aesop Tacit — Spec Fragrance Film",
-    "type": "Motion Graphics · 2026",
-    "desc": "",
-    "specs": [
-      {
-        "k": "Month",
-        "v": "November"
-      },
-      {
-        "k": "Year",
-        "v": "2026"
-      },
-      {
-        "k": "Type",
-        "v": "Motion Graphics"
-      },
-      {
-        "k": "Location",
-        "v": "USA"
-      }
-    ],
-    "thumb": "Project file/Aesop Tacit  Spec Fragrance Film/1795626447371-Motivated by Light _09.jpg",
-    "processGroups": [
-      {
-        "group": "Behind The Scene",
-        "cols": 2,
-        "items": [
-          {
-            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626465069-IMG_3721.jpeg"
-          },
-          {
-            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626466831-IMG_3722.jpeg"
-          },
-          {
-            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626468570-IMG_3723.jpeg"
-          }
-        ]
-      },
-      {
-        "group": "Final Frames",
-        "cols": 2,
-        "items": [
-          {
-            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626646643-Motivated by Light _01.jpg"
-          },
-          {
-            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626648916-Motivated by Light _02.jpg"
-          },
-          {
-            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626650705-Motivated by Light _03.jpg"
-          },
-          {
-            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626653118-Motivated by Light _04.jpg"
-          },
-          {
-            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626655494-Motivated by Light _05.jpg"
-          },
-          {
-            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626657531-Motivated by Light _06.jpg"
-          },
-          {
-            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626659984-Motivated by Light _07.jpg"
-          },
-          {
-            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626661977-Motivated by Light _08.jpg"
-          },
-          {
-            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626664076-Motivated by Light _09.jpg"
-          }
-        ]
-      }
-    ],
-    "page": "work-template.html?project=project-1795626392072",
-    "vimeoId": ""
   }
 ];
