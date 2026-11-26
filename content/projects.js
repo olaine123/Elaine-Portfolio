@@ -4,13 +4,13 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Motion Graphics",
     "title": "NEW YORK PULSE",
-    "type": "Motion Graphics · 2026",
+    "type": "Motion Graphics · Jan 2026",
     "vimeoId": "1170310909",
     "desc": "This project expresses the pure excitement of finally experiencing New York City, a city I had always dreamed of visiting. Through the language of geometry, I aim to simplify and celebrate the city's complexity. Different shapes symbolize the global diversity of people. The animation captures the energy and limitless possibilities of New York, translating my personal excitement into a vibrant, rhythmic motion piece.",
     "specs": [
       {
         "k": "Year",
-        "v": "2026"
+        "v": "Jan 2026"
       },
       {
         "k": "Type",
@@ -108,13 +108,13 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Motion Graphics",
     "title": "THE MILKY WAY HOME",
-    "type": "Motion Graphics · 2026",
+    "type": "Motion Graphics · Feb 2026",
     "vimeoId": "1170313437",
     "desc": "An alien takes a magical journey to Earth, discovering wonder in the everyday things we take for granted.\n\nThis project is about a trip to Earth through the eyes of an alien. He visits the pyramids of Egypt, is amazed by the different shapes of popcorn, watches a movie in a theater, and even meets cats for the first time and forms a connection with them. Through his eyes, ordinary things on Earth become new and surprising.\n\nBut what fascinates him most is milk, something that does not exist on his home planet. When it is time to leave, he chooses a cow instead of gold, taking home a lifetime supply of fresh milk as the ultimate souvenir.",
     "specs": [
       {
         "k": "Year",
-        "v": "2026"
+        "v": "Feb 2026"
       },
       {
         "k": "Type",
@@ -254,13 +254,21 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Motion Graphics",
     "title": "THE GOOD, THE BAD, and THE UGLY - OFFICIAL TITLE SEQUENCE",
-    "type": "Ending Title Sequence · 2025",
+    "type": "Ending Title Sequence · Oct 2025",
     "vimeoId": "1170318485",
     "desc": "For this original drama's end credits, I dove deep into the script and worked closely with the director and writer. We wanted to create a visual journey that really captured the protagonist's search for happiness.\n\nUsing kaleidoscope effects and Dolly-in visuals to pull the audience into the story. I also wove in key locations like the breakfast shop, beauty salon, and toy store. To add more narrative tension, I hid \"Easter eggs\" throughout the sequence, such as a Chinese chess piece that symbolizes manipulation.",
     "specs": [
       {
+        "k": "Project",
+        "v": "Official Title Sequence"
+      },
+      {
+        "k": "Role",
+        "v": "Motion Design"
+      },
+      {
         "k": "Year",
-        "v": "2025"
+        "v": "Oct 2025"
       },
       {
         "k": "Type",
@@ -437,13 +445,13 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Motion Graphic",
     "title": "The Geometry of Logic - Adelphi",
-    "type": "Motion Graphic · 2026",
+    "type": "Motion Graphic · Apr 2026",
     "vimeoId": "1183195558",
     "desc": "<strong>Bridging Rationality and Form</strong>\n\n<a href=\"https://rosettatype.com/AdelphiPE\" target=\"_blank\" rel=\"noopener noreferrer\">Adelphi</a> is a geometric sans-serif typeface with a modern British style. This motion piece explores the balance between its clean geometric shapes and practical design.\nInspired by Bauhaus, the animation brings the letters to life through movement, showing how simple shapes can create interesting and dynamic compositions.",
     "specs": [
       {
         "k": "Year",
-        "v": "2026"
+        "v": "Apr 2026"
       },
       {
         "k": "Type",
@@ -537,13 +545,13 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Motion Graphics",
     "title": "OREO: BRIGHT IDEAS",
-    "type": "Motion Graphics · 2026",
+    "type": "Motion Graphics · Apr 2026",
     "vimeoId": "1190259118",
     "desc": "This project reimagines the iconic 1983 Oreo \"Bright Ideas\" commercial by turning its vintage jingle into the visual star. Through expressive kinetic typography, the animation deconstructs the 80s soundtrack, allowing letters to embody the playful and nostalgic energy of \"Milk's Favorite Cookie.\"",
     "specs": [
       {
         "k": "Year",
-        "v": "2026"
+        "v": "Apr 2026"
       },
       {
         "k": "Type",
@@ -703,16 +711,20 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Live-Action Title Sequence",
     "title": "Everything Everywhere All at Once — Title Sequence",
-    "type": "Title Sequence · 2026",
+    "type": "Title Sequence · Nov 2026",
     "desc": "THE WEIGHT OF EVERYTHING<div>Explores the overwhelming weight of infinite possibilities and the choices that shape our lives.</div><div>Using googly eyes and the Everything Bagel as contrasting visual symbols, the sequence transforms ordinary objects into a surreal and increasingly chaotic experience.&nbsp;</div><div>Through reflections, water movement, repetition, and circular match cuts, a single googly eye multiplies into countless possibilities before everything converges into the darkness of the Everything Bagel.</div><div>The sequence captures the film's playful absurdity and existential chaos, while suggesting that even when we cannot control every possibility, we can choose how we see the world.</div>",
     "specs": [
       {
+        "k": "Project",
+        "v": "Academic Project"
+      },
+      {
         "k": "Year",
-        "v": "NOV 2026"
+        "v": "Nov 2026"
       },
       {
         "k": "Type",
-        "v": "Motion Graphics"
+        "v": "Unofficial Title Sequence"
       },
       {
         "k": "Location",
@@ -836,16 +848,20 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Live Action",
     "title": "Aesop Tacit — Spec Fragrance Film",
-    "type": "Motion Graphics · 2026",
+    "type": "Motion Graphics · Nov 2026",
     "desc": "",
     "specs": [
       {
+        "k": "Project",
+        "v": "Unofficial Commercial"
+      },
+      {
         "k": "Year",
-        "v": "2026"
+        "v": "Nov 2026"
       },
       {
         "k": "Type",
-        "v": "Motion Graphics"
+        "v": "Fragrance Film"
       },
       {
         "k": "Location",
@@ -910,13 +926,13 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Projection",
     "title": "NIKE SNEAKER PROJECTION",
-    "type": "Projection · 2026",
+    "type": "Projection · Apr 2026",
     "vimeoId": "1186439648",
     "desc": "This projection piece uses a retro CRT aesthetic to explore how Nike's visual identity can transform a physical space. Through motion, light, and texture, the animation channels the energy of sneaker culture.",
     "specs": [
       {
         "k": "Year",
-        "v": "2026"
+        "v": "Apr 2026"
       },
       {
         "k": "Type",
@@ -977,7 +993,7 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Styleframe Design",
     "title": "7 KINDS OF REST",
-    "type": "Styleframe Design · 2026",
+    "type": "Styleframe Design · Feb 2026",
     "heroImages": [
       "Project file/7 kinds of rest/Styleframe/01.jpg",
       "Project file/7 kinds of rest/Styleframe/02.jpg",
@@ -991,7 +1007,7 @@ window.PORTFOLIO_PROJECTS = [
     "specs": [
       {
         "k": "Year",
-        "v": "2026"
+        "v": "Feb 2026"
       },
       {
         "k": "Type",
@@ -1101,13 +1117,13 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Projection",
     "title": "CARNIVAL BITES",
-    "type": "Projection · 2026",
+    "type": "Projection · May 2026",
     "vimeoId": "1197953604",
     "desc": "This projection piece was created for the walls of Carnival at SCAD's Montgomery Hall. Organic brushstrokes and layered motion capture the pleasure of sharing a classic burger, transforming the space into a lively and flavorful dining experience.",
     "specs": [
       {
         "k": "Year",
-        "v": "2026"
+        "v": "May 2026"
       },
       {
         "k": "Type",
@@ -1229,7 +1245,7 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Styleframe Design",
     "title": "WORLD ATHLETICS",
-    "type": "Styleframe Design · 2026",
+    "type": "Styleframe Design · Mar 2026",
     "heroImages": [
       "Project file/World Athletics/Styleframe/Styleframe 1.jpg",
       "Project file/World Athletics/Styleframe/Styleframe 2.jpg",
@@ -1246,7 +1262,7 @@ window.PORTFOLIO_PROJECTS = [
     "specs": [
       {
         "k": "Year",
-        "v": "2026"
+        "v": "Mar 2026"
       },
       {
         "k": "Type",
@@ -1332,13 +1348,13 @@ window.PORTFOLIO_PROJECTS = [
     "category": "live-action",
     "label": "Live Action Motion",
     "title": "Christmas­land in New Taipei City",
-    "type": "Television Commercial · 2025",
+    "type": "Television Commercial · Dec 2025",
     "vimeoId": "1187493872",
     "desc": "The Magic of Christmas\n\nThere's something special about the way light brings the holidays to life. For this project, I used glowing lines to unveil the festive energy of the city's Christmas event, leading the audience through a wonderland of festive decorations.\n\nTo keep the vibe warm and joyful, I used the animation with charming, childlike illustrations. It's a mix of that pure, innocent Christmas spirit we all love.",
     "specs": [
       {
         "k": "Year",
-        "v": "2025"
+        "v": "Dec 2025"
       },
       {
         "k": "Type",
@@ -1367,13 +1383,13 @@ window.PORTFOLIO_PROJECTS = [
     "category": "live-action",
     "label": "Live Action Motion",
     "title": "Taoyuan Pearl Coast Music Festival",
-    "type": "Television Commercial · 2025",
+    "type": "Television Commercial · Jul 2025",
     "vimeoId": "1187495431",
     "desc": "",
     "specs": [
       {
         "k": "Year",
-        "v": "2025"
+        "v": "Jul 2025"
       },
       {
         "k": "Type",
@@ -1599,14 +1615,22 @@ window.PORTFOLIO_PROJECTS = [
     "category": "works",
     "label": "Motion Branding",
     "title": "SportingJAX Sports Motion Branding",
-    "type": "Motion Branding · October 2026",
+    "type": "Motion Branding · Oct 2026",
     "vimeoId": "1233598020",
     "vimeoHash": "16d83eaf6c",
     "desc": "The Horizon Line\n\nThe horizontal line defines our visual core, but ocean waves give it life. Across the layout, wave-inspired curves and rolling contours cut through the horizon.\n\nThis line is all about constant flow, rising energy, and forward momentum. Warm sunrise colors and deep ocean blues cut across the layout, reflecting the St. Johns River flowing directly into the Atlantic Ocean.\n\nIt is never static. Instead, it serves as an active visual base that drives the team forward. Bold, clean, and strong, the horizon line embodies the relentless power, passion, and spirit of Jacksonville.",
     "specs": [
       {
+        "k": "Project",
+        "v": "Academic Project"
+      },
+      {
+        "k": "Collaboration",
+        "v": "Team Project"
+      },
+      {
         "k": "Year",
-        "v": "October 2026"
+        "v": "Oct 2026"
       },
       {
         "k": "Type",
