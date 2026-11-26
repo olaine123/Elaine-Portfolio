@@ -840,10 +840,6 @@ window.PORTFOLIO_PROJECTS = [
     "desc": "",
     "specs": [
       {
-        "k": "Month",
-        "v": "November"
-      },
-      {
         "k": "Year",
         "v": "2026"
       },
