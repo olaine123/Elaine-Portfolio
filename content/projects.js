@@ -856,7 +856,7 @@ window.PORTFOLIO_PROJECTS = [
     "processGroups": [
       {
         "group": "Behind The Scene",
-        "cols": 3,
+        "cols": 2,
         "items": [
           {
             "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626465069-IMG_3721.jpeg"
@@ -865,7 +865,7 @@ window.PORTFOLIO_PROJECTS = [
             "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626466831-IMG_3722.jpeg"
           }
         ],
-        "mobileCols": 3
+        "mobileCols": 2
       },
       {
         "group": "Final Frames",
