@@ -867,9 +867,6 @@ window.PORTFOLIO_PROJECTS = [
           },
           {
             "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626466831-IMG_3722.jpeg"
-          },
-          {
-            "src": "Project file/Aesop Tacit  Spec Fragrance Film/1795626468570-IMG_3723.jpeg"
           }
         ],
         "mobileCols": 3
